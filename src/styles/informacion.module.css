@@ -1,0 +1,79 @@
+.informacionFruta {
+    font-size: 20px;
+    margin-left: 25px;
+    margin-top: 10px;
+  }
+  
+  .informacionFruta h1 {
+    color: #17B404;
+  }
+  
+  .informacionFruta h2 {
+    margin-left: 10px;
+  }
+  
+  .imagenConGradiente {
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .imagenConGradiente img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    width: 80rem;
+    height: 15rem;
+  }
+  
+  .gradienteSuperpuesto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    border-radius: 10px;
+  }
+  .informacionFruta h3{
+    padding: 20px;
+    
+  }
+
+  .informacionFruta h1, .informacionFruta p, .informacionFruta h2, .informacionFruta ul {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .tipoCultivo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .imgCultivo {
+    width: 30px; 
+    height: auto; 
+    margin-right: 10px; 
+  }
+  
+  .imgInformacion {
+    width: 30px; 
+    height: auto; 
+    margin-right: 10px; 
+  }
+  
+  .parrafoInformacion {
+    display: flex;
+    align-items: center;
+  }
+  
+  .separator {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    margin: 20px 05px;
+  }
+  

@@ -1,0 +1,20 @@
+.topCategorias {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    color: #000;
+    font-size: 50px;
+}
+
+.containerCategoria {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.containerCategoria h2 {
+    color: white;
+    font-size: 30px;
+}
+

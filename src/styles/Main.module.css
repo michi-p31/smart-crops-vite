@@ -1,0 +1,198 @@
+
+.container_cover {
+    width: 100%;
+    height: 500px;
+}
+
+.menu #boton_menu {
+    display: none;
+}
+
+.cover {
+    max-width: 1200px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text {
+    max-width: 400px;
+}
+
+.text h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #C1FF72;
+}
+
+.text p {
+    font-size: 18px;
+    margin-top: 40px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: black;
+}
+
+.text input {
+    padding: 18px 60px;
+    border: none;
+    font-size: 16px;
+    border-radius: 50px;
+    margin-top: 40px;
+    background: linear-gradient(to right, #C1FF72, #17B404);
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 1px 1px 30px -12px #C1FF72;
+    transition: all 300ms;
+    text-align: center;
+    width: 50%;
+}
+
+.text input:hover {
+    box-shadow: 1px 1px 30px -6px #C1FF72;
+}
+
+.svg img {
+    width: 700px;
+    animation: move-vector 3s linear infinite;
+    margin-top: 60px;
+}
+
+@keyframes move-vector {
+    0% {
+        transform: translateY(15px);
+    }
+
+    50% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(15px);
+    }
+}
+
+.parrafo_proyecto {
+    display: flex;
+    align-items: center;
+    top: 1px;
+    position: relative;
+}
+
+.container_informacion {
+    padding: 2rem 3rem;
+    background-color: rgba(28, 209, 6, 0.8);
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    width: 1000px;
+    height: 450px;
+    margin-left: 15%;
+    position: relative;
+    z-index: 1;
+}
+
+.container_informacion h1 {
+    font-size: 1.6rem;
+    color: #C1FF72;
+}
+
+.container_informacion p {
+    font-size: 0.90rem;
+    color: #fff;
+}
+
+.imagen_lateral {
+    position: absolute; 
+    top: 135%; 
+    margin-left: 40%;
+    transform: translateY(-50%); 
+    z-index: 2; 
+}
+
+.imagen_lateral img {
+    max-width: 200px; 
+}
+
+.info_universidad {
+    display: flex;
+    align-items: center;
+}
+
+.container_universidad {
+    padding: 2rem 3rem;
+    background-color: #1CD106;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    width: 800px;
+    height: 300px;
+    margin-left: 5%;
+    margin-top: 25%;
+}
+
+.container_universidad h1 {
+    font-size: 1.6rem;
+    color: #C1FF72;
+}
+
+.container_universidad p {
+    font-size: 0.90rem;
+    color: #fff;
+}
+
+.imagen_uniagustiniana {
+    width: 20px;
+    margin-left: 5%;
+    margin-top: 25%;
+}
+
+.top_categorias {
+    margin-top: 40px;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.top_categorias h1 {
+    color: #17B404;
+    font-size: 40px;
+}
+
+.container_categoria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container_categoria h1 {
+    color: #C1FF72;
+    font-size: 30px;
+}
+
+.card_categori {
+    width: 150px;
+    margin: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card_categori span,
+.card_categori a {
+    font-size: 1.6rem; 
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.card_categori a:hover {
+    color: #17B404;
+}
+
+.card_categori img {
+    max-width: 100px;
+}
