@@ -1,0 +1,68 @@
+.LoginContainer{
+    background-size: 100%;
+    height: 100vh;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+
+Body{
+    padding: 0%;
+    margin: 0%;
+}
+
+.LoginContainer h1 {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+.LoginContainer p {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    margin-top: 0px;
+    margin-bottom:10px ;
+    padding: 0;
+}
+
+.form{
+background-color: #C1FF72;
+width: 80%; height: 80%;
+max-width: 500px; max-height: 350px ;
+margin-right: auto; margin-left: auto; margin-top: 12vh;
+border-radius: 5px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 0px;
+}
+
+
+
+.user, .password{
+    font-family: "Poppins", sans-serif;
+    width: 90%;
+    height: 50px;
+    margin-top: 5px; margin-bottom: 5px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+.buttonSend{
+    font-family: "Poppins", sans-serif;
+    width: 60%;
+    height: 45px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #17B404;
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+}
+
+

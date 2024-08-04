@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { IoMdMenu } from "react-icons/io";
 import { VscAccount } from "react-icons/vsc";
 import stylesMenu from '../styles/Menu.module.css';
@@ -31,17 +32,17 @@ const Menu = () => {
           <div className={stylesMenu.menu}>
             <nav id="nav">
               <ul>
-                <li><img src={cultivo}></img><a href="/categorias">Cultivos</a></li>
-                <li><img src={aula}></img><a href="#">Aula virtual</a></li>
-                <li><img src={abonos}></img><a href="#">Abonos Orgánicos</a></li>
-                <li><img src={medicinal}></img><a href="#">Usos Medicinales</a></li>
+                <li><img src={cultivo}></img><Link to="/categorias">Cultivos</Link></li>
+                <li><img src={aula}></img><Link to="#">Aula virtual</Link></li>
+                <li><img src={abonos}></img><Link to="#">Abonos Orgánicos</Link></li>
+                <li><img src={medicinal}></img><Link to="#">Usos Medicinales</Link></li>
               </ul>
             </nav>
           </div>
         )}
         <div className={stylesMenu.login}>
           <VscAccount size={20} color="black"/> 
-          <a href="#">Login</a>
+          <Link to="Login">Login</Link>
         </div>
       </div>
     </header>
