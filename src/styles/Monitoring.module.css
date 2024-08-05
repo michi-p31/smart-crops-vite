@@ -1,0 +1,48 @@
+body {
+    padding: 0%;
+    margin: 0%;
+}
+
+.MonitoringContainer {
+    height: 100vh;
+    margin: 0%;
+    padding: 0%;
+}
+
+.MonitoringContainer h3 {
+    background-color: #fff;
+    width: 80%;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Poppins", sans-serif;
+    padding: 2px;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.MonitoringContainer h1,p {
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+.MonitoringContainer h1{
+    margin-bottom: 5px;
+}
+
+.ContainerPlant {
+    max-width: 800px;
+    background-color: #C1FF72;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+.MonitoringContainer img {
+    margin: auto;
+    margin: 10px;
+    border-radius: 10px;
+    height: 200px;
+}
