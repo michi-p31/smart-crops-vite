@@ -1,4 +1,3 @@
-import React from 'react'
 import MonitoringStyles from '../styles/Monitoring.module.css'
 import MonitoringImage from '../assets/images/Monitoring_Icon.jpeg'
 export const Monitoring = () => {
