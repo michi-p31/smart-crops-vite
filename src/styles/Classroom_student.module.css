@@ -5,10 +5,13 @@
 }
 
 .title {
-    color: black;
-    background-color: #C1FF72;
+    color: #ffc810;
+    background-color: #003f72;
     font-size: 40px;
     padding: 10px;
+    width: 800px;
+    border-radius: 10px;
+    margin: 0 auto; 
 }
 
 .containerCategoria {
@@ -18,7 +21,7 @@
 }
 
 .containerCategoria h1 {
-    color: black;
+    color: #003f72;
     font-size: 25px;
 }
 

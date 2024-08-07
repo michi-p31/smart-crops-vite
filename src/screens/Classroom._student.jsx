@@ -12,7 +12,7 @@ const Student = () => {
         <h1 className={styles.title}>Aula Virtual</h1>
         <div className={styles.containerCategoria}>
           <div className={styles.cardCategorie}>
-            <Link to="">
+            <Link to="/ClassRoom/Monitoring">
               <img src={plant} alt="Estado De La Huerta" />
               <h1>Estado De La Huerta</h1>
             </Link>
