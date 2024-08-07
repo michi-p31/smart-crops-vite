@@ -1,12 +1,14 @@
-import styles from "../styles/Categoria.module.css"; 
+import styles from "../styles/Categoria.module.css";
 import { Link } from "react-router-dom";
+import NavBar from '../components/menu'
 
 const Categorias = () => {
   return (
     <div>
+      <NavBar />
       <section className={styles.topCategorias}>
         <div className={styles.titulo}>
-        <h1>CATEGORIAS</h1>
+          <h1>CATEGORIAS</h1>
         </div>
         <div className={styles.containerCategoria}>
           <div className={`${styles.cardCategoria} ${styles.frutales}`}>

@@ -8,6 +8,7 @@ import medicinal from "../assets/images/medicinal.png";
 import cultivo from "../assets/images/cultivo.png";
 import aula from "../assets/images/aula.png";
 import abonos from "../assets/images/abono.png"
+import about_us from '../assets/images/about_us-icon.jpg'
 const Menu = () => {
   //  visibilidad del menú
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,6 +37,7 @@ const Menu = () => {
                 <li><img src={aula}></img><Link to="#">Aula virtual</Link></li>
                 <li><img src={abonos}></img><Link to="#">Abonos Orgánicos</Link></li>
                 <li><img src={medicinal}></img><Link to="#">Usos Medicinales</Link></li>
+                <li><img src={about_us} alt="About us" /><Link to='/About_Us'>Acerca de nosotros</Link></li>
               </ul>
             </nav>
           </div>
