@@ -39,9 +39,20 @@ body{
     margin-right: 10px;
 }
 
+.Image_container img{
+    max-height: 150px;
+}
+
 .Text_container{
     min-width: 60%;
     justify-content: center;
     display: flex;
     align-items: center;
+}
+
+.ODS_Tittle{
+    text-align: center;
+    color: #FF6F61;
+    font-size: 100px;
+    text-shadow: 5px 5px 4px rgb(0, 0, 0);
 }
