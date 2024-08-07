@@ -5,7 +5,7 @@
     position: relative; }
 
 .topCategorias h1 {
-    color: #000;
+    color: #78be20;
     font-size: 60px;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .containerCategoria h2 {
-    color: white;
+    color: #ffc810;
     font-size: 30px;
 }
 
@@ -43,7 +43,7 @@
 
 .cardCategoria span:hover,
 .cardCategoria a:hover {
-    color: black;
+    color: #78be20;
 }
 
 .frutales,

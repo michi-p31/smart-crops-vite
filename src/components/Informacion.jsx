@@ -31,7 +31,6 @@ const Informacion = () => {
       <h1>{fruta.nombre}</h1>
       <div className={styles.imagenConGradiente}>
         <img src={fruta.imagen} alt={fruta.nombre} />
-        <div className={styles.gradienteSuperpuesto}></div>
       </div>
       <p>{fruta.descripcion}</p>
       

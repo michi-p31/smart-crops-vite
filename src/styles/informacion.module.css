@@ -5,11 +5,17 @@
   }
   
   .informacionFruta h1 {
-    color: black;
+    color: #78be20;
   }
-  
-  .informacionFruta h2 {
+  .informacionFruta p{
+    color: #003f72;
+  }
+  .informacionFruta h3 {
     margin-left: 10px;
+    color: #78be20;
+  }
+  .informacionFruta h4{
+    color: #78be20;
   }
   
   .imagenConGradiente {
@@ -21,28 +27,20 @@
   
   .imagenConGradiente img {
     background-size: cover;
-    background-position: center;
+    margin-left: 500px;
     background-repeat: no-repeat;
     border-radius: 10px;
-    width: 81rem;
-    height: 15rem;
+    width: 20rem;
+    height: 20rem;
   }
   
-  .gradienteSuperpuesto {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    border-radius: 10px;
-  }
+ 
   .informacionFruta h3{
     padding: 20px;
     
   }
 
-  .informacionFruta h1, .informacionFruta p, .informacionFruta h2, .informacionFruta ul {
+  .informacionFruta h1, .informacionFruta p, .informacionFruta h3, .informacionFruta ul {
     position: relative;
     z-index: 2;
   }
@@ -72,8 +70,7 @@
   .separator {
     border: 0;
     height: 1px;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    background: #ffc810;
     margin: 20px 05px;
   }
   
