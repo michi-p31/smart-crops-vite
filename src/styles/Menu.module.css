@@ -37,7 +37,7 @@ header {
 }
 
 .iconSize {
-    color: black;
+    color: #78be20;
     cursor: pointer;
 }
 
@@ -76,7 +76,7 @@ header {
 .menu ul li a {
     text-decoration: none;
     font-size: 16px;
-    color: black;
+    color: #003f72;
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -87,7 +87,9 @@ header {
     height: 40px;
     margin-right: 10px; 
 }
-
+.iconLogin{
+    color: #ffc810;
+}
 .login {
     display: flex;
     align-items: center;
@@ -96,7 +98,7 @@ header {
 
 .login a {
     text-decoration: none;
-    color: black;
+    color: #ffc810;
     font-size: 16px;
     text-transform: uppercase;
     margin-left: 8px; 

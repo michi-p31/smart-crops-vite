@@ -1,4 +1,3 @@
-import React from 'react'
 import LoginStyles from '../styles/Login.module.css'
 import NavBar from '../components/menu'
 export const Login = () => {
