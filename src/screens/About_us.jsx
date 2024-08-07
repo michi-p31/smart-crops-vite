@@ -1,4 +1,3 @@
-import React from 'react'
 import AboutUs_Styles from '../styles/About_us.module.css'
 import NavBar from '../components/menu'
 import Planter_Image from '../assets/images/planter_img.png'

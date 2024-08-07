@@ -1,0 +1,48 @@
+.topCategorias {
+    margin-top: 40px;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    color: black;
+    background-color: #C1FF72;
+    font-size: 40px;
+    padding: 10px;
+}
+
+.containerCategoria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.containerCategoria h1 {
+    color: black;
+    font-size: 25px;
+}
+
+.cardCategorie {
+    width: 150px;
+    margin: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cardCategorie span,
+.cardCategorie a {
+    font-size: 1.6rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cardCategorie a:hover {
+    color: black;
+}
+
+.cardCategorie img {
+    max-width: 100px;
+}
