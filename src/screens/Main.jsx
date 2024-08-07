@@ -1,9 +1,11 @@
 import styles from '../styles/Main.module.css';
 import logoHome from '../assets/images/imagen_home.svg';
+import NavBar from '../components/menu'
 
 const Main = () => {
   return (
     <div>
+      <NavBar/>
        <div className={styles.container_cover}>
         <div className={styles.cover}>
           <div className={styles.text}>

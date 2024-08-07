@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.Welcome_Image{
+    max-width: 80%;
+    min-width: 80%;
+    height: 400px;
+    background-image: url(../assets/images/WallPaper_Plants.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.Welcome_Image h1{
+    color: #FFC810;
+    font-size: 100px;
+    text-shadow: 20px 20px 4px rgb(0, 0, 0);
+}
+
+.Information_container{
+    display: flex;
+    max-width: 80%;
+    min-width: 80%;
+    margin: auto;
+    padding: 10px;
+}
+
+.Image_container{
+    max-width: 30%;
+    margin-right: 10px;
+}
+
+.Text_container{
+    min-width: 60%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}

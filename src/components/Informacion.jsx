@@ -18,6 +18,8 @@ import ph from "../assets/images/ph.png";
 import luna from "../assets/images/luna.png";
 import styles from "../styles/informacion.module.css";
 
+import NavBar from '../components/menu'
+
 const Informacion = () => {
   const { nombreFruta } = useParams();
   const fruta = frutas.find(f => f.nombre === nombreFruta);
@@ -28,6 +30,7 @@ const Informacion = () => {
 
   return (
     <div className={styles.informacionFruta}>
+      <NavBar/>
       <h1>{fruta.nombre}</h1>
       <div className={styles.imagenConGradiente}>
         <img src={fruta.imagen} alt={fruta.nombre} />
