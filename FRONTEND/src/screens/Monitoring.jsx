@@ -1,9 +1,11 @@
 import MonitoringStyles from '../styles/Monitoring.module.css'
 import MonitoringImage from '../assets/images/Monitoring_Icon.jpeg'
+import NavBar from '../components/menu'
 export const Monitoring = () => {
   return (
     <>
     <div className={MonitoringStyles.MonitoringContainer}>
+    <NavBar/>
       <div className={MonitoringStyles.ContainerPlant}>
           <h1>🌱¡TU PLANTA! 🌱</h1>
           <p>Vamos a chequearla!</p>
