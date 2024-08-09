@@ -4,3 +4,43 @@
     color: #003F72;
 }
 
+.Week{
+    width: 70%;
+    background-color: #003F72;
+    margin: auto;
+    margin: 1.5% auto 1.5%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.Week a{
+    text-decoration: none;
+    color: #FFC810;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+}
+
+.Emoji{
+    text-align: right;
+    width: 50%;
+    margin-right: 10px;
+}
+
+.Week_Number{
+    width: 50%;
+    margin-left: 10px;
+}
+
+.Student{
+    width: 70%;
+    margin: auto;
+    background-color: #003F72;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.Student a{
+    color: black;
+    text-decoration: none;
+}
