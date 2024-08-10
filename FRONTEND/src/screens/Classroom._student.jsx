@@ -18,13 +18,13 @@ const Student = () => {
             </Link>
           </div>
           <div className={styles.cardCategorie}>
-            <Link to="/Classroom_student/Report">
+            <Link to="/ClassRoom_Student/Report">
               <img src={form} alt="Formulario monitoreo" />
               <h1>Formulario monitoreo</h1>
             </Link>
           </div>
           <div className={styles.cardCategorie}>
-            <Link to="">
+            <Link to="/ClassRoom_Student/Deliveries">
               <img src={comment} alt="Subir Entregas" />
               <h1>Subir Entregas</h1>
             </Link>

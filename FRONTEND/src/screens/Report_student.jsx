@@ -1,6 +1,6 @@
 import styles from "../styles/Report_student.module.css";
 import { RiDownload2Fill } from "react-icons/ri";
-
+import { FaPlus } from "react-icons/fa";
 
 const FormularioPlanta = () => {
   return (
@@ -71,8 +71,7 @@ const FormularioPlanta = () => {
         </label>
         <label className={styles.text_subir}>
             Subir foto de la planta
-            <button className={styles.subir} type="submit" disabled>
-          +
+            <button className={styles.subir} type="submit" disabled><FaPlus />
         </button>
         </label>
         <label className={styles.download}>

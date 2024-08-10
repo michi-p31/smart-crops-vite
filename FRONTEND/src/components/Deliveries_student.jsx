@@ -12,7 +12,7 @@ const StudentDeliveries = () => {
         <div key={index} className={styles.cardWeek}>
           <span className={styles.weekText}>{week}</span>
           <button className={styles.buttonUpload}>
-            Ingresar <span className={styles.plus}><FaPlus /></span>
+            Ingresar <Link to=""></Link><span className={styles.plus}><FaPlus /></span>
           </button>
         </div>
       ))}
