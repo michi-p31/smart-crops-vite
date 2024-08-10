@@ -1,0 +1,48 @@
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.titleDeliveries {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #003f72;
+}
+
+.cardWeek {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003f72; 
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 10px; 
+}
+
+.weekText {
+  font-size: 1.5rem;
+  color: #ffc810; 
+}
+
+.buttonUpload {
+  background-color: #ffc810; 
+  border: none;
+  color: #003366; 
+  font-size: 18px;
+  padding: 8px 25px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.buttonUpload:hover {
+  background-color: #ffc810; 
+}
+
+.plus {
+  font-size: 1.2rem;
+  margin-left: 5px;
+  margin-top: 5px;
+}

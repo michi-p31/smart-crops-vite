@@ -6,6 +6,7 @@ import Informacion_plant from "./components/Informacion.jsx";
 import Student from "./screens/Classroom._student.jsx";
 import Teacher from "./screens/Classroom_teacher.jsx";
 import Report from "./screens/Report_student.jsx";
+import StudentDeliveries from "./components/Deliveries_student";
 import {Login} from './screens/Login.jsx'
 import {Monitoring} from './screens/Monitoring.jsx'
 import {About_us} from './screens/About_us.jsx'
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/ClassRoom_Student' element={<Student/>}/>
         <Route path='/ClassRoom/Matera' element={<Monitoring/>}/>
         <Route path='/ClassRoom_Student/Report' element={<Report/>}/>
+        <Route path='/ClassRoom_Student/Deliveries' element={<StudentDeliveries/>}/>
         <Route path='/ClassRoom_Teacher' element={<Teacher/>}/>
         <Route path='/ClassRoom/Monitoring' element={<Monitoring/>}/>
         <Route path='/About_us' element={<About_us/>}/>
