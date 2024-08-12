@@ -11,9 +11,11 @@ const StudentDeliveries = () => {
       {weeks.map((week, index) => (
         <div key={index} className={styles.cardWeek}>
           <span className={styles.weekText}>{week}</span>
-          <button className={styles.buttonUpload}>
-            Ingresar <Link to=""></Link><span className={styles.plus}><FaPlus /></span>
-          </button>
+          <Link to="/ClassRoom_Student/Deliveries/Upload_deliveries" className={styles.link}>
+            <button className={styles.buttonUpload}>
+              Ingresar <span className={styles.plus}><FaPlus /></span>
+            </button>
+          </Link>
         </div>
       ))}
     </div>

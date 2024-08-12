@@ -1,0 +1,84 @@
+.container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .titulo_upload {
+    margin-top: 10px;
+    color: #003c72;
+    text-align: center;
+  }
+  
+  .titulo_upload h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .student {
+    color: #003c72;
+    text-align: left;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .student h2 {
+    display: inline;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+  }
+  
+  .addButton,
+  .submitButton {
+    background-color: #003c72;
+    color: #ffc810;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .addButton {
+    margin-right: 10px;
+  }
+  
+  .addButton:hover,
+  .submitButton:hover {
+    background-color: #005494;
+  }
+  
+  .icon {
+    margin-right: 8px; 
+  }
+  
+  .comments {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .comments label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #003c72;
+  }
+  
+  .textarea {
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    border: 1px solid #003c72;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+  }
+  
