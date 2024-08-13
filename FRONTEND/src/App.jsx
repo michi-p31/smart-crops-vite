@@ -13,6 +13,7 @@ import {Monitoring} from './screens/Monitoring.jsx'
 import {About_us} from './screens/About_us.jsx'
 import {Deliverables_Home} from './screens/Deliverables_Home.jsx'
 import {Deliverables} from './screens/Deliverables.jsx'
+import {Student_deliver} from './screens/Student_deliver.jsx'
 
 const App = () => {
   return (
@@ -32,10 +33,11 @@ const App = () => {
         <Route path='/ClassRoom/Monitoring' element={<Monitoring/>}/>
         <Route path='/About_us' element={<About_us/>}/>
         <Route path='/ClassRoom/Entregas' element={<Deliverables_Home/>}/>
-        <Route path='/Prueba' element={<Deliverables/>}/>
+        <Route path='/ClassRoom_Teacher/Deliveravels/Week' element={<Deliverables/>}/>
+        <Route path='/ClassRoom_Teacher/Deliveravels/Deliver_Student' element={<Student_deliver/>}/> 
       </Routes>
     </Router>
   );
 };
-
+                        //Arreglar las rutas
 export default App;

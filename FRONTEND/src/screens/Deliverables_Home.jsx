@@ -8,10 +8,10 @@ export const Deliverables_Home = () => {
         <>
             <NavBar />
             <h1 className={Deliveravles_Styles.Tittle}>Entregas</h1>
-            <Week Week='Semana 1' link='Delivers/Week_1' />
-            <Week Week='Semana 2' link='Delivers/Week_2' />
-            <Week Week='Semana 3' link='Delivers/Week_3' />
-            <Week Week='Semana 4' link='Delivers/Week_4' />
+            <Week Week='Semana 1' link='/ClassRoom_Teacher/Deliveravels/Week' />
+            <Week Week='Semana 2' link='/ClassRoom_Teacher/Deliveravels/Week' />
+            <Week Week='Semana 3' link='/ClassRoom_Teacher/Deliveravels/Week' />
+            <Week Week='Semana 4' link='/ClassRoom_Teacher/Deliveravels/Week' />
         </>
     )
 }

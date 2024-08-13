@@ -38,9 +38,71 @@
     background-color: #003F72;
     padding: 20px;
     border-radius: 10px;
+    margin-bottom:10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFC810;
+    
 }
 
-.Student a{
-    color: black;
-    text-decoration: none;
+.Tittle_Week{
+    text-align: center;
+    margin-bottom: 5px;
+    font-family: "Poppins", sans-serif;
+    color: #003F72;
+}
+
+.Button_Ver{
+    width: 100px;
+    background-color: #FFC810;
+    color: #003F72;
+    font-family: "Poppins", sans-serif;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.Button_Ver:hover{
+    background-color: #ffc710bd;
+}
+
+
+
+    /* Seccion pagina de la entrega personalizada del estudiante */
+ 
+.Student_information_deliver{
+    margin: auto;
+    margin-top:10px ;
+    display: flex;
+    flex-direction: column;
+}
+
+.Student_information_deliver p, h4{
+    color: #003F72;
+    font-size: 20px;
+    padding-right: 5px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom:10px ;
+}
+
+.Student_information_deliver button{
+    background-color: #003F72;
+    color: #FFC810;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.Student_Name{
+    display: flex;
+    align-items: center;
+}
+
+.Deliver{
+    width: 80%;
+    margin: auto;
+}
+
+.Deliver textarea{
+    width: 100%;
+    height: 300px;
 }
