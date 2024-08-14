@@ -1,5 +1,5 @@
 import MonitoringStyles from '../styles/Monitoring.module.css'
-import MonitoringImage from '../assets/images/Monitoring_Icon.jpeg'
+import MonitoringImage from '../assets/images/Icon_Monitoring.png'
 import NavBar from '../components/menu'
 export const Monitoring = () => {
   return (
@@ -7,14 +7,14 @@ export const Monitoring = () => {
     <div className={MonitoringStyles.MonitoringContainer}>
     <NavBar/>
       <div className={MonitoringStyles.ContainerPlant}>
-          <h1>🌱¡TU PLANTA! 🌱</h1>
-          <p>Vamos a chequearla!</p>
+          <h1>¡TU PLANTA!</h1>
+          <h5>Vamos a chequearla!</h5>
           <img src={MonitoringImage} alt="Image of plant" className="ImagePlant" />
-          <h3>🌡️Temperatura ambiente: 100°</h3>
-          <h3>🌳💧Humedad del suelo: 70°</h3>
-          <h3>💨💧Humedad ambiente: 30°</h3>
-          <h3>💧Nivel de deposito de agua: 30%</h3>
-      </div>
+          <p>🌡️Temperatura ambiente: 100°</p>
+          <p>🌳💧Humedad del suelo: 70°</p>
+          <p>💨💧Humedad ambiente: 30°</p>
+          <p>💧Nivel de deposito de agua: 30%</p>
+      </div> 
     </div>
     </>
   )

@@ -1,0 +1,17 @@
+.Student{
+    width: 80%;
+    margin: auto;
+    color: #fff;
+    background-color: #003F72;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.Tittle{
+    text-align: center;
+    color: #003F72;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 10px;
+}

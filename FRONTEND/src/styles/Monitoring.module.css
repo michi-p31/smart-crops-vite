@@ -7,24 +7,33 @@ body {
     height: 100vh;
     margin: 0%;
     padding: 0%;
+    background-color: #003F72;
 }
 
-.MonitoringContainer h3 {
-    background-color: #fff;
+.MonitoringContainer p {
+    background-color: #003F72;
+    color: #fff;
     width: 80%;
     margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
     font-family: "Poppins", sans-serif;
     padding: 2px;
-    border: 0px;
+    border: 1px solid #FFC810;
     border-radius: 10px;
 }
 
-.MonitoringContainer h1,p {
+.MonitoringContainer h5{
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+.MonitoringContainer h1{
     font-family: "Poppins", sans-serif;
     padding: 0;
     margin: 0;
+    color: #78BE20;
+    font-size: 40px;
 }
 .MonitoringContainer h1{
     margin-bottom: 5px;
@@ -32,7 +41,6 @@ body {
 
 .ContainerPlant {
     max-width: 800px;
-    background-color: #C1FF72;
     margin: auto;
     text-align: center;
     padding: 20px;

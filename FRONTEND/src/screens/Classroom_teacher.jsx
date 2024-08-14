@@ -26,7 +26,7 @@ const Teacher = () => {
             </Link>
           </div>
           <div className={styles.cardCategorie}>
-            <Link to="">
+            <Link to="/ClassRoom_Teacher/Students">
               <img src={comment} alt="Estudiantes icon" />
               <h1>Estudiates</h1>
             </Link>

@@ -1,6 +1,9 @@
 import React from 'react'
 import NavBar from '../components/menu'
 import Styles from '../styles/Deliverables.module.css'
+import insignia_1 from '../assets/images/insignia_1.png'
+import insignia_2 from '../assets/images/insignia_2.png'
+import insignia_3 from '../assets/images/insignia_3.png'
 
 const Student_Info = ({ Student_Name }) => {
     return (
@@ -24,6 +27,11 @@ export const Student_deliver = () => {
             <h4>Comentarios:</h4>
             <textarea type="text" />
             <h4>Insignias:</h4>
+            <div className={Styles.Insignias_section}>
+                <img src={insignia_1} alt="Insignia 1" />
+                <img src={insignia_2} alt="Insignia 2" />
+                <img src={insignia_3} alt="Insignia 3" />
+            </div>
         </div>
     )
 }
