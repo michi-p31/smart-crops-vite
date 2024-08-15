@@ -1,6 +1,7 @@
 import styles from "../styles/Report_student.module.css";
 import { RiDownload2Fill } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa";
+import Navbar from '../components/menu';
 
 const FormularioPlanta = () => {
   return (
@@ -19,7 +20,7 @@ const FormularioPlanta = () => {
           Fecha del Monitoreo:
           <input
           type="date"
-          name="nombreEstudiante"
+          name="fechaMonitoreo"
           className={styles.input}
           required
         />
@@ -28,7 +29,7 @@ const FormularioPlanta = () => {
           Tipo de Huerta:
           <input
           type="text"
-          name="tipoPlanta"
+          name="tipoHuerta"
           className={styles.input}
           required
         />
@@ -37,7 +38,7 @@ const FormularioPlanta = () => {
           Temperatura de la huerta:
           <input
           type="text"
-          name="tipoPlanta"
+          name="temperaturaHuerta"
           className={styles.input}
           required
         />
@@ -46,7 +47,7 @@ const FormularioPlanta = () => {
           Goteo:
           <input
           type="text"
-          name="tipoPlanta"
+          name="goteo"
           className={styles.input}
           required
         />
@@ -55,7 +56,7 @@ const FormularioPlanta = () => {
           Nivel de humedad en la huerta:
           <input
           type="text"
-          name="tipoPlanta"
+          name="nivelHumedad"
           className={styles.input}
           required
         />
@@ -64,7 +65,7 @@ const FormularioPlanta = () => {
           Notas de crecimiento:
           <input
           type="text"
-          name="notaEstado"
+          name="notasCrecimiento"
           className={styles.input}
           required
         />
@@ -86,6 +87,7 @@ const FormularioPlanta = () => {
 const Monitoreo = () => {
   return (
     <div>
+      <Navbar />
       <h2 className={styles.h2}>Reporte De Matera</h2>
       <FormularioPlanta />
     </div>

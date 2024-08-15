@@ -1,13 +1,14 @@
-
 import { Link } from 'react-router-dom';
 import plant from "../assets/images/planta.png";
 import form from "../assets/images/formulario.png";
 import comment from "../assets/images/comentario.png";
 import styles from "../styles/Classroom_student.module.css";
+import Navbar from '../components/menu';
 
 const Student = () => {
   return (
-    <div>
+    <div className={styles.pageContainer}>
+      <Navbar />
       <section className={styles.topCategorias}>
         <h1 className={styles.title}>Aula Virtual</h1>
         <div className={styles.containerCategoria}>
