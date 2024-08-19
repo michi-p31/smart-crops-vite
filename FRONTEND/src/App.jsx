@@ -9,7 +9,8 @@ import Report from "./screens/Report_student.jsx";
 import StudentDeliveries from "./components/Deliveries_student";
 import Upload_delivery from './screens/Upload_delivery.jsx';
 import Administrator from "./screens/Administrator.jsx";
-import Add_matera from "./screens/Add_matera.jsx";
+import Add_matera from './screens/Add_Matera.jsx';
+import Add_institucion from "./screens/Add_institution.jsx";
 import {Login} from './screens/Login.jsx'
 import {Monitoring} from './screens/Monitoring.jsx'
 import {About_us} from './screens/About_us.jsx'
@@ -41,6 +42,7 @@ const App = () => {
         <Route path='/ClassRoom_Teacher/Students' element={<ClassRoom_Teacher_Students/>}/>
         <Route path='/Administrator' element={<Administrator/>}/>
         <Route path='/Administrator/Add_matera' element={<Add_matera/>}/>
+        <Route path='/Administrator/Add_institucion' element={<Add_institucion/>}/>
       </Routes>
     </Router>
   );

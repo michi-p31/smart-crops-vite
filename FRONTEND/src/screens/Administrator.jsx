@@ -15,7 +15,7 @@ const Student = () => {
         <h1 className={styles.title}>Administrador</h1>
         <div className={styles.containerCategoria}>
           <div className={styles.cardCategorie}>
-            <Link to="">
+            <Link to="/Administrator/Add_institucion">
               <img src={institucion} alt="Agregar Institucion" />
               <h1>Agregar Institucion</h1>
             </Link>
