@@ -21,7 +21,7 @@ const Student = () => {
             </Link>
           </div>
           <div className={styles.cardCategorie}>
-            <Link to="">
+            <Link to="/Administrator/Add_teacher">
               <img src={docente} alt="Agregar Docente" />
               <h1>Agregar Docente</h1>
             </Link>
