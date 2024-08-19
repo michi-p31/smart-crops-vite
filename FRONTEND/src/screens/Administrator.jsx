@@ -39,8 +39,8 @@ const Student = () => {
             </Link>
           </div>
           <div className={styles.cardCategorie}>
-            <Link to="/ClassRoom_Student/Deliveries">
-              <img src={plant} alt="Agregar Clase" />
+            <Link to="/Administrator/Add_matera">
+              <img src={plant} alt="Agregar Matera" />
               <h1>Agregar Matera</h1>
             </Link>
           </div>
