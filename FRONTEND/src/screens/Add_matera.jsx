@@ -2,7 +2,7 @@
 import styles from '../styles/Add_matera.module.css';
 import Navbar from '../components/menu';
 
-const Add_matera = () => {
+export const Add_planter = () => {
   return (
     <>
       <Navbar /> 
@@ -11,7 +11,7 @@ const Add_matera = () => {
           <label>Codigo de la institucion :</label>
           <select className={styles.selectInput}></select>
         </div>
-        <div className={styles.formGroup}>
+        <div className={styles.formGroup}> 
           <label>Codigo de la clase :</label>
           <select className={styles.selectInput}></select>
         </div>
@@ -25,4 +25,3 @@ const Add_matera = () => {
   );
 };
 
-export default Add_matera;

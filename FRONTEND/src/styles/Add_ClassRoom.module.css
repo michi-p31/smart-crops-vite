@@ -1,0 +1,43 @@
+.Container{
+    text-align: center;
+    min-height: 100vh;
+}
+
+.Container h1{
+    background-color: rgb(199, 201, 199, 0.5);
+    padding: 20px;
+    margin-bottom: 50px;
+    font-size: 50px;
+    text-shadow: 5px 5px 5px #FF6F61;
+}
+
+.Add_ClassRoom{
+    background-color: #FF6F61;
+    padding: 20px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.Information{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.Information select{
+    width: 50%;
+}
+
+.Add_Button{
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.Add_Button:Hover{
+    background-color: #FF6F61;
+    transition: 0.5s;
+
+}

@@ -8,7 +8,7 @@ import styles from "../styles/Administrator.module.css";
 import Navbar from '../components/menu';
 
 const Student = () => {
-  return (
+  return ( 
     <div className={styles.pageContainer}>
       <Navbar />
       <section className={styles.topCategorias}>
@@ -27,7 +27,7 @@ const Student = () => {
             </Link>
           </div>
           <div className={styles.cardCategorie}>
-            <Link to="">
+            <Link to="/Administrador/Add_ClassRoom">
               <img src={aula} alt="Agregar Clase" />
               <h1>Agregar Clase</h1>
             </Link>
