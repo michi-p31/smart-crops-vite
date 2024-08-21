@@ -35,7 +35,7 @@ const Menu = () => {
               <ul>
                 <li><img src={cultivo}></img><Link to="/categorias">Cultivos</Link></li>
                 <li><img src={aula}></img><Link to="#">Aula virtual</Link></li>
-                <li><img src={abonos}></img><Link to="#">Abonos Orgánicos</Link></li>
+                <li><img src={abonos}></img><Link to="/Abonos">Abonos Orgánicos</Link></li>
                 <li><img src={medicinal}></img><Link to="#">Usos Medicinales</Link></li>
                 <li><img src={about_us} alt="About us" /><Link to='/About_Us'>Acerca de nosotros</Link></li>
               </ul>

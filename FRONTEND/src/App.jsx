@@ -11,8 +11,9 @@ import Upload_delivery from './screens/Upload_delivery.jsx';
 import Administrator from "./screens/Administrator.jsx";
 import Add_institucion from "./screens/Add_institution.jsx";
 import Add_teacher from "./screens/Add_teacher.jsx";
+import Abonos from "./screens/Fertilizers.jsx";
 import {Add_ClassRoom} from './screens/Add_ClassRoom.jsx'
-import {Add_planter} from './screens/Add_Matera.jsx';
+import {Add_planter} from './screens/Add_matera.jsx';
 import {Login} from './screens/Login.jsx'
 import {Monitoring} from './screens/Monitoring.jsx'
 import {About_us} from './screens/About_us.jsx'
@@ -27,6 +28,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/categorias" element={<Categorias />} />
+        <Route path='/Abonos' element={<Abonos/>}/>
         <Route path="/categorias/:categoria" element={<Cultivos />} />
         <Route path="/categorias/:categoria/:nombreFruta" element={<Informacion_plant />} />
         <Route path='/Login' element={<Login />}/>
