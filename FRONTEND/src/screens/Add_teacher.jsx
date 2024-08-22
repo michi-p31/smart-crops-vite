@@ -1,30 +1,29 @@
-
-import styles from '../styles/Add_teacher.module.css';
-import Navbar from '../components/menu';
+import Styles from '../styles/Add_teacher.module.css';
 
 const Add_institucion = () => {
   return (
     <>
-    <Navbar /> 
-    <h1 className={styles.titulo}>Agregar Docente</h1>
-     <div className={styles.formContainer}>
-     <div className={styles.formGroup}>
-          <label className={styles.contenido}>Codigo de la institucion :</label>
-          <select className={styles.selectInput}></select>
-        </div>
-      <div className={styles.formGroup}>
-        <label className={styles.contenido}>Codigo del Docente :</label>
-        <input type="text" className={styles.textInput} />
-      </div>
-      <div className={styles.formGroup}>
-        <label className={styles.contenido}>Correo :</label>
-        <input type="text" className={styles.textInput} />
-      </div>
-      <div className={styles.formGroup}>
-        <label className={styles.contenido}>Contraseña :</label>
-        <input type="text" className={styles.textInput} />
-      </div>
-      <button className={styles.addButton}>Agregar</button>
+    <div className={Styles.Container}>
+        <h1>¡AGREGAR MAESTRO!</h1>
+        <form className={Styles.Add_Teacher} action="">
+            <div className={Styles.Information}>
+                <p>Codigo de la institucion:</p>
+                <select name="" id=""></select>
+            </div>
+            <div className={Styles.Information}>
+                <p>Codigo del docente:</p>
+                <select name="" id=""></select>
+            </div>
+            <div className={Styles.Information}>
+                <p>Correo:</p>
+                <input type="text" />
+            </div>
+            <div className={Styles.Information}>
+                <p>Contraseña:</p>
+                <input type="text" />
+            </div>
+            <button className={Styles.Add_Button}>Agregar</button>
+        </form>
     </div>
     </>
   );

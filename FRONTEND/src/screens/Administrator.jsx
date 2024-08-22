@@ -33,7 +33,7 @@ const Student = () => {
             </Link>
           </div>
           <div className={styles.cardCategorie}>
-            <Link to="">
+            <Link to="/Administrador/Add_Student">
               <img src={estudiante} alt="Agregar Clase" />
               <h1>Agregar Estudiante</h1>
             </Link>

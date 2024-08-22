@@ -1,24 +1,27 @@
-
-import styles from '../styles/Add_institution.module.css';
-import Navbar from '../components/menu';
+import Styles from '../styles/Add_institution.module.css';
 
 const Add_institucion = () => {
   return (
-    <>
-    <Navbar /> 
-    <h1 className={styles.titulo}>Agregar Institucion</h1>
-     <div className={styles.formContainer}>
-      <div className={styles.formGroup}>
-        <label className={styles.contenido}>Codigo de la institucion:</label>
-        <input type="text" className={styles.textInput} />
-      </div>
-      <div className={styles.formGroup}>
-        <label className={styles.contenido}>Nombre de la Institucion :</label>
-        <input type="text" className={styles.textInput} />
-      </div>
-      <button className={styles.addButton}>Agregar</button>
-    </div>
-    </>
+       <>
+        <div className={Styles.Container}>
+            <h1>¡AGREGAR INSTITUCION!</h1>
+            <form className={Styles.Add_ClassRoom} action="">
+                <div className={Styles.Information}>
+                    <p>Codigo de la institucion</p>
+                    <select name="" id=""></select>
+                </div>
+                <div className={Styles.Information}>
+                    <p>Codigo del docente</p>
+                    <select name="" id=""></select>
+                </div>
+                <div className={Styles.Information}>
+                    <p>Codigo de la clase</p>
+                    <select name="" id=""></select>
+                </div>
+                <button className={Styles.Add_Button}>Agregar</button>
+            </form>
+        </div>
+        </>
   );
 };
 

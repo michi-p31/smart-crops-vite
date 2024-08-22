@@ -1,0 +1,40 @@
+.titulo{
+    background-color: rgb(199, 201, 199);
+    padding: 20px;
+    margin-bottom: 50px;
+    font-size: 50px;
+    text-shadow: 5px 5px 5px #ffc810;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+}
+
+.formGroup{
+    max-width: 500px;
+    margin: auto;
+    background-color: #FFC810;
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.Space_data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.Space_data select, input{
+    width: 50%;
+}
+
+.Add_Button{
+    width: 100%;
+    height: 40px;
+    background-color: rgb(199, 201, 199);
+    border-radius: 10px;
+}
+
+.Add_Button:Hover{
+    background-color: #FFF;
+    transition: 0.5s;
+}

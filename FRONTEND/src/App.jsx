@@ -21,6 +21,7 @@ import {Deliverables_Home} from './screens/Deliverables_Home.jsx'
 import {Deliverables} from './screens/Deliverables.jsx'
 import {Student_deliver} from './screens/Student_deliver.jsx'
 import {ClassRoom_Teacher_Students} from './screens/ClassRoom_Teacher_Students.jsx'
+import {Add_Student} from './screens/Add_Student.jsx'
 
 const App = () => {
   return (
@@ -49,6 +50,7 @@ const App = () => {
         <Route path='/Administrator/Add_institucion' element={<Add_institucion/>}/>
         <Route path='/Administrator/Add_teacher' element={<Add_teacher/>}/>
         <Route path='/Administrador/Add_ClassRoom' element={<Add_ClassRoom/>}/>
+        <Route path='/Administrador/Add_Student' element={<Add_Student/>}/>
       </Routes>
     </Router>
   );
