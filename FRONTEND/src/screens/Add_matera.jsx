@@ -1,23 +1,21 @@
 
 import styles from '../styles/Add_matera.module.css';
-import Navbar from '../components/menu';
 
 export const Add_planter = () => {
   return (
     <>
-      <Navbar /> 
-      <h1 className={styles.titulo}>Agregar Institucion</h1>
+      <h1 className={styles.titulo}>¡AGREGAR MATERA!</h1>
       <div className={styles.formContainer}>
         <div className={styles.formGroup}>
-          <label className={styles.contenido}>Codigo de la institucion :</label>
+          <p className={styles.contenido}>Codigo de la institucion :</p>
           <select className={styles.selectInput}></select>
         </div>
         <div className={styles.formGroup}> 
-          <label className={styles.contenido}>Codigo de la clase :</label>
+          <p className={styles.contenido}>Codigo de la clase :</p>
           <select className={styles.selectInput}></select>
         </div>
         <div className={styles.formGroup}>
-          <label className={styles.contenido}>Id de la materia :</label>
+          <p className={styles.contenido}>Id de la materia :</p>
           <select className={styles.selectInput}></select>
         </div>
         <button className={styles.addButton}>Agregar</button>

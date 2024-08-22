@@ -10,7 +10,7 @@
   font-size: 70px;
   text-shadow: 5px 5px 5px #ffc810;
   height: 25vh;
-  display: flex;
+  display: flex;   
   align-items: center;
   justify-content: center;
 }
@@ -29,8 +29,10 @@
   margin: 10px;
 }
 
-.Information select{
+.Information select, input, p{
   width: 50%;
+  border-radius: 10px;
+  height: 30px;
 }
 
 .Add_Button{

@@ -2,7 +2,8 @@
     background-color: rgb(199, 201, 199);
     padding: 20px;
     margin-bottom: 50px;
-    font-size: 50px;
+    font-size: 70px;
+    height: 25vh;
     text-shadow: 5px 5px 5px #ffc810;
     font-family: "Poppins", sans-serif;
     text-align: center;
@@ -13,7 +14,7 @@
     margin: auto;
     background-color: #FFC810;
     border-radius: 10px;
-    padding: 40px;
+    padding: 80px 40px 80px 40px;
 }
 
 .Space_data{
@@ -23,7 +24,7 @@
     margin: 10px;
 }
 
-.Space_data select, input{
+.Space_data select, input,p{
     width: 50%;
 }
 

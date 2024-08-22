@@ -1,5 +1,4 @@
 .Container{
-  text-align: center;
   min-height: 100vh;
 }
 
@@ -27,6 +26,9 @@
   display: flex;
   justify-content: space-between;
   margin: 10px;
+  height: 30px;
+  border-radius: 10px;
+
 }
 
 .Information select{
