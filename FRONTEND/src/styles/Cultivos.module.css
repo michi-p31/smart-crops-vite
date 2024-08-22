@@ -1,13 +1,13 @@
 .topCategorias {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem 0px 5px;
     position: relative;
     color: #78be20;
-    font-size: 50px;
+    font-size: 55px;
+    margin-top: 15px;
 }
 
 .containerCategoria {
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
