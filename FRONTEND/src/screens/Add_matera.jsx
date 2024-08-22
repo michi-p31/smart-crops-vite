@@ -6,17 +6,18 @@ export const Add_planter = () => {
   return (
     <>
       <Navbar /> 
+      <h1 className={styles.titulo}>Agregar Institucion</h1>
       <div className={styles.formContainer}>
         <div className={styles.formGroup}>
-          <label>Codigo de la institucion :</label>
+          <label className={styles.contenido}>Codigo de la institucion :</label>
           <select className={styles.selectInput}></select>
         </div>
         <div className={styles.formGroup}> 
-          <label>Codigo de la clase :</label>
+          <label className={styles.contenido}>Codigo de la clase :</label>
           <select className={styles.selectInput}></select>
         </div>
         <div className={styles.formGroup}>
-          <label>Id de la materia :</label>
+          <label className={styles.contenido}>Id de la materia :</label>
           <select className={styles.selectInput}></select>
         </div>
         <button className={styles.addButton}>Agregar</button>
