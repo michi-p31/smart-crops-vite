@@ -1,0 +1,35 @@
+.Teacher_space{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    background-color: #FFC810;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.Teacher_info{
+    width: 50%;
+}
+
+.Button_edit{
+    width: 30%;
+    margin: auto;
+    height: 40px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.Button_edit:hover{
+    background-color: black;
+    color: #fff;
+}
+
+.Titulo{
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 20px;
+    background-color: #C7C9C7;
+    text-shadow: 5px 5px 5px #FFC810;
+}
