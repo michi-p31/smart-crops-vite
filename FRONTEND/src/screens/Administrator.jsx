@@ -19,30 +19,37 @@ const Student = () => {
               <img src={institucion} alt="Agregar Institucion" />
               <h1>Agregar Institucion</h1>
             </Link>
+            <Link to="/Administrator/Institutions">
+              <button className={styles.ver}>Ver Instituciones</button>
+            </Link>
           </div>
           <div className={styles.cardCategorie}>
             <Link to="/Administrator/Add_teacher">
               <img src={docente} alt="Agregar Docente" />
               <h1>Agregar Docente</h1>
             </Link>
+            <Link to ="/Administrator/Teachers"> <button className={styles.ver}>Ver Docentes</button></Link>
           </div>
           <div className={styles.cardCategorie}>
             <Link to="/Administrador/Add_ClassRoom">
               <img src={aula} alt="Agregar Clase" />
               <h1>Agregar Clase</h1>
             </Link>
+            <Link to ="/Administrator/Class"><button className={styles.ver}>Ver Clases</button></Link>
           </div>
           <div className={styles.cardCategorie}>
             <Link to="/Administrador/Add_Student">
               <img src={estudiante} alt="Agregar Clase" />
               <h1>Agregar Estudiante</h1>
             </Link>
+            <Link to ="/Administrator/Student"> <button className={styles.ver}>Ver Estudiantes</button></Link>
           </div>
           <div className={styles.cardCategorie}>
             <Link to="/Administrator/Add_matera">
               <img src={plant} alt="Agregar Matera" />
               <h1>Agregar Matera</h1>
             </Link>
+            <Link to ="/Administrator/Matera"><button className={styles.ver}>Ver Materas</button></Link>
           </div>
         </div>
       </section>

@@ -13,6 +13,9 @@ import Add_institucion from "./screens/Add_institution.jsx";
 import Add_teacher from "./screens/Add_teacher.jsx";
 import Abonos from "./screens/Fertilizers.jsx";
 import Medicinal from "./screens/Medicinal.jsx";
+import Administrator_class from './screens/Administrator_class.jsx';
+import Administrator_student from './screens/Administrator_student.jsx';
+import Administrator_matera from './screens/Administrator_matera.jsx';
 import {Add_ClassRoom} from './screens/Add_ClassRoom.jsx'
 import {Add_planter} from './screens/Add_matera.jsx';
 import {Login} from './screens/Login.jsx'
@@ -55,8 +58,11 @@ const App = () => {
         <Route path='/Administrator/Add_teacher' element={<Add_teacher/>}/>
         <Route path='/Administrador/Add_ClassRoom' element={<Add_ClassRoom/>}/>
         <Route path='/Administrador/Add_Student' element={<Add_Student/>}/>
-        <Route path='/Administrador/Instituciones' element={<Administrator_list_institutions/>}/>
-        <Route path='/Administrador/Maestros' element={<Administrator_teachers/>}/>
+        <Route path='/Administrator/Institutions' element={<Administrator_list_institutions/>}/>
+        <Route path='/Administrator/Teachers' element={<Administrator_teachers/>}/>
+        <Route path='/Administrator/Class' element={<Administrator_class/>}/>
+        <Route path='/Administrator/Student' element={<Administrator_student/>}/>
+        <Route path='/Administrator/Matera' element={<Administrator_matera/>}/>
       </Routes>
     </Router>
   );

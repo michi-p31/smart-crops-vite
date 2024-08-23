@@ -46,6 +46,12 @@ html, body {
     flex-direction: column;
     gap: 2rem;
 }
+.cardCategorie a {
+    display: block; 
+    width: 100%; 
+    text-align: center; 
+    text-decoration: none; 
+}
 
 .cardCategorie span,
 .cardCategorie a {
@@ -61,3 +67,16 @@ html, body {
 .cardCategorie img {
     max-width: 100px;
 }
+.ver{
+    width: 100%;
+    height: 40px;
+    background-color:#ffc810;
+    color: #000;
+    border-radius: 10px;
+    line-height: 40px;
+  }
+  
+  .ver:Hover{
+    background-color: #FFF;
+    transition: 0.5s;
+  }
