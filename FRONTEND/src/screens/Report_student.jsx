@@ -2,9 +2,53 @@ import styles from "../styles/Report_student.module.css";
 import { RiDownload2Fill } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa";
 import Navbar from '../components/menu';
+import { useState } from "react"; 
+import { jsPDF } from "jspdf";//libreria para poder generar el pdf
+import html2canvas from "html2canvas";
 
-const FormularioPlanta = () => {
-  return (
+
+  const FormularioPlanta = () => {
+    const [formData, setFormData] = useState({
+      nombreEstudiante: '',
+      fechaMonitoreo: '',
+      tipoHuerta: '',
+      temperaturaHuerta: '',
+      goteo: '',
+      nivelHumedad: '',
+      notasCrecimiento: ''
+    });// funcion para recoger los datos de los input 
+  
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    };// funcion para el cambio que tengan los input 
+  
+    const handleGeneratePDF = () => {
+      console.log("Generando PDF..."); // verifica que la función se llama
+    
+      const content = document.querySelector(`.${styles.contentToCapture}`);
+      console.log(content); 
+      html2canvas(content, { scale: 2 }).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF({
+          orientation: 'portrait',
+          unit: 'mm',
+          format: 'a2'
+        });//configure el tamaño y horientacion del pdf 
+     
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+     
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save("reporte.pdf");// nombre de la descarga 
+      });}
+      // en esta funcion se hace el uso de la libreria html2canvas para poder tener el diseño del formulario en imagen junto con el tamaño que sera utilizado para el pdf
+      //esto se guarda en variables para poder utilizar la libreria jspdf
+          return (
     <div className={styles.containerForm}>
       <form className={styles.form}>
         <label className={styles.label}>
@@ -13,6 +57,8 @@ const FormularioPlanta = () => {
           type="text"
           name="nombreEstudiante"
           className={styles.input}
+          value={formData.nombreEstudiante}
+          onChange={handleInputChange}
           required
            />
         </label>
@@ -22,6 +68,8 @@ const FormularioPlanta = () => {
           type="date"
           name="fechaMonitoreo"
           className={styles.input}
+          value={formData.fechaMonitoreo}
+          onChange={handleInputChange}
           required
         />
         </label>
@@ -31,6 +79,8 @@ const FormularioPlanta = () => {
           type="text"
           name="tipoHuerta"
           className={styles.input}
+          value={formData.tipoHuerta}
+          onChange={handleInputChange}
           required
         />
         </label>
@@ -40,6 +90,8 @@ const FormularioPlanta = () => {
           type="text"
           name="temperaturaHuerta"
           className={styles.input}
+          value={formData.temperaturaHuerta}
+          onChange={handleInputChange}
           required
         />
         </label>
@@ -49,6 +101,8 @@ const FormularioPlanta = () => {
           type="text"
           name="goteo"
           className={styles.input}
+          value={formData.goteo}
+          onChange={handleInputChange}
           required
         />
         </label>
@@ -58,6 +112,8 @@ const FormularioPlanta = () => {
           type="text"
           name="nivelHumedad"
           className={styles.input}
+          value={formData.nivelHumedad}
+          onChange={handleInputChange}
           required
         />
         </label>
@@ -67,6 +123,8 @@ const FormularioPlanta = () => {
           type="text"
           name="notasCrecimiento"
           className={styles.input}
+          value={formData.notasCrecimiento}
+          onChange={handleInputChange}
           required
         />
         </label>
@@ -75,7 +133,7 @@ const FormularioPlanta = () => {
             <button className={styles.subir} type="submit" disabled><FaPlus />
         </button>
         </label>
-        <label className={styles.download}>
+        <label className={styles.download} onClick={handleGeneratePDF}>
         <RiDownload2Fill />
         Generar Reporte 
         </label>
@@ -84,12 +142,15 @@ const FormularioPlanta = () => {
   );
 };
 
+
 const Monitoreo = () => {
   return (
-    <div>
+    <div className={styles.pageContainer}>
       <Navbar />
-      <h2 className={styles.h2}>Reporte De Matera</h2>
-      <FormularioPlanta />
+      <div className={styles.contentToCapture}>
+        <h2 className={styles.h2}>Reporte De Matera</h2>
+        <FormularioPlanta />
+      </div>
     </div>
   );
 };
