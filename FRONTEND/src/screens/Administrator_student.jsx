@@ -1,10 +1,11 @@
-
+import NavBar from '../components/NavBar_Administrator'
 import styles from '../styles/Administrator_student.module.css';
 
 const Administrator_student = () => {
   return (
     <>
-      <h1 className={styles.Titulo}>Estudiante</h1>
+      <NavBar/>
+      <h1 className={styles.Titulo}>ESTUDIANTES</h1>
       <div className={styles.Student_space}>
         <div className={styles.Student_info}>
           <p>Codigo de la estudiante: ###</p>

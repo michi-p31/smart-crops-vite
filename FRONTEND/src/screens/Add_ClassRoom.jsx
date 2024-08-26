@@ -1,10 +1,11 @@
 import React from 'react'
 import Styles from '../styles/Add_ClassRoom.module.css'
-import NavBar from '../components/menu'
+import NavBar from '../components/NavBar_Administrator'
 export const Add_ClassRoom = () => {
   return (
         <>
             <div className={Styles.Container}>
+            <NavBar/>
             <h1>¡AGREGAR CLASE!</h1>
                 <form className={Styles.Add_ClassRoom} action="">
                     <div className={Styles.Information}>

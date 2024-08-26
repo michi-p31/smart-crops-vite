@@ -5,14 +5,16 @@ import docente from "../assets/images/maestro.png";
 import aula from "../assets/images/aula.png";
 import estudiante from "../assets/images/estudiante.png";
 import styles from "../styles/Administrator.module.css";
-import Navbar from '../components/menu';
+import NavBar_Administrator from '../components/NavBar_Administrator';
 
 const Student = () => {
   return ( 
     <div className={styles.pageContainer}>
-      <Navbar />
       <section className={styles.topCategorias}>
+        <div className={styles.header}>
+          <NavBar_Administrator/>
         <h1 className={styles.title}>Administrador</h1>
+        </div>
         <div className={styles.containerCategoria}>
           <div className={styles.cardCategorie}>
             <Link to="/Administrator/Add_institucion">

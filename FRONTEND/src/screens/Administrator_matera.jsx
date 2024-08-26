@@ -1,10 +1,11 @@
-
+import NavBar from '../components/NavBar_Administrator'
 import styles from '../styles/Administrator_matera.module.css';
 
 const Administrator_matera = () => {
   return (
     <>
-      <h1 className={styles.Titulo}>Matera</h1>
+      <NavBar/>
+      <h1 className={styles.Titulo}>MATERAS</h1>
       <div className={styles.Matera_space}>
         <div className={styles.Matera_info}>
           <p>Codigo de la Matera: ###</p>

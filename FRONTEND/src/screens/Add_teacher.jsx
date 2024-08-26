@@ -1,9 +1,11 @@
 import Styles from '../styles/Add_teacher.module.css';
+import NavBar from '../components/NavBar_Administrator'
 
 const Add_institucion = () => {
   return (
     <>
     <div className={Styles.Container}>
+        <NavBar/>
         <h1>¡AGREGAR MAESTRO!</h1>
         <form className={Styles.Add_Teacher} action="">
             <div className={Styles.Information}>

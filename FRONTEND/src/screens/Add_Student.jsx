@@ -1,8 +1,11 @@
 import React from 'react'
 import Styles from '../styles/Add_Student.module.css'
+import NavBar from '../components/NavBar_Administrator'
+
 export const Add_Student = () => {
     return (
         <>
+            <NavBar/>
             <h1 className={Styles.titulo}>¡AGREGAR ESTUDIANTE!</h1>
             <div className={Styles.formContainer}>
                 <form className={Styles.formGroup}>
