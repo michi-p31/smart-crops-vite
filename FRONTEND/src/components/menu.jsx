@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { IoMdMenu } from "react-icons/io";
 import { VscAccount } from "react-icons/vsc";
 import stylesMenu from '../styles/Menu.module.css';
-import logo from "../assets/images/logo_planta.png";
+import logo from "../assets/images/icono_.png";
 import medicinal from "../assets/images/medicinal.png";
 import cultivo from "../assets/images/cultivo.png";
 import aula from "../assets/images/aula.png";
