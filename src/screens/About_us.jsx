@@ -2,10 +2,11 @@ import AboutUs_Styles from '../styles/About_us.module.css'
 import NavBar from '../components/menu'
 import Planter_Image from '../assets/images/planter_img.png'
 import Planter_Image2 from '../assets/images/planter_image2.jpg'
+import { Link } from 'react-router-dom'
 export const About_us = () => {
   return (
     <>
-      <NavBar />
+      <NavBar /> 
       <div className={AboutUs_Styles.Welcome_Image}>
         <h1>SMART CROPS</h1>
       </div>
@@ -37,7 +38,9 @@ export const About_us = () => {
       </div>
 
       <h1 className={AboutUs_Styles.ODS_Tittle}>ODS en SmartCrops</h1>
-
+      <Link to="/Administrator">Acceso al admin</Link><br />
+      <Link to="/ClassRoom_Student">Acceso al classrom students</Link><br />
+      <Link to="/ClassRoom_Teacher">Acceso al classroom teachers</Link>
     </>
   )
 }

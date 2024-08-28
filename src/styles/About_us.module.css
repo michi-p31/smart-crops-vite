@@ -28,31 +28,37 @@ body{
 
 .Information_container{
     display: flex;
+    align-items: center;
+    justify-content: center;
     max-width: 80%;
-    min-width: 80%;
     margin: auto;
     padding: 10px;
+    flex-direction: row;
 }
 
 .Image_container{
     max-width: 30%;
-    margin-right: 10px;
 }
 
 .Image_container img{
     max-height: 150px;
+    width: auto;
 }
 
 .Text_container{
-    min-width: 60%;
+    min-width: 70%;
     justify-content: center;
     display: flex;
     align-items: center;
 }
 
+.Text_container p{
+    width: 100%;
+}
+
 .ODS_Tittle{
     text-align: center;
     color: #FF6F61;
-    font-size: 100px;
+    font-size: 10vh;
     text-shadow: 5px 5px 4px rgb(0, 0, 0);
 }
