@@ -10,7 +10,7 @@ const Main = () => {
         <div className={styles.cover}>
           <div className={styles.text}>
             <h1>Aprende y cuida junto a nosotros tu huerta</h1>
-            <p>
+            <p className={styles.parrafo}>
               Junto a nosotros nuestros niños y jóvenes podrán aprender a
               trabajar en su huerta cuidando y preservándola
             </p>

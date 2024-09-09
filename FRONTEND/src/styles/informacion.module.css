@@ -2,16 +2,32 @@
     font-size: 20px;
     margin-left: 25px;
     margin-top: 10px;
+    max-width: 1000px; 
+    margin: 10px auto;
   }
   
   .informacionFruta h1 {
     color: #78be20;
   }
-  .informacionFruta p{
-    color: #003f72;
+  .info_panta {
+    color: #000;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 5%; 
+    gap: 10%;
+  }
+  .imgPlanta{
+    width: 30%; 
+    height: auto; 
+  }
+  .info_planta p {
+    text-align: justify; 
+    margin: 0; 
+  }
+  .info_cultivo{
+    margin-top: 5%;
   }
   .informacionFruta h3 {
-    margin-left: 10px;
     color: #78be20;
   }
   .informacionFruta h4{
@@ -21,13 +37,15 @@
   .imagenConGradiente {
     background-size: cover;
     background-position: center;
-    display: inline-block;
-    position: relative;
+    display: flex; 
+    align-items: center;
+    justify-content: right;
+    margin-right: 20px; 
   }
   
   .imagenConGradiente img {
     background-size: cover;
-    margin-left: 500px;
+    margin-left: 350px;
     background-repeat: no-repeat;
     border-radius: 10px;
     width: 20rem;
@@ -65,6 +83,7 @@
   .parrafoInformacion {
     display: flex;
     align-items: center;
+    margin-top: 20px; 
   }
   
   .separator {
