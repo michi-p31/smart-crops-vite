@@ -8,7 +8,7 @@ import Navbar from '../components/menu'
 
 const Teacher = () => {
   return (
-    <div>
+    <div className={styles.pageContainer}>
       <Navbar/>
       <section className={styles.topCategorias}>
         <h1 className={styles.title}>Aula Virtual</h1>
