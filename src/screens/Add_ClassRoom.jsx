@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Styles from '../styles/Add_ClassRoom.module.css'
 import NavBar from '../components/NavBar_Administrator'
 export const Add_ClassRoom = () => {
@@ -18,7 +18,7 @@ export const Add_ClassRoom = () => {
                     </div>
                     <div className={Styles.Information}>
                         <p>Codigo de la clase:</p>
-                        <select name="" id=""></select>
+                        <input type="text" name='' />
                     </div>
                     <button className={Styles.Add_Button}>Agregar</button>
                 </form>

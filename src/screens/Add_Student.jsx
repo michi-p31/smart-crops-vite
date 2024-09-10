@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Styles from '../styles/Add_Student.module.css'
 import NavBar from '../components/NavBar_Administrator'
 
@@ -16,6 +16,10 @@ export const Add_Student = () => {
                     <div className={Styles.Space_data}>
                         <label className={Styles.contenido}>Codigo del docente:</label>
                         <select className={Styles.Data} id=""></select>
+                    </div>
+                    <div className={Styles.Space_data}>
+                        <label className={Styles.contenido}>Codigo Estudiante: </label>
+                        <input type="text" className={Styles.textInput} />
                     </div>
                     <div className={Styles.Space_data}>
                         <label className={Styles.contenido}>Correo electronico:</label>

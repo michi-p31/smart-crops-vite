@@ -14,15 +14,15 @@ const Add_institucion = () => {
             </div>
             <div className={Styles.Information}>
                 <p>Codigo del docente:</p>
-                <select name="" id=""></select>
+                <input type="text" name='' />
             </div>
             <div className={Styles.Information}>
                 <p>Correo:</p>
-                <input type="text" />
+                <input type="text" name=''/>
             </div>
             <div className={Styles.Information}>
                 <p>Contraseña:</p>
-                <input type="text" />
+                <input type="text" name='' />
             </div>
             <button className={Styles.Add_Button}>Agregar</button>
         </form>

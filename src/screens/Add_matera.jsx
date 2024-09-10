@@ -16,8 +16,8 @@ export const Add_planter = () => {
           <select className={styles.selectInput}></select>
         </div>
         <div className={styles.formGroup}>
-          <p className={styles.contenido}>Id de la materia :</p>
-          <select className={styles.selectInput}></select>
+          <p className={styles.contenido}>Codigo de la Matera :</p>
+          <input type="text" name='' />
         </div>
         <button className={styles.addButton}>Agregar</button>
       </div>
