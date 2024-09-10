@@ -42,10 +42,6 @@ const Menu = () => {
             </nav>
           </div>
         )}
-        <div className={stylesMenu.login}>
-          <VscAccount size={20} className={stylesMenu.iconLogin}/> 
-          <Link to="/Login">Login</Link>
-        </div>
       </div>
     </header>
   );
