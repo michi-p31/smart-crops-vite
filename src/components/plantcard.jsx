@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 import styles from "../styles/PlantCard.module.css";
 
 const PlantCard = ({ planta, categoria }) => {
-  const primeraPalabra = planta.name.split(" ")[0].toLowerCase();
+  // esto separa el nombre de la planta cuanto tiene mas de una palabra
+  const palabras = planta.name.split(" ");
+  
+  // esto toma la primera y segunda palabra y las une con un guion bajo
+  const primeraSegundaPalabra = palabras.slice(0, 2).join("_").toLowerCase();
+
   return (
     <div
       className={styles.cardCategoria}
@@ -12,12 +17,11 @@ const PlantCard = ({ planta, categoria }) => {
       }}
     >
       <h2>{planta.name}</h2>
-      <Link to={`/categorias/${categoria}/${primeraPalabra}`}>Ver más</Link>
+      <Link to={`/categorias/${categoria}/${primeraSegundaPalabra}`}>Ver más</Link>
     </div>
   );
 };
 
-// Define los PropTypes para tu componente
 PlantCard.propTypes = {
   planta: PropTypes.shape({
     name: PropTypes.string.isRequired,
