@@ -131,7 +131,7 @@ const categoria_= {
      {name: 'Aloe Vera' , image: aloe},
      {name: 'Aloe Tigre' , image: aloe_tigre },
      {name: 'Andromicho' , image: andromicho },
-     {name: 'Arbol de la Abundacia' , image: arbol },
+     {name: 'Arbol de Abundacia' , image: arbol },
      {name: 'Cactus Bola' , image: cactus_bola},
      {name: 'Cactus Estrella' , image: cactus_estrella},
      {name: 'Cebra de Jardin' , image: cebra_jardin},
