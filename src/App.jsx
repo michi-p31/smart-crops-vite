@@ -17,6 +17,7 @@ import Administrator_class from './screens/Administrator_class.jsx';
 import Administrator_student from './screens/Administrator_student.jsx';
 import Administrator_matera from './screens/Administrator_matera.jsx';
 import AbonoDetail from "./components/info_fertilizers.jsx";
+import MedicinalDetail from "./components/info_medicinal.jsx";
 import {Add_ClassRoom} from './screens/Add_ClassRoom.jsx'
 import {Add_planter} from './screens/Add_matera.jsx';
 import {Login} from './screens/Login.jsx'
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/categorias" element={<Categorias />} />
         <Route path='/Abonos' element={<Abonos/>}/>
         <Route path="/Abonos/:nombreAbono" element={<AbonoDetail />} />
+        <Route path="/Medicinal/:nombreMedicinal" element={<MedicinalDetail />} />
         <Route path='/Medicinal' element={<Medicinal/>}/>
         <Route path="/categorias/:categoria" element={<Cultivos />} />
         <Route path="/categorias/:categoria/:nombreFruta" element={<Informacion_plant />} />
