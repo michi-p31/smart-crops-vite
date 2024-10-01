@@ -80,3 +80,7 @@ html, body {
     gap: 30px;
     cursor: pointer;
 }
+.imagePreview {
+    width: 150px;
+    height: 150px;
+  }

@@ -1,10 +1,10 @@
 import styles from "../styles/Report_student.module.css";
-import { RiDownload2Fill } from "react-icons/ri";
-import { FaPlus } from "react-icons/fa";
 import Navbar from '../components/menu';
 import { useState } from "react"; 
 import { jsPDF } from "jspdf";//libreria para poder generar el pdf
 import html2canvas from "html2canvas";
+import ImageUploader from "../components/UploaderImage";
+import {  useEffect } from "react"; 
 
 
   const FormularioPlanta = () => {
@@ -15,7 +15,8 @@ import html2canvas from "html2canvas";
       temperaturaHuerta: '',
       goteo: '',
       nivelHumedad: '',
-      notasCrecimiento: ''
+      notasCrecimiento: '',
+      fotoPlanta: ''
     });// funcion para recoger los datos de los input 
   
     const handleInputChange = (e) => {
@@ -25,7 +26,12 @@ import html2canvas from "html2canvas";
         [name]: value
       });
     };// funcion para el cambio que tengan los input 
-  
+    const handleImageUpload = (image) => {
+      setFormData({
+        ...formData,
+        fotoPlanta: image
+      });
+    };//funcion para poder tomar el url de la imagen subida
     const handleGeneratePDF = () => {
       console.log("Generando PDF..."); // verifica que la función se llama
     
@@ -48,6 +54,13 @@ import html2canvas from "html2canvas";
       });}
       // en esta funcion se hace el uso de la libreria html2canvas para poder tener el diseño del formulario en imagen junto con el tamaño que sera utilizado para el pdf
       //esto se guarda en variables para poder utilizar la libreria jspdf
+
+  useEffect(() => {
+    if (formData.nombreEstudiante && formData.fechaMonitoreo && formData.tipoHuerta && formData.fotoPlanta) {
+      handleGeneratePDF();
+    }
+  }, [formData]); // aqui se llama la funcion para genera el pdf para que cuando reciba los cambios de los input, genere el pdf automaticamente 
+
           return (
     <div className={styles.containerForm}>
       <form className={styles.form}>
@@ -130,12 +143,7 @@ import html2canvas from "html2canvas";
         </label>
         <label className={styles.text_subir}>
             Subir foto de la planta
-            <button className={styles.subir} type="submit" disabled><FaPlus />
-        </button>
-        </label>
-        <label className={styles.download} onClick={handleGeneratePDF}>
-        <RiDownload2Fill />
-        Generar Reporte 
+            <ImageUploader onImageUpload={handleImageUpload} />
         </label>
       </form>
     </div>
