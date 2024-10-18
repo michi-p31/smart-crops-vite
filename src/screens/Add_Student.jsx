@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar_Administrator";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-export const Add_Student = () => {
+export const Add_Student = () => { 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
