@@ -1,26 +1,61 @@
+import { useState } from 'react';
+import axios from 'axios';
 import styles from '../styles/Upload_delivery.module.css';
 import { FaPlus } from 'react-icons/fa';
 import Navbar from '../components/menu';
-import { useParams } from 'react-router-dom'; 
 
-const Upload_delivery = () => {
-  const { week } = useParams(); // tomar el parámetro de la URL
-  
+const UploadDelivery = () => {
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]); // Guarda el archivo seleccionado
+  };
+
+  const handleSubmit = async () => {
+    if (selectedFile) {
+      const formData = new FormData();
+      formData.append('file', selectedFile); // Añade el archivo al formData
+      formData.append('student_id', 32); // Añadir el ID del estudiante
+      formData.append('week_no', 12); // Añadir el número de la semana
+
+      try {
+        // Realiza la solicitud POST usando Axios
+        const response = await axios.post('http://localhost:5000/api/v1/users/Student_Deliveries', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+        alert('El archivo PDF ha sido subido correctamente');
+        console.log('Respuesta del servidor:', response.data);
+      } catch (error) {
+        console.error('Error al subir el archivo:', error);
+        alert('Hubo un error al subir el archivo.');
+      }
+    } else {
+      alert('Por favor, selecciona un archivo antes de enviar.');
+    }
+  };
+
   return (
     <div>
       <Navbar />
       <div className={styles.container}>
         <div className={styles.titulo_upload}>
-          <h1>Entrega semana {week}</h1> 
+          <h1>Entrega semana 1</h1>
           <div className={styles.student}>
             <h2>Estudiante:</h2> <span>Salomon Ruiz Navarrete</span>
           </div>
         </div>
         <div className={styles.buttons}>
-          <button className={styles.addButton}>
-            <FaPlus className={styles.icon} /> Añadir entrega
+          {/* Cambiado el texto del botón para reflejar la selección de archivo */}
+          <label className={styles.addButton}>
+            <FaPlus className={styles.icon} /> Seleccionar archivo
+            <input type="file" onChange={handleFileChange} style={{ display: 'none' }} /> {/* Input oculto */}
+          </label>
+          {/* Botón para enviar el archivo seleccionado */}
+          <button className={styles.submitButton} onClick={handleSubmit}>
+            Enviar entrega
           </button>
-          <button className={styles.submitButton}>Enviar</button>
         </div>
         <div className={styles.comments}>
           <label htmlFor="comments">Comentarios:</label>
@@ -31,4 +66,4 @@ const Upload_delivery = () => {
   );
 };
 
-export default Upload_delivery;
+export default UploadDelivery;
