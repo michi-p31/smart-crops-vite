@@ -6,9 +6,14 @@ import Navbar from '../components/menu';
 
 const UploadDelivery = () => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [comments, setComments] = useState(''); // Estado para almacenar los comentarios
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]); // Guarda el archivo seleccionado
+  };
+
+  const handleCommentsChange = (event) => {
+    setComments(event.target.value); // Guarda el comentario ingresado
   };
 
   const handleSubmit = async () => {
@@ -17,10 +22,11 @@ const UploadDelivery = () => {
       formData.append('file', selectedFile); // Añade el archivo al formData
       formData.append('student_id', 32); // Añadir el ID del estudiante
       formData.append('week_no', 12); // Añadir el número de la semana
+      formData.append('comments', comments); // Añade el comentario al formData
 
       try {
         // Realiza la solicitud POST usando Axios
-        const response = await axios.post('http://localhost:5000/api/v1/users/Student_Deliveries', formData, {
+        const response = await axios.post('http://localhost:5000/api/v1/Student_Deliveries', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -47,19 +53,22 @@ const UploadDelivery = () => {
           </div>
         </div>
         <div className={styles.buttons}>
-          {/* Cambiado el texto del botón para reflejar la selección de archivo */}
           <label className={styles.addButton}>
             <FaPlus className={styles.icon} /> Seleccionar archivo
-            <input type="file" onChange={handleFileChange} style={{ display: 'none' }} /> {/* Input oculto */}
+            <input type="file" onChange={handleFileChange} style={{ display: 'none' }} /> 
           </label>
-          {/* Botón para enviar el archivo seleccionado */}
           <button className={styles.submitButton} onClick={handleSubmit}>
             Enviar entrega
           </button>
         </div>
         <div className={styles.comments}>
           <label htmlFor="comments">Comentarios:</label>
-          <textarea id="comments" className={styles.textarea}></textarea>
+          <textarea
+            id="comments"
+            className={styles.textarea}
+            value={comments} // Enlaza el valor del textarea al estado
+            onChange={handleCommentsChange} // Actualiza el estado cuando cambie el valor
+          />
         </div>
       </div>
     </div>
