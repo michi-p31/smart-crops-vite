@@ -1,14 +1,17 @@
 import styles from '../styles/Upload_delivery.module.css';
 import { FaPlus } from 'react-icons/fa';
 import Navbar from '../components/menu';
+import { useParams } from 'react-router-dom'; 
 
 const Upload_delivery = () => {
+  const { week } = useParams(); // tomar el parámetro de la URL
+  
   return (
     <div>
       <Navbar />
       <div className={styles.container}>
         <div className={styles.titulo_upload}>
-          <h1>Entrega semana 1</h1>
+          <h1>Entrega semana {week}</h1> 
           <div className={styles.student}>
             <h2>Estudiante:</h2> <span>Salomon Ruiz Navarrete</span>
           </div>

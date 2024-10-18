@@ -81,3 +81,23 @@ html, body {
 .plus {
   margin-left: 10px;
 }
+.buttonAddWeek {
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background-color: #ffcc00; 
+  color: #003f72; 
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.buttonAddWeek:hover {
+  background-color: #003f72; 
+  color: #ffc810;
+}
+
+.plus {
+  margin-left: 10px;
+}

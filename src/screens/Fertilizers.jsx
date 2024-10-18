@@ -27,59 +27,59 @@ const Abonos = () => {
         <div className={styles.containerCategoria}>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${frutas})` }}>
             <h1>Abono de Frutas</h1>
-            <Link to="">Ver más</Link>
+            <Link to={`/Abonos/abono_frutas`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${compost})` }}>
             <h1>Compost</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/compost`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${papa})` }}>
             <h1>Cáscara de Papa</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/cascara_papa`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${huevo})` }}>
             <h1>Cáscara de Huevo</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/cascara_huevo`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${banano})` }}>
             <h1>Cáscara de Plátano</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/cascara_platano`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${lenteja})` }}>
             <h1>Enraizante de Lenteja</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/enraizante_lenteja`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${madera})` }}>
             <h1>Fertilizante de cenizas de madera</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/cenizas_madera`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${harina})` }}>
             <h1>Fertilizante de Harinas de roca</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/harina_roca`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${lombriz})` }}>
             <h1>Hummus de Lombriz</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/humus_lombriz`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${purin})` }}>
             <h1>Purin de Hierbas</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/purin_hierbas`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${ortiga})` }}>
             <h1>Purin de Ortiga</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/purin_ortiga`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${hierbas})` }}>
             <h1>Recortes de Hierbas</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/recortes_hierbas`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${cafe})` }}>
             <h1>Restos de Café</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/restos_cafe`}>Ver más</Link>
           </div>
           <div className={styles.cardCategoria} style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${estiercol})` }}>
             <h1>Té de Estiércol</h1>
-            <span>Ver más</span>
+            <Link to={`/Abonos/te_estiercol`}>Ver más</Link>
           </div>
         </div>
       </section>

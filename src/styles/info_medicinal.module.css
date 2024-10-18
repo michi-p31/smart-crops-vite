@@ -1,0 +1,44 @@
+
+
+.container_medicinal {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: auto;
+    
+  }
+  
+  .titulo_mediicnal {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #78be20;
+  }
+  
+  .planta_item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-left: 10%;
+  }
+  
+  .planta_img {
+    width: 50px; 
+    height: 50px;
+    object-fit: cover; 
+  }
+  
+  .plantas_medicinal {
+    font-size: 18px;
+    color: black;
+    text-decoration: none; 
+  }
+  .plantas_medicinal a {
+    text-decoration: none; 
+    color: black; 
+  }
+  
+  .plantas_medicinal a:hover {
+    color: #78be20; 
+  }

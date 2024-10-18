@@ -22,7 +22,7 @@ import NavBar from "../components/menu";
 
 const Informacion = () => {
   const { nombreFruta } = useParams();
-  const fruta = frutas.find((f) => f.nombre === nombreFruta);
+  const fruta = frutas.find((f) => f.nombre_url === nombreFruta);
 
   if (!fruta) {
     return <h1>Fruta no encontrada</h1>;
