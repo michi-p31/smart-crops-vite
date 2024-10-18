@@ -19,20 +19,23 @@
   background-color: #ffc810;
   padding:  80px 40px 80px 40px;
   border-radius: 10px;
-  max-width: 500px;
+  max-width: 800px;
   margin: auto;
 }
 
 .Information{
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin: 10px;
 }
 
-.Information  input, p{
-  width: 50%;
+.Information  input{
+  width: 100%;
   border-radius: 10px;
-  height: 30px;
+  height: 40px;
+  min-width: 500px;
+  max-width: 500px;
 }
 
 .Add_Button{

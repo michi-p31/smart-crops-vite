@@ -18,7 +18,7 @@
   background-color: #ffc810;
   padding:  80px 40px 80px 40px;
   border-radius: 10px;
-  max-width: 500px;
+  max-width: 800px;
   margin: auto;
 }
 
@@ -31,8 +31,10 @@
 
 }
 
-.Information select{
-  width: 50%;
+.Information select, input{
+  width: 100%;
+  max-width: 500px;
+  min-width: 500px;
 }
 
 .Add_Button{

@@ -32,6 +32,8 @@ const NavBar_Administrator = () => {
                             className={Styles.iconSize}
                             onClick={toggleMenu}  //  clic para abrir/cerrar el menú
                         />
+                        <Link to='/Administrator'><img src={Home} alt="Home Symbol" className={Styles.Home_Image}/></Link>
+
                     </div>
                     {isMenuOpen && (
                         <div className={Styles.menu}>
@@ -50,6 +52,9 @@ const NavBar_Administrator = () => {
                                     <li><img src={classroom} alt='classroom' /><Link to='/Administrator/Class'>Ver clases</Link></li>
                                     <li><img src={students} alt='Students' /><Link to='/Administrator/Student'>Ver estudiantes</Link></li>
                                     <li><img src={plant} alt="Planter" /><Link to='/Administrator/Matera'>Ver matera</Link></li>
+
+                                    <li><img src={Home} alt="Home Symbol" /><Link to='/Administrator'>Home</Link></li>
+
                                 </ul>
                             </nav>
                         </div>
