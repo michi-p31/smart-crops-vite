@@ -10,11 +10,11 @@
 }
 
 .formGroup{
-    max-width: 500px;
+    max-width: 800px;
     margin: auto;
     background-color: #FFC810;
     border-radius: 10px;
-    padding: 80px 40px 80px 40px;
+    padding: 45px 40px 45px 40px;
 }
 
 .Space_data{
@@ -24,8 +24,11 @@
     margin: 10px;
 }
 
-.Space_data select, input,p{
-    width: 50%;
+.Space_data select, input{
+    width: 100%;
+    max-width: 500px;
+    min-width: 500px;
+    height: 50px;
 }
 
 .Add_Button{
