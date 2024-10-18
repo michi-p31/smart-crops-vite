@@ -48,7 +48,7 @@ const App = () => {
         <Route path='/ClassRoom/Matera' element={<Monitoring/>}/>
         <Route path='/ClassRoom_Student/Report' element={<Report/>}/>
         <Route path='/ClassRoom_Student/Deliveries' element={<StudentDeliveries/>}/>
-        <Route path='/ClassRoom_Student/Deliveries/Upload_deliveries' element={<Upload_delivery/>}/>
+        <Route path='/ClassRoom_Student/Deliveries/Upload_deliveries/:week' element={<Upload_delivery/>}/>
         <Route path='/ClassRoom_Teacher' element={<Teacher/>}/>
         <Route path='/ClassRoom/Monitoring' element={<Monitoring/>}/>
         <Route path='/About_us' element={<About_us/>}/>
