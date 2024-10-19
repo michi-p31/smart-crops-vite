@@ -21,7 +21,7 @@ const UploadDelivery = () => {
       const formData = new FormData();
       formData.append('file', selectedFile); // Añade el archivo al formData
       formData.append('student_id', 41); // Añadir el ID del estudiante
-      formData.append('week_no', 12); // Añadir el número de la semana
+      formData.append('week_no', 15); // Añadir el número de la semana
       formData.append('comments', comments); // Añade el comentario al formData
 
       try {
