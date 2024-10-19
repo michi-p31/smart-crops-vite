@@ -24,12 +24,19 @@
     flex-direction: column; 
 }
 
+.Section_Buttons{
+    display: flex;
+    flex-direction: column;
+    width:80%;
+}
+
 .Button_edit {
-    width: 30%;
+    width: 60%;
     margin: auto;
     height: 40px;
     border-radius: 10px;
     transition: 0.5s;
+    margin-top: 5px;
 }
 
 .Button_edit:hover {
