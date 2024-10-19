@@ -14,11 +14,12 @@
 }
 
 .Button_edit{
-    width: 30%;
+    width: 80%;
     margin: auto;
     height: 40px;
     border-radius: 10px;
     transition: 0.5s;
+    margin-top: 5px;
 }
 
 .Button_edit:hover{
@@ -33,3 +34,10 @@
     background-color: #C7C9C7;
     text-shadow: 5px 5px 5px #FFC810;
 }
+
+.Section_Button{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+

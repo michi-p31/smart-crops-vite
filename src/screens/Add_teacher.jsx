@@ -48,7 +48,7 @@ const Add_institucion = () => {
       if (response.data.ok) {
         Swal.fire({
           icon: "success",
-          title: "Estudiante registrado",
+          title: "Maestro registrado",
           text: "El maestro ha sido registrado exitosamente.",
         });
       } else {

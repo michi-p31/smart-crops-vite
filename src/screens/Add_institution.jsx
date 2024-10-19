@@ -2,7 +2,7 @@ import Styles from "../styles/Add_institution.module.css";
 import NavBar from "../components/NavBar_Administrator";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Add_institucion = () => {
   const [name, setName] = useState("");
@@ -11,12 +11,14 @@ const Add_institucion = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/v1/register_Institutions",
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/register_Institutions",
         {
           Name_Institution: name,
           Email: email,
         }
       );
+
       if (response.data.ok) {
         Swal.fire({
           icon: "success",

@@ -4,7 +4,7 @@ import NavBar from '../components/NavBar_Administrator';
 import axios from 'axios';
 
 export const Administrator_list_institutions = () => {
-  const [institutions, setInstitutions] = useState([]);
+  const [institutions, setInstitutions] = useState([]); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +28,10 @@ export const Administrator_list_institutions = () => {
             <p>Codigo de la institucion: {institution.Id_Institution}</p>
             <p>Nombre de la institucion: {institution.Name_institution}</p>
           </div>
-          <button className={Styles.Button_edit}>Editar</button>
+        <div className={Styles.Section_Button}>
+        <button className={Styles.Button_edit}>Editar</button>
+        <button className={Styles.Button_edit}>Eliminar</button>
+        </div>
         </div>
       ))}
     </>
