@@ -2,6 +2,8 @@ import NavBar from "../components/NavBar_Administrator";
 import styles from "../styles/Administrator_class.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
+
 
 const Administrator_class = () => {
   const [classes, setClasses] = useState([]);
@@ -19,6 +21,26 @@ const Administrator_class = () => {
     };
     fetchData();
   }, []);
+
+  const handleDelete = async(id) => {
+    try {
+      const response = await axios.delete(`http://localhost:5000/api/v1/deleteClass/${id}`)
+      if(response.data.ok){
+        Swal.fire({
+          icon: "success",
+          title: "Clase eliminada",
+          text: "La clase ha sido eliminada exitosamente.",
+        });
+      }
+    } catch (error) {
+      console.log(error)
+      Swal.fire({
+        icon: "error",
+        title: "La clase no ha sido eliminada",
+        text: "La clase no ha sido eliminada exitosamente.",
+      });
+    }
+  }
   return (
     <>
       <NavBar />
@@ -31,7 +53,7 @@ const Administrator_class = () => {
           </div>
           <div className={styles.Section_Buttons}>
             <button className={styles.Button_edit}>Editar</button>
-            <button className={styles.Button_edit}>Eliminar</button>
+            <button onClick={()=>handleDelete(Class.Id_Class)} className={styles.Button_edit}>Eliminar</button>
           </div>
         </div>
       ))}
