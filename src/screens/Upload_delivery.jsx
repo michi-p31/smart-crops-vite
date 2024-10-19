@@ -6,21 +6,21 @@ import Navbar from '../components/menu';
 
 const UploadDelivery = () => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [comments, setComments] = useState(''); // Estado para almacenar los comentarios
+  const [comments, setComments] = useState(''); //para almacenar los comentarios
 
   const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]); // Guarda el archivo seleccionado
+    setSelectedFile(event.target.files[0]); // esto guarda el archivo seleccionado
   };
 
   const handleCommentsChange = (event) => {
-    setComments(event.target.value); // Guarda el comentario ingresado
+    setComments(event.target.value); // aqui se guarda  el comentario ingresado
   };
 
   const handleSubmit = async () => {
     if (selectedFile) {
       const formData = new FormData();
       formData.append('file', selectedFile); // Añade el archivo al formData
-      formData.append('student_id', 32); // Añadir el ID del estudiante
+      formData.append('student_id', 41); // Añadir el ID del estudiante
       formData.append('week_no', 12); // Añadir el número de la semana
       formData.append('comments', comments); // Añade el comentario al formData
 
@@ -30,7 +30,7 @@ const UploadDelivery = () => {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
-        });
+        });// conectar al backend
         alert('El archivo PDF ha sido subido correctamente');
         console.log('Respuesta del servidor:', response.data);
       } catch (error) {
@@ -66,8 +66,8 @@ const UploadDelivery = () => {
           <textarea
             id="comments"
             className={styles.textarea}
-            value={comments} // Enlaza el valor del textarea al estado
-            onChange={handleCommentsChange} // Actualiza el estado cuando cambie el valor
+            value={comments} 
+            onChange={handleCommentsChange}
           />
         </div>
       </div>
