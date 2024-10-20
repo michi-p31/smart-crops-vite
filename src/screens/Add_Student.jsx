@@ -88,7 +88,7 @@ export const Add_Student = () => {
                         <input type="text" className={Styles.textInput} value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className={Styles.Space_data}>
-                        <label className={Styles.contenido}>Codigo de la institucion:</label>
+                        <label className={Styles.contenido}>Nombre de la institucion:</label>
                         <select className={Styles.Data} value={selectedInstitution} onChange={(e) => setSelectedInstitution(e.target.value)}>
                             <option value="">Seleccione una institución</option>
                             {institutions.map((Int) => (
@@ -97,7 +97,7 @@ export const Add_Student = () => {
                         </select>
                     </div>
                     <div className={Styles.Space_data}>
-                        <label className={Styles.contenido}>Codigo de la clase:</label>
+                        <label className={Styles.contenido}>Nombre de la clase:</label>
                         <select className={Styles.Data} value={selectedClass} onChange={(e) => setSelectedClass(e.target.value)}>
                             <option value="">Seleccione una clase</option>
                             {classes.map((cls) => (

@@ -46,17 +46,18 @@ const Student = () => {
             </Link>
             <Link to ="/Administrator/Student"> <button className={styles.ver}>Ver Estudiantes</button></Link>
           </div>
-          <div className={styles.cardCategorie}>
-            <Link to="/Administrator/Add_matera">
-              <img src={plant} alt="Agregar Matera" />
-              <h1>Agregar Matera</h1>
-            </Link>
-            <Link to ="/Administrator/Matera"><button className={styles.ver}>Ver Materas</button></Link>
-          </div>
         </div>
       </section>
     </div>
   );
 }
+
+//<div className={styles.cardCategorie}>
+//<Link to="/Administrator/Add_matera">
+//<img src={plant} alt="Agregar Matera" />
+//<h1>Agregar Matera</h1>
+//</Link>
+//<Link to ="/Administrator/Matera"><button className={styles.ver}>Ver Materas</button></Link>
+//</div>
 
 export default Student;
