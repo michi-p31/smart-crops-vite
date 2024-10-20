@@ -8,10 +8,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Student_Info = ({ Student_Name, deliveryFileName }) => {
-    // Construimos la URL completa del archivo PDF
     const handleDownload = () => {
+        //url del backen para obtener el documento
         const fileUrl = `http://localhost:5000/uploads/${deliveryFileName}`;
-        window.open(fileUrl, '_blank');  // Abre el archivo en una nueva pestaña o lo descarga
+        window.open(fileUrl, '_blank');  // abrir el pdf en una nueva pestaña 
     };
 
     return (
@@ -26,19 +26,19 @@ const Student_Info = ({ Student_Name, deliveryFileName }) => {
     );
 };
 
+// definir y recibir los datos 
 Student_Info.propTypes = {
     Student_Name: PropTypes.string.isRequired,
-    deliveryFileName: PropTypes.string.isRequired,  // Este prop contiene el nombre del archivo
+    deliveryFileName: PropTypes.string.isRequired,  // nombre del archivo subido 
 };
-
 export const Student_deliver = () => {
-    const [deliveryFileName, setDeliveryFileName] = useState('');
+    const [deliveryFileName, setDeliveryFileName] = useState('');  // para almacenar el nombre del pdf desde el backend 
 
     useEffect(() => {
-        // Llamada a la API para obtener el nombre del archivo para el estudiante
-        axios.get('http://localhost:5000/api/v1/Student_Deliveries/41')
+        // para obtener detalles del estudiante que envio el pdf
+        axios.get('http://localhost:5000/api/v1/Show_Deliveries/41')  // ejemplo del id de estudiante 
             .then(response => {
-                setDeliveryFileName(response.data.file_name);
+                setDeliveryFileName(response.data[0].file_name); 
             })
             .catch(error => {
                 console.error('Error al obtener los datos de la entrega:', error);
