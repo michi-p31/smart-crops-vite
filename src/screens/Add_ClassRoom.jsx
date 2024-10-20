@@ -67,12 +67,12 @@ export const Add_ClassRoom = () => {
         <h1>¡AGREGAR CLASE!</h1>
         <form className={Styles.Add_ClassRoom} onSubmit={handleSubmit}>
           <div className={Styles.Information}>
-            <p>Codigo de la institución:</p>
+            <p>Nombre de la institución:</p>
             <select
               value={selectedInstitution}
               onChange={(e) => setSelectedInstitution(e.target.value)}
             >
-              <option value="">Seleccione una institución</option>
+              <option value="" disabled>Seleccione una institución</option>
               {institutions.map((Int) => (
                 <option key={Int.Id_Institution} value={Int.Id_Institution}>
                   {Int.Name_institution}

@@ -112,12 +112,12 @@ const Add_institucion = () => {
             />
           </div>
           <div className={Styles.Information}>
-            <p>Codigo de la institucion:</p>
+            <p>Nombre de la institucion:</p>
             <select
               value={selectedInstitution}
               onChange={(e) => setSelectedInstitution(e.target.value)}
             >
-              <option value="">Seleccione una institución</option>
+              <option value="" disabled>Seleccione una institución</option>
               {institutions.map((Int) => (
                 <option key={Int.Id_Institution} value={Int.Id_Institution}>
                   {Int.Name_institution}
@@ -126,12 +126,12 @@ const Add_institucion = () => {
             </select>
           </div>
           <div className={Styles.Information}>
-            <p>Codigo de la Clase:</p>
+            <p>Nombre de la Clase:</p>
             <select
               value={selectedClass}
               onChange={(e) => setSelectedClass(e.target.value)}
             >
-              <option value="">Seleccione una clase</option>
+              <option value="" disabled>Seleccione una clase</option>
               {classes.map((cls) => (
                 <option key={cls.Id_Class} value={cls.Id_Class}>
                   {cls.Class_Name}

@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 
 const Administrator_student = () => {
   const [students, setStudents] = useState([]);
+  const [classes, setClasses] = useState([]);
+  const [institutions, setInstitutions] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,13 +15,87 @@ const Administrator_student = () => {
         const response = await axios.get(
           "http://localhost:5000/api/v1/getStudents"
         );
+        const responseClasses = await axios.get(
+          "http://localhost:5000/api/v1/getClasses"
+        );
+        const responseInstitutions = await axios.get(
+          "http://localhost:5000/api/v1/getInstitutions"
+        );
         setStudents(response.data);
+        setClasses(responseClasses.data);
+        setInstitutions(responseInstitutions.data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
   }, []);
+
+  const handleEdit = async (student) => {
+    const { value: formValues } = await Swal.fire({
+      title: "Editar Estudiante",
+      html: `
+        <input id="swal-input1" class="swal2-input" value="${
+          student.Name_user || ""
+        }" placeholder="Nombre del estudiante">
+        <input id="swal-input2" class="swal2-input" value="${
+          student.Email || ""
+        }" placeholder="Email del estudiante">
+        <input id="swal-input3" class="swal2-input" value="${
+          student.Password || ""}" placeholder="Nueva contraseña "> 
+      `+
+      `<select id="swal-input4" class="swal2-select" style="width: 90%; max-width:80px; padding: 10px;">
+            ${institutions.map(inst => `<option value="${inst.Id_Institution}" ${inst.Id_Institution === student.Id_Institution ? 'selected' : ''}>${inst.Name_institution}</option>`).join('')}
+         </select>`+
+      `<select id="swal-input5" class="swal2-select" style="width: 90%; max-width:80px; padding: 10px;">
+            ${classes.map(clas => `<option value="${clas.Id_Class}" ${clas.Id_Class === student.Id_Class ? 'selected' : ''}>${clas.Class_Name}</option>`).join('')}
+         </select>`,
+      focusConfirm: false,
+      preConfirm: () => {
+        return [
+          document.getElementById("swal-input1").value,
+          document.getElementById("swal-input2").value,
+          document.getElementById("swal-input3").value, // Nueva contraseña (opcional)
+          document.getElementById("swal-input4").value,
+          document.getElementById("swal-input5").value
+        ];
+      },
+    });
+
+    if (formValues) {
+      const [UserName, Email, Password, Id_Institution, Id_Class] = formValues;
+
+      try {
+        const response = await axios.put(
+          `http://localhost:5000/api/v1/updateStudent/${student.Id_user}`,
+          {
+            UserName,
+            Email,
+            Password, // Nueva contraseña (si la hay)
+            Id_Institution,
+            Id_Class
+          }
+        );
+
+        if (response.data.ok) {
+          Swal.fire({
+            icon: "success",
+            title: "Estudiante actualizado",
+            text: "El estudiante ha sido actualizado exitosamente.",
+          }).then(() => {
+            window.location.reload(); // Recarga la página para ver los cambios
+          });
+        }
+      } catch (error) {
+        console.log(error)
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Hubo un problema al actualizar el estudiante.",
+        });
+      }
+    }
+  };
 
   const handleDelete = async(id) => {
     try {
@@ -54,7 +130,7 @@ const Administrator_student = () => {
             <p>Email del estudiante: {student.Email}</p>
           </div>
           <div className={styles.Section_Buttons}>
-            <button className={styles.Button_edit}>Editar</button>
+            <button onClick={()=>handleEdit(student)} className={styles.Button_edit}>Editar</button>
             <button onClick={()=>handleDelete(student.Id_user)} className={styles.Button_edit}>Eliminar</button>
           </div>
         </div>

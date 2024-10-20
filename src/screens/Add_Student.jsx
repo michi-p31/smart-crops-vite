@@ -90,7 +90,7 @@ export const Add_Student = () => {
                     <div className={Styles.Space_data}>
                         <label className={Styles.contenido}>Nombre de la institucion:</label>
                         <select className={Styles.Data} value={selectedInstitution} onChange={(e) => setSelectedInstitution(e.target.value)}>
-                            <option value="">Seleccione una institución</option>
+                            <option value="" disabled>Seleccione una institución</option>
                             {institutions.map((Int) => (
                                 <option key={Int.Id_Institution} value={Int.Id_Institution}>{Int.Name_institution}</option>
                             ))}
@@ -99,7 +99,7 @@ export const Add_Student = () => {
                     <div className={Styles.Space_data}>
                         <label className={Styles.contenido}>Nombre de la clase:</label>
                         <select className={Styles.Data} value={selectedClass} onChange={(e) => setSelectedClass(e.target.value)}>
-                            <option value="">Seleccione una clase</option>
+                            <option value="" disabled>Seleccione una clase</option>
                             {classes.map((cls) => (
                                 <option key={cls.Id_Class} value={cls.Id_Class}>{cls.Class_Name}</option>
                             ))}

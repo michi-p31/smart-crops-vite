@@ -3,18 +3,28 @@ import Styles from "../styles/Administrator_Teachers.module.css";
 import NavBar from "../components/NavBar_Administrator";
 import axios from "axios";
 import Swal from "sweetalert2";
-
 import { useEffect, useState } from "react";
 
 export const Administrator_teachers = () => {
   const [teachers, setTeachers] = useState([]);
-
+  const [classes, setClasses] = useState([]);
+  const [institutions, setInstitutions] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/v1/getTeachers"); 
+        const response = await axios.get(
+          "http://localhost:5000/api/v1/getTeachers"
+        );
+        const responseClasses = await axios.get(
+          "http://localhost:5000/api/v1/getClasses"
+        );
+        const responseInstitutions = await axios.get(
+          "http://localhost:5000/api/v1/getInstitutions"
+        );
         setTeachers(response.data);
+        setClasses(responseClasses.data);
+        setInstitutions(responseInstitutions.data);
       } catch (error) {
         console.log(error);
       }
@@ -22,7 +32,72 @@ export const Administrator_teachers = () => {
     fetchData();
   }, []);
 
- 
+  const handleEdit = async (teacher) => {
+    const { value: formValues } = await Swal.fire({
+      title: "Editar Maestro",
+      html: `
+        <input id="swal-input1" class="swal2-input" value="${
+          teacher.Name_user || ""
+        }" placeholder="Nombre del maestro">
+        <input id="swal-input2" class="swal2-input" value="${
+          teacher.Email || ""
+        }" placeholder="Email del maestro">
+        <input id="swal-input3" class="swal2-input" value="${
+          teacher.Password || ""}" placeholder="Nueva contraseña (dejar en blanco si no desea cambiar)"> 
+      `+
+      `<select id="swal-input4" class="swal2-select" style="width: 90%; max-width:80px; padding: 10px;">
+            ${institutions.map(inst => `<option value="${inst.Id_Institution}" ${inst.Id_Institution === teacher.Id_Institution ? 'selected' : ''}>${inst.Name_institution}</option>`).join('')}
+         </select>`+
+      `<select id="swal-input5" class="swal2-select" style="width: 90%; max-width:80px; padding: 10px;">
+            ${classes.map(clas => `<option value="${clas.Id_Class}" ${clas.Id_Class === teacher.Id_Class ? 'selected' : ''}>${clas.Class_Name}</option>`).join('')}
+         </select>`,
+      focusConfirm: false,
+      preConfirm: () => {
+        return [
+          document.getElementById("swal-input1").value,
+          document.getElementById("swal-input2").value,
+          document.getElementById("swal-input3").value, // Nueva contraseña (opcional)
+          document.getElementById("swal-input4").value,
+          document.getElementById("swal-input5").value
+        ];
+      },
+    });
+
+    if (formValues) {
+      const [UserName, Email, Password, Id_Institution, Id_Class] = formValues;
+
+      try {
+        const response = await axios.put(
+          `http://localhost:5000/api/v1/updateTeacher/${teacher.Id_user}`,
+          {
+            UserName,
+            Email,
+            Password, // Nueva contraseña (si la hay)
+            Id_Institution,
+            Id_Class
+          }
+        );
+
+        if (response.data.ok) {
+          Swal.fire({
+            icon: "success",
+            title: "Maestro actualizado",
+            text: "El maestro ha sido actualizado exitosamente.",
+          }).then(() => {
+            window.location.reload(); // Recarga la página para ver los cambios
+          });
+        }
+      } catch (error) {
+        console.log(error)
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Hubo un problema al actualizar el maestro.",
+        });
+      }
+    }
+  };
+
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(
@@ -58,7 +133,12 @@ export const Administrator_teachers = () => {
             <p>Email del maestro: {teacher.Email}</p>
           </div>
           <div className={Styles.Section_Buttons}>
-            <button className={Styles.Button_edit}>Editar</button>
+            <button
+              onClick={() => handleEdit(teacher)}
+              className={Styles.Button_edit}
+            >
+              Editar
+            </button>
             <button
               onClick={() => handleDelete(teacher.Id_user)}
               className={Styles.Button_edit}
