@@ -6,6 +6,10 @@ import comment from "../assets/images/comentario.png";
 import styles from "../styles/Classroom_teacher.module.css";
 import Navbar from '../components/menu'
 
+const ID_CLASE = localStorage.getItem("Id_Class");
+console.log("Id_Class obtenido de localStorage:", ID_CLASE); 
+
+
 const Teacher = () => {
   return (
     <div className={styles.pageContainer}>
@@ -26,12 +30,12 @@ const Teacher = () => {
             </Link>
           </div>
           <div className={styles.cardCategorie}>
-            <Link to="/ClassRoom_Teacher/Students">
+            <Link to={`/ClassRoom_Teacher/${ID_CLASE}/Students`}>
               <img src={comment} alt="Estudiantes icon" />
               <h1>Estudiates</h1>
             </Link>
           </div>
-        </div>
+        </div> 
       </section>
     </div>
   );

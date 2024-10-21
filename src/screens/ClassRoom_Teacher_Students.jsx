@@ -5,6 +5,9 @@ import NavBar from '../components/menu';
 import Styles from '../styles/ClassRoom_Teacher_Students.module.css';
 import PropTypes from 'prop-types';
 
+const ID_CLASE = localStorage.getItem("Id_Class");
+console.log("Id_Class obtenido de localStorage:", ID_CLASE); 
+
 const Student = ({ Student_Name }) => {
   return (
     <div className={Styles.Student}>
@@ -20,7 +23,6 @@ Student.propTypes = {
 
 // para mostrarlos datos por clase
 export const ClassRoom_Teacher_Students = () => {
-  const { id_class } = useParams();  // se obtiene la clase por la ruta
   const [students, setStudents] = useState([]);  // estado de los estudiantes
   const [loading, setLoading] = useState(true);  // para cuadno se demora la respuesta un loading
   const [error, setError] = useState(null);  // para los errores
@@ -28,7 +30,7 @@ export const ClassRoom_Teacher_Students = () => {
   // para obtener los estudiantes por clase 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/v1/classroom/${id_class}/students`);
+      const response = await axios.get(`http://localhost:5000/api/v1/classroom/${ID_CLASE}/students`);
       const data = Array.isArray(response.data) ? response.data : [];  // datos por medio de un arreglo 
       setStudents(data);  // se actualia el estado de los estudiantes 
       setLoading(false);  // para no mostrar inidcador de carga 
@@ -41,7 +43,7 @@ export const ClassRoom_Teacher_Students = () => {
   // para obtener los estudiantes cuando se carga el componente
   useEffect(() => {
     fetchStudents();
-  }, [id_class]);
+  }, []);
 
   return (
     <>

@@ -24,6 +24,7 @@ export const Login = () => {
             if (response.data.ok) {
                 localStorage.setItem("token", response.data.token);
                 localStorage.setItem("role", response.data.rol);
+                localStorage.setItem("Id_Class" , response.data.id_class)
 
                 Swal.fire({
                     icon: "success",
