@@ -3,12 +3,19 @@ import Styles from '../styles/Administrator_institution.module.css';
 import NavBar from '../components/NavBar_Administrator';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
-const token = localStorage.getItem("token");
-console.log("Token obtenido de localStorage:", token); 
+import { useLocation } from 'react-router-dom';
 
 export const Administrator_list_institutions = () => {
   const [institutions, setInstitutions] = useState([]);
+  const token = localStorage.getItem("token");
+  const location = useLocation();
+
+  useEffect(() => {
+    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
 
   useEffect(() => {
     const fetchData = async () => {

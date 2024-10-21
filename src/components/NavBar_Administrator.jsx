@@ -13,6 +13,13 @@
     import { Link } from 'react-router-dom';
     import { GiExitDoor } from "react-icons/gi";
 
+    const handleLogout = () => {
+        localStorage.removeItem("token"); 
+        localStorage.removeItem("role");
+        localStorage.removeItem("Id_Class");
+        window.location.href = "/login";  
+      };
+      
 
     const NavBar_Administrator = () => {
         //  visibilidad del menú
@@ -61,7 +68,7 @@
                         )}
                         <div className={Styles.login}>
                             <GiExitDoor size={20} className={Styles.iconLogin} />
-                            <Link to="/Login">Log out</Link>
+                            <Link onClick={handleLogout}>Log out</Link>
                         </div>
                     </div>
                 </header>

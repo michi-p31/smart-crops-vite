@@ -1,11 +1,10 @@
 import styles from "../styles/Report_student.module.css";
-import Navbar from '../components/menu';
+import Navbar from '../components/NavBar_Student';
 import { useState } from "react"; 
 import { jsPDF } from "jspdf";//libreria para poder generar el pdf
 import html2canvas from "html2canvas";
 import ImageUploader from "../components/UploaderImage";
 import {  useEffect } from "react"; 
-
 
   const FormularioPlanta = () => {
     const [formData, setFormData] = useState({

@@ -1,14 +1,22 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom'; 
-import NavBar from '../components/menu';
+import NavBar from '../components/NavBar_Teacher';
 import Styles from '../styles/ClassRoom_Teacher_Students.module.css';
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
-const ID_CLASE = localStorage.getItem("Id_Class");
-console.log("Id_Class obtenido de localStorage:", ID_CLASE); 
 
 const Student = ({ Student_Name }) => {
+  const location = useLocation();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
   return (
     <div className={Styles.Student}>
       <p>{Student_Name}</p>
@@ -29,6 +37,7 @@ export const ClassRoom_Teacher_Students = () => {
 
   // para obtener los estudiantes por clase 
   const fetchStudents = async () => {
+    const ID_CLASE = localStorage.getItem("Id_Class");
     try {
       const response = await axios.get(`http://localhost:5000/api/v1/classroom/${ID_CLASE}/students`);
       const data = Array.isArray(response.data) ? response.data : [];  // datos por medio de un arreglo 

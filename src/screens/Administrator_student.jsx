@@ -3,14 +3,22 @@ import styles from "../styles/Administrator_student.module.css";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
-
-const token = localStorage.getItem("token");
-console.log("Token obtenido de localStorage:", token); 
+import { useLocation } from "react-router-dom";
 
 const Administrator_student = () => {
   const [students, setStudents] = useState([]);
   const [classes, setClasses] = useState([]);
   const [institutions, setInstitutions] = useState([]);
+  const location = useLocation();
+  const token = localStorage.getItem("token");
+
+
+  useEffect(() => {
+    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
 
   useEffect(() => {
     const fetchData = async () => {

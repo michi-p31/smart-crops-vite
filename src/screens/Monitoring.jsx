@@ -1,7 +1,18 @@
 import MonitoringStyles from '../styles/Monitoring.module.css'
 import MonitoringImage from '../assets/images/Icon_Monitoring.png'
-import NavBar from '../components/menu'
+import NavBar from '../components/NavBar_Teacher'
+import { useLocation } from 'react-router-dom'
+
 export const Monitoring = () => {
+  const location = useLocation();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
   return (
     <>
     <div className={MonitoringStyles.MonitoringContainer}>

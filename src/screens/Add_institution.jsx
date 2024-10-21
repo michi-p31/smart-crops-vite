@@ -3,11 +3,21 @@ import NavBar from "../components/NavBar_Administrator";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Add_institucion = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const location = useLocation();
+  const token = localStorage.getItem("token");
 
+
+  useEffect(() => {
+    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

@@ -1,11 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 import plant from "../assets/images/planta.png";
 import form from "../assets/images/formulario.png";
 import comment from "../assets/images/comentario.png";
 import styles from "../styles/Classroom_student.module.css";
-import Navbar from '../components/menu';
+import Navbar from '../components/NavBar_Student';
+import { useLocation } from 'react-router-dom';
 
 const Student = () => {
+  const location = useLocation();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
   return (
     <div className={styles.pageContainer}>
       <Navbar />
@@ -20,7 +30,7 @@ const Student = () => {
           </div>
           <div className={styles.cardCategorie}>
             <Link to="/ClassRoom_Student/Report">
-              <img src={form} alt="Formulario monitoreo" />
+              <img src={form} alt="Formulario monitoreo" /> 
               <h1>Formulario monitoreo</h1>
             </Link>
           </div>

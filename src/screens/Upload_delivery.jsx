@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import styles from '../styles/Upload_delivery.module.css';
 import { FaPlus } from 'react-icons/fa';
-import Navbar from '../components/menu';
+import Navbar from '../components/NavBar_Student';
 
 const UploadDelivery = () => {
   const [selectedFile, setSelectedFile] = useState(null);

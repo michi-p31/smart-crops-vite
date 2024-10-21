@@ -4,13 +4,22 @@ import plant from "../assets/images/planta.png";
 import form from "../assets/images/formulario.png";
 import comment from "../assets/images/comentario.png";
 import styles from "../styles/Classroom_teacher.module.css";
-import Navbar from '../components/menu'
-
-const ID_CLASE = localStorage.getItem("Id_Class");
-console.log("Id_Class obtenido de localStorage:", ID_CLASE); 
+import Navbar from '../components/NavBar_Teacher'
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 const Teacher = () => {
+  const location = useLocation();
+  const token = localStorage.getItem("token");
+  const ID_CLASE = localStorage.getItem("Id_Class"); 
+
+  useEffect(() => {
+    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
   return (
     <div className={styles.pageContainer}>
       <Navbar/>
@@ -30,10 +39,10 @@ const Teacher = () => {
             </Link>
           </div>
           <div className={styles.cardCategorie}>
-            <Link to={`/ClassRoom_Teacher/${ID_CLASE}/Students`}>
+            <a href={`/ClassRoom_Teacher/${ID_CLASE}/Students`}>
               <img src={comment} alt="Estudiantes icon" />
               <h1>Estudiates</h1>
-            </Link>
+            </a>
           </div>
         </div> 
       </section>

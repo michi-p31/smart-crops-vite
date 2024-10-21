@@ -1,13 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import NavBar from '../components/menu'
+import NavBar from '../components/NavBar_Teacher'
 import Styles from '../styles/Deliverables.module.css'
+import { useLocation } from 'react-router-dom'
 
 const Function_redireccionar = ()=>{
     window.location.href = '/ClassRoom_Teacher/Deliveravels/Deliver_Student'
 }
 
 export const Deliverables = () => {
+  const location = useLocation();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
   return (
     <>
         <NavBar />

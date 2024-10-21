@@ -1,9 +1,19 @@
 import React from 'react'
-import NavBar from '../components/menu'
+import NavBar from '../components/NavBar_Teacher'
 import Deliveravles_Styles from '../styles/Deliverables.module.css'
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 export const Deliverables_Home = () => {
+    const location = useLocation();
+    const token = localStorage.getItem("token");
+
+    useEffect(() => {
+      // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+      if (!token && location.pathname !== "/login") {
+        window.location.href = "/login";
+      }
+    }, [token, location]);
     return (
         <>
             <NavBar />

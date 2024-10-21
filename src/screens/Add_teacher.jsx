@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar_Administrator";
 import Swal from "sweetalert2";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const Add_institucion = () => {
   const [name, setName] = useState("");
@@ -12,6 +13,16 @@ const Add_institucion = () => {
   const [selectedInstitution, setSelectedInstitution] = useState("");
   const [classes, setClasses] = useState([]);
   const [selectedClass, setSelectedClass] = useState("");
+  const location = useLocation();
+  const token = localStorage.getItem("token");
+
+
+  useEffect(() => {
+    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
 
   useEffect(() => {
     const fetchData = async () => {

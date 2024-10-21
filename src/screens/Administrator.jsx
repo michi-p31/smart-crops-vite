@@ -6,8 +6,20 @@ import aula from "../assets/images/aula.png";
 import estudiante from "../assets/images/estudiante.png";
 import styles from "../styles/Administrator.module.css";
 import NavBar_Administrator from '../components/NavBar_Administrator';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Student = () => {
+  const location = useLocation();
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
+
   return ( 
     <div className={styles.pageContainer}>
       <section className={styles.topCategorias}>

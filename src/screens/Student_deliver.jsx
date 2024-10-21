@@ -1,4 +1,4 @@
-import NavBar from '../components/menu';
+import NavBar from '../components/NavBar_Student';
 import Styles from '../styles/Deliverables.module.css';
 import insignia_1 from '../assets/images/insignia_1.png';
 import insignia_2 from '../assets/images/insignia_2.png';
@@ -7,7 +7,9 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
 const Student_Info = ({ Student_Name, deliveryFileName }) => {
+
     const handleDownload = () => {
         //url del backen para obtener el documento
         const fileUrl = `http://localhost:5000/uploads/${deliveryFileName}`;

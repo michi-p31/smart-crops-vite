@@ -26,7 +26,7 @@ const Menu = () => {
             className={stylesMenu.iconSize} 
             onClick={toggleMenu}  //  clic para abrir/cerrar el menú
           />
-          <img src={logo} alt="Logo Planta" />
+          <Link to="/"><img src={logo} alt="Logo Planta" /></Link>
         </div>
         {/* Mostrar el menú solo si está abierto */}
         {isMenuOpen && (

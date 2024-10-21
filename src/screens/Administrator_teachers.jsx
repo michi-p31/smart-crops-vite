@@ -4,14 +4,22 @@ import NavBar from "../components/NavBar_Administrator";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
-
-const token = localStorage.getItem("token");
-console.log("Token obtenido de localStorage:", token); 
+import { useLocation } from "react-router-dom";
 
 export const Administrator_teachers = () => {
   const [teachers, setTeachers] = useState([]);
   const [classes, setClasses] = useState([]);
   const [institutions, setInstitutions] = useState([]);
+  const location = useLocation();
+  const token = localStorage.getItem("token");
+
+
+  useEffect(() => {
+    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
 
   useEffect(() => {
     const fetchData = async () => {
