@@ -4,6 +4,9 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
 
+const token = localStorage.getItem("token");
+console.log("Token obtenido de localStorage:", token); 
+
 const Administrator_student = () => {
   const [students, setStudents] = useState([]);
   const [classes, setClasses] = useState([]);
@@ -13,14 +16,23 @@ const Administrator_student = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/v1/getStudents"
-        );
+          "http://localhost:5000/api/v1/getStudents", {
+            headers: {
+                Authorization: `Bearer ${token}`, // Envía el token en la cabecera
+            },
+        });
         const responseClasses = await axios.get(
-          "http://localhost:5000/api/v1/getClasses"
-        );
+          "http://localhost:5000/api/v1/getClasses", {
+            headers: {
+                Authorization: `Bearer ${token}`, // Envía el token en la cabecera
+            },
+        });
         const responseInstitutions = await axios.get(
-          "http://localhost:5000/api/v1/getInstitutions"
-        );
+          "http://localhost:5000/api/v1/getInstitutions", {
+            headers: {
+                Authorization: `Bearer ${token}`, // Envía el token en la cabecera
+            },
+        });
         setStudents(response.data);
         setClasses(responseClasses.data);
         setInstitutions(responseInstitutions.data);

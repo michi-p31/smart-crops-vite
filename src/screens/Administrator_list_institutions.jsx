@@ -4,13 +4,20 @@ import NavBar from '../components/NavBar_Administrator';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+const token = localStorage.getItem("token");
+console.log("Token obtenido de localStorage:", token); 
+
 export const Administrator_list_institutions = () => {
   const [institutions, setInstitutions] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/v1/getInstitutions');
+        const response = await axios.get('http://localhost:5000/api/v1/getInstitutions', {
+          headers: {
+              Authorization: `Bearer ${token}`, // Envía el token en la cabecera
+          },
+      });
         setInstitutions(response.data);
       } catch (error) {
         console.log(error);

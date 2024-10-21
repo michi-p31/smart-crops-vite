@@ -30,10 +30,21 @@ Body{
     padding: 0;
 }
 
+.LoginContainer input{
+    font-family: "Poppins", sans-serif;
+    max-width: 60%; 
+    height: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 0px;
+    padding: 5px;
+}
+
 .form{
 background-color: #003F72;
 width: 80%; height: 80%;
-max-width: 500px; max-height: 350px ;
+max-width: 600px; max-height: 350px ;
 margin-right: auto; margin-left: auto; margin-top: 12vh;
 border-radius: 5px;
 display: flex;
@@ -42,18 +53,6 @@ align-items: center;
 justify-content: center;
 text-align: center;
 padding: 0px;
-}
-
-
-
-.user, .password{
-    font-family: "Poppins", sans-serif;
-    width: 90%;
-    height: 50px;
-    margin-top: 5px; margin-bottom: 5px;
-    border-radius: 5px;
-    border: 0px;
-    padding: 5px;
 }
 
 .buttonSend{
