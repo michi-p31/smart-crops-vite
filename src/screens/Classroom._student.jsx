@@ -5,7 +5,7 @@ import comment from "../assets/images/comentario.png";
 import styles from "../styles/Classroom_student.module.css";
 import Navbar from '../components/NavBar_Student';
 import { useLocation } from 'react-router-dom';
-
+import  { useEffect } from 'react';
 const Student = () => {
   const location = useLocation();
   const token = localStorage.getItem("token");

@@ -33,10 +33,10 @@ const Teacher = () => {
             </Link>
           </div>
           <div className={styles.cardCategorie}>
-            <Link to="/ClassRoom/Entregas">
+          <a href={`/ClassRoom_Teacher/${ID_CLASE}/Week`}>
               <img src={form} alt="Entegas Icon" />
               <h1>Entregas</h1>
-            </Link>
+          </a>
           </div>
           <div className={styles.cardCategorie}>
             <a href={`/ClassRoom_Teacher/${ID_CLASE}/Students`}>
