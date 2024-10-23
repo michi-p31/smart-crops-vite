@@ -17,6 +17,8 @@
         localStorage.removeItem("token"); 
         localStorage.removeItem("role");
         localStorage.removeItem("Id_Class");
+        localStorage.removeItem("Id_User");
+        localStorage.removeItem("Name_User")
         window.location.href = "/login";  
       };
       

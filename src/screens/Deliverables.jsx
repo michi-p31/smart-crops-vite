@@ -5,14 +5,15 @@ import Styles from '../styles/Deliverables.module.css';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
+const token = localStorage.getItem("token");
+const ID_CLASE  = localStorage.getItem("Id_Class");  // Obtener ID_CLASE de los parámetros de la URL
+
 const Function_redireccionar = () => {
     window.location.href = '/ClassRoom_Teacher/Deliveravels/Deliver_Student';
 };
 
 export const Deliverables = () => {
-  const { ID_CLASE } = useParams();  // Obtener ID_CLASE de los parámetros de la URL
   const location = useLocation();
-  const token = localStorage.getItem("token");
   const [students, setStudents] = useState([]);  // Estado para almacenar estudiantes
   const [loading, setLoading] = useState(true);  // Estado de carga
   const [error, setError] = useState(null);  // Estado para manejar errores
@@ -25,8 +26,6 @@ export const Deliverables = () => {
 
     // Función para obtener los estudiantes
     const fetchStudents = async () => {
-      if (ID_CLASE) {
-        console.log(`ID de la clase: ${ID_CLASE}`);
         try {
           const response = await axios.get(`http://localhost:5000/api/v1/classroom/${ID_CLASE}/students`);
           console.log('Respuesta de la API:', response.data);
@@ -39,7 +38,6 @@ export const Deliverables = () => {
           setLoading(false);  // Cambiar el estado de carga
         }
       }
-    };
     console.log("ID_CLASE:", ID_CLASE);  
     fetchStudents();  // Llamar a la función para obtener estudiantes
   }, [token, location, ID_CLASE]);

@@ -22,7 +22,7 @@ const StudentDeliveries = () => {
           <div key={index} className={styles.cardWeek}>
             <span className={styles.weekText}>{week}</span>
             <Link to={`/ClassRoom_Student/Deliveries/Upload_deliveries/${index + 1}`} className={styles.link}>
-              <button className={styles.buttonUpload}>
+              <button className={styles.buttonUpload}> 
                 Ingresar <span className={styles.plus}><FaPlus /></span>
               </button>
             </Link>

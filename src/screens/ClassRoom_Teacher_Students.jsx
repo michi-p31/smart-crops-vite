@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom'; 
-import NavBar from '../components/menu';
+import NavBar from '../components/NavBar_Teacher';
 import Styles from '../styles/ClassRoom_Teacher_Students.module.css';
 import PropTypes from 'prop-types';
 

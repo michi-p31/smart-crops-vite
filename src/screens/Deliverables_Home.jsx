@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import NavBar from '../components/NavBar_Teacher';
-import Deliverables_Styles from '../styles/Deliverables.module.css';
+import Deliverables_Styles from '../styles/Deliverables.module.css'; 
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -32,10 +32,10 @@ export const Deliverables_Home = () => {
 const Week = ({ Week, link }) => {
   return (
     <div className={Deliverables_Styles.Week}>
-      <Link to={link}>
+      <a href={link}>
         <p className={Deliverables_Styles.Week_Number}>{Week}</p>
         <p className={Deliverables_Styles.Emoji}>📅</p>
-      </Link>
+      </a>
     </div>
   );
 };
