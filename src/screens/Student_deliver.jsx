@@ -6,15 +6,27 @@ import insignia_3 from '../assets/images/insignia_3.png';
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams, useLocation } from 'react-router-dom'; 
 
+const token = localStorage.getItem("token");
+const ID_CLASE  = localStorage.getItem("Id_Class"); 
 
 const Student_Info = ({ Student_Name, deliveryFileName }) => {
-
     const handleDownload = () => {
-        //url del backen para obtener el documento
-        const fileUrl = `http://localhost:5000/uploads/${deliveryFileName}`;
-        window.open(fileUrl, '_blank');  // abrir el pdf en una nueva pestaña 
+        // Codifica el nombre del archivo para asegurar que los espacios y otros caracteres sean válidos en la URL
+        const fileUrl = `http://localhost:5000/uploads/${encodeURIComponent(deliveryFileName)}`;
+    
+        // Crear un enlace temporal para descargar el archivo
+        const link = document.createElement('a');
+        link.href = fileUrl;
+        link.download = deliveryFileName; // Asignar el nombre del archivo para la descarga
+        document.body.appendChild(link);
+        link.click(); // Simular clic para iniciar la descarga
+        document.body.removeChild(link); // Limpiar el enlace temporal
     };
+    
+    
+    
 
     return (
         <div className={Styles.Student_information_deliver}>
@@ -28,30 +40,59 @@ const Student_Info = ({ Student_Name, deliveryFileName }) => {
     );
 };
 
-// definir y recibir los datos 
+// Definir y recibir los datos
 Student_Info.propTypes = {
     Student_Name: PropTypes.string.isRequired,
-    deliveryFileName: PropTypes.string.isRequired,  // nombre del archivo subido 
+    deliveryFileName: PropTypes.string.isRequired,
 };
+
 export const Student_deliver = () => {
-    const [deliveryFileName, setDeliveryFileName] = useState('');  // para almacenar el nombre del pdf desde el backend 
+    const location = useLocation();
+    const [deliveryFileName, setDeliveryFileName] = useState('');
+    const [studentName, setStudentName] = useState('');
+    const { week_no, student_id } = useParams();  
 
     useEffect(() => {
-        // para obtener detalles del estudiante que envio el pdf
-        axios.get('http://localhost:5000/api/v1/Show_Deliveries/41')  // ejemplo del id de estudiante 
-            .then(response => {
-                setDeliveryFileName(response.data[0].file_name); 
-            })
-            .catch(error => {
+        if (!token && location.pathname !== "/login") {
+            window.location.href = "/login";
+        }
+    }, [location]);
+
+    useEffect(() => {
+        // Obtener entregas del estudiante
+        const fetchDelivery = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/api/v1/Show_Deliveries/${ID_CLASE}/${week_no}/${student_id}`);
+                const deliveries = response.data;
+
+                // Filtrar la entrega para encontrar la correcta
+                const deliveryData = deliveries.find(delivery =>
+                    delivery.student_id === parseInt(student_id) && delivery.week_no === parseInt(week_no)
+                );
+
+                if (deliveryData) {
+                    setDeliveryFileName(deliveryData.file_name);
+                    setStudentName(deliveryData.Name_user || '');  // asegurar que lae propiedad exista
+                } else {
+                    setStudentName(''); // se restable si no hay datos 
+                }
+            } catch (error) {
                 console.error('Error al obtener los datos de la entrega:', error);
-            });
-    }, []);
+            }
+        };
+
+        fetchDelivery();
+    }, [week_no, student_id]);
 
     return (
         <div className={Styles.Deliver}>
             <NavBar />
-            <h1 className={Styles.Tittle_Week}>Entregas semana #</h1>
-            <Student_Info Student_Name='Andres' deliveryFileName={deliveryFileName} />
+            <h1 className={Styles.Tittle_Week}>Entregas semana #{week_no}</h1>
+            {studentName ? (
+                <Student_Info Student_Name={studentName} deliveryFileName={deliveryFileName} />
+            ) : (
+                <p>No se encontraron entregas para este estudiante en esta semana.</p> 
+            )}
             <h4>Comentarios:</h4>
             <textarea type="text" />
             <h4>Insignias:</h4>

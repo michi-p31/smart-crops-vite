@@ -1,51 +1,49 @@
 import { useEffect, useState } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import NavBar from '../components/NavBar_Teacher';
 import Styles from '../styles/Deliverables.module.css';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const token = localStorage.getItem("token");
-const ID_CLASE  = localStorage.getItem("Id_Class");  // Obtener ID_CLASE de los parámetros de la URL
+const ID_CLASE  = localStorage.getItem("Id_Class"); 
 
-const Function_redireccionar = () => {
-    window.location.href = '/ClassRoom_Teacher/Deliveravels/Deliver_Student';
+const Function_redireccionar = (ID_CLASE, week_no, student_id) => {
+  window.location.href = `/ClassRoom_Teacher/Deliveravels/Deliver_Student/${ID_CLASE}/${week_no}/${student_id}`;
 };
 
 export const Deliverables = () => {
   const location = useLocation();
-  const [students, setStudents] = useState([]);  // Estado para almacenar estudiantes
-  const [loading, setLoading] = useState(true);  // Estado de carga
-  const [error, setError] = useState(null);  // Estado para manejar errores
-
+  const [students, setStudents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { week_no } = useParams();  
   useEffect(() => {
-    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
     if (!token && location.pathname !== "/login") {
       window.location.href = "/login";
     }
-
-    // Función para obtener los estudiantes
+    //  obtener estudiantes y sus fechas de entrega
     const fetchStudents = async () => {
-        try {
-          const response = await axios.get(`http://localhost:5000/api/v1/classroom/${ID_CLASE}/students`);
-          console.log('Respuesta de la API:', response.data);
-          const data = Array.isArray(response.data) ? response.data : [];  // Verificar que sea un arreglo
-          setStudents(data);  // Actualizar el estado de estudiantes
-          setLoading(false);  // Cambiar el estado de carga
-        } catch (error) {
-          console.error("Error al obtener los estudiantes:", error);
-          setError('Error al obtener los estudiantes');  // Manejar el error
-          setLoading(false);  // Cambiar el estado de carga
-        }
+      try {
+        const response = await axios.get(`http://localhost:5000/api/v1/classroom/${ID_CLASE}/weeks/${week_no}/deliveries`);
+        const data = Array.isArray(response.data) ? response.data : [];
+        console.log('Respuesta de la API:', response.data);
+        setStudents(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error al obtener los estudiantes:", error);
+        setError('Error al obtener los estudiantes');
+        setLoading(false);
       }
-    console.log("ID_CLASE:", ID_CLASE);  
-    fetchStudents();  // Llamar a la función para obtener estudiantes
-  }, [token, location, ID_CLASE]);
+    };
+
+    fetchStudents();
+  }, [token, location, ID_CLASE, week_no]);
 
   return (
     <>
       <NavBar />
-      <h1 className={Styles.Tittle_Week}>Entregas semana #</h1>
+      <h1 className={Styles.Tittle_Week}>Entregas semana #{week_no}</h1>
       
       {loading ? (
         <p>Cargando estudiantes...</p>
@@ -53,7 +51,14 @@ export const Deliverables = () => {
         <p>{error}</p>
       ) : students.length > 0 ? (
         students.map((student, index) => (
-          <Student key={index} Student_Name={student.Name_user} date='21/21/21' />
+          <Student 
+            key={index} 
+            Student_Name={student.Name_user} 
+            date={student.upload_date ? new Date(student.upload_date).toLocaleDateString() : 'Sin fecha'}
+            ID_CLASE={ID_CLASE}           
+            week_no={week_no}             
+            student_id={student.student_id} 
+          />
         ))
       ) : (
         <p>No hay estudiantes en esta clase</p>
@@ -62,21 +67,32 @@ export const Deliverables = () => {
   );
 };
 
-const Student = ({ Student_Name, date }) => {
+// Componente de estudiante con botón para redirigir a la entrega del estudiante
+const Student = ({ Student_Name, date, ID_CLASE, week_no, student_id }) => {
+  console.log('Student_id en el componente Student:', student_id); // verificar el valor recibido
   return (
-    <div className={Styles.Student}>
-      <div>
-        <p>{Student_Name}</p>
-        <p>Fecha de entrega: {date}</p>    
+      <div className={Styles.Student}>
+          <div>
+              <p>{Student_Name}</p>
+              <p>Fecha de entrega: {date}</p>    
+          </div>
+          <div>
+              <button 
+                  className={Styles.Button_Ver} 
+                  onClick={() => Function_redireccionar(ID_CLASE, week_no, student_id)}>
+                  Ver
+              </button>
+          </div>
       </div>
-      <div>
-        <button className={Styles.Button_Ver} onClick={Function_redireccionar}>Ver</button>
-      </div>
-    </div>
   );
 };
 
+//  tipos de propiedades que recibe el componente
 Student.propTypes = {
   Student_Name: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired, 
+  date: PropTypes.string.isRequired,
+  ID_CLASE: PropTypes.string.isRequired,
+  week_no: PropTypes.string.isRequired,
+  student_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired, 
 };
+

@@ -1,46 +1,55 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import NavBar from '../components/NavBar_Teacher';
-import Deliverables_Styles from '../styles/Deliverables.module.css'; 
-import { Link, useLocation } from 'react-router-dom';
+import Deliverables_Styles from '../styles/Deliverables.module.css';
 import PropTypes from 'prop-types';
 
+
+const ID_CLASE = localStorage.getItem("Id_Class"); 
 export const Deliverables_Home = () => {
-  const location = useLocation();
-  const token = localStorage.getItem("token");
-  const ID_CLASS = localStorage.getItem("Id_Class");  // Obtener ID_CLASS de localStorage
+    const [weeks, setWeeks] = useState([]);
+    console.log('ID Clase:', ID_CLASE); 
 
-  useEffect(() => {
-    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
-    if (!token && location.pathname !== "/login") {
-      window.location.href = "/login";
-    }
-  }, [token, location]);
+    useEffect(() => {
+        const fetchWeeks = async () => {
+            if (!ID_CLASE) {
+                console.error('ID de clase no está definido');
+                return;
+            }
+            try {
+              const response = await axios.get(`http://localhost:5000/api/v1/Student_Deliveries/${ID_CLASE}/Weeks`);
+              setWeeks(response.data);  
+            } catch (error) {
+                console.error('Error al obtener las semanas de entregas:', error);
+            }
+        };
 
-  return (
-    <>
-      <NavBar />
-      <h1 className={Deliverables_Styles.Tittle}>Entregas</h1>
-      {/* Pasar el ID_CLASS dinámicamente a cada link */}
-      <Week Week='Semana 1' link={`/ClassRoom_Teacher/${ID_CLASS}/Week/Deliveravels`} />
-      <Week Week='Semana 2' link={`/ClassRoom_Teacher/${ID_CLASS}/Week/Deliveravels`} />
-      <Week Week='Semana 3' link={`/ClassRoom_Teacher/${ID_CLASS}/Week/Deliveravels`} />
-      <Week Week='Semana 4' link={`/ClassRoom_Teacher/${ID_CLASS}/Week/Deliveravels`} />
-    </>
-  );
+        fetchWeeks();
+    }, []);
+
+    return (
+        <>
+            <NavBar />
+            <h1 className={Deliverables_Styles.Tittle}>Entregas</h1>
+            {weeks.map((week) => (
+                <Week key={week.week_no} Week={`Semana ${week.week_no}`} link={`/ClassRoom_Teacher/${ID_CLASE}/Week/${week.week_no}/Deliverables`} />
+            ))}
+        </>
+    );
 };
 
 const Week = ({ Week, link }) => {
-  return (
-    <div className={Deliverables_Styles.Week}>
-      <a href={link}>
-        <p className={Deliverables_Styles.Week_Number}>{Week}</p>
-        <p className={Deliverables_Styles.Emoji}>📅</p>
-      </a>
-    </div>
-  );
+    return (
+        <div className={Deliverables_Styles.Week}>
+            <a href={link}>
+                <p className={Deliverables_Styles.Week_Number}>{Week}</p>
+                <p className={Deliverables_Styles.Emoji}>📅</p>
+            </a>
+        </div>
+    );
 };
 
 Week.propTypes = {
-  Week: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired, 
+    Week: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
 };

@@ -53,8 +53,8 @@ const App = () => {
         <Route path='/ClassRoom/Monitoring' element={<Monitoring/>}/>
         <Route path='/About_us' element={<About_us/>}/>
         <Route path='/ClassRoom_Teacher/:id_class/Week' element={<Deliverables_Home/>}/>
-        <Route path='/ClassRoom_Teacher/:id_class/Week/Deliveravels' element={<Deliverables/>}/>
-        <Route path='/ClassRoom_Teacher/Deliveravels/Deliver_Student' element={<Student_deliver/>}/> 
+        <Route path='/ClassRoom_Teacher/:id_class/Week/:week_no/Deliverables' element={<Deliverables />} />
+        <Route path='/ClassRoom_Teacher/Deliveravels/Deliver_Student/:id_class/:week_no/:student_id' element={<Student_deliver/>}/> 
         <Route path='/ClassRoom_Teacher/:id_class/Students' element={<ClassRoom_Teacher_Students/>}/>
         <Route path='/Administrator' element={<Administrator/>}/>
         <Route path='/Administrator/Add_matera' element={<Add_planter/>}/>
