@@ -16,29 +16,7 @@ import crecimiento from '../assets/images/estudiante.png';
 import problemas from '../assets/images/germina.png';
 import fertilizar from '../assets/images/abono.png';
 const token = localStorage.getItem("token");
-<<<<<<< HEAD
-const ID_CLASE  = localStorage.getItem("Id_Class"); 
-
-const Student_Info = ({ Student_Name, deliveryFileName }) => {
-    const handleDownload = () => {
-        // Codifica el nombre del archivo para asegurar que los espacios y otros caracteres sean válidos en la URL
-        const fileUrl = `https://backend-smartcrops.onrender.com/uploads/${encodeURIComponent(deliveryFileName)}`;
-    
-        // Crear un enlace temporal para descargar el archivo
-        const link = document.createElement('a');
-        link.href = fileUrl;
-        link.download = deliveryFileName; // Asignar el nombre del archivo para la descarga
-        document.body.appendChild(link);
-        link.click(); // Simular clic para iniciar la descarga
-        document.body.removeChild(link); // Limpiar el enlace temporal
-    };
-    
-    
-    
-
-=======
 const Student_Info = ({ Student_Name }) => {
->>>>>>> cb38b42 (cambio de jsx y css)
     return (
         <div className={Styles.Student_information_deliver}>
             <h4>Estudiante:</h4><p>{Student_Name}</p>
