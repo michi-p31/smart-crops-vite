@@ -52,5 +52,14 @@ body {
     margin: auto;
     margin: 10px;
     border-radius: 10px;
-    height: 200px;
+    height: 180px;
 }
+
+.Section_Manage select{
+    height: 30px;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+
