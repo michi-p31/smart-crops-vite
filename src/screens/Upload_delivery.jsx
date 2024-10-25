@@ -7,13 +7,13 @@ import { useParams } from 'react-router-dom';
 const UploadDelivery = () => {
   const [comments, setComments] = useState(null); // Cambiado a null para manejar mejor la condición
   const [error, setError] = useState(''); // Para manejar errores
-  const Id_user = localStorage.getItem("Id_User");
+  const ID_USER = localStorage.getItem("Id_User");
   const nameUser = localStorage.getItem("Name_User");
   const ID_CLASS = localStorage.getItem("Id_Class");
   const { week } = useParams();
 
   useLayoutEffect(() => {
-    if (!Id_user || !nameUser || !ID_CLASS) {
+    if (!ID_USER || !nameUser || !ID_CLASS) {
       alert('Error. Redirigiendo al login...');
       window.location.href = '/login';
       return;
@@ -22,14 +22,20 @@ const UploadDelivery = () => {
     // Función para obtener el comentario del estudiante
     const fetchComments = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/v1/getComment', {
+        // Imprimir los parámetros en la consola
+        console.log("Parámetros enviados:", {
+          id_student: ID_USER,
+          week_no: week,
+        });
+
+        const response = await axios.get('https://backend-smartcrops.onrender.com/api/v1/getComment', {
           params: {
-            id_student: Id_user,
+            id_student: ID_USER,
             week_no: week,
           },
         });
         if (response.data.status === 'Success') {
-          setComments(response.data.result); // Asignamos solo el resultado
+          setComments(response.data.result[0]); // Asignamos solo el resultado
           setError(''); // Limpiamos el error
         } else {
           setComments(null); // No hay comentarios, asignamos null
@@ -42,7 +48,7 @@ const UploadDelivery = () => {
     };
 
     fetchComments();
-  }, [Id_user, nameUser, ID_CLASS, week]);
+  }, [ID_USER, nameUser, ID_CLASS, week]);
 
   return (
     <div>

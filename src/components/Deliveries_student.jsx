@@ -12,7 +12,7 @@ const StudentDeliveries = () => {
     <div>
       <Navbar />
       <div className={styles.container}>
-        <h2 className={styles.titleDeliveries}>Subir entrega</h2>
+        <h2 className={styles.titleDeliveries}>Comentarios de entregas</h2>
         {weeks.map((week, index) => (
           <div key={index} className={styles.cardWeek}>
             <span className={styles.weekText}>{week}</span>

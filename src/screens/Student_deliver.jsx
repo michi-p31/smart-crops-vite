@@ -79,7 +79,7 @@ export const Student_deliver = () => {
         }
     
         try {
-            const response = await axios.post("http://localhost:5000/api/v1/saveComment", {
+            const response = await axios.post("https://backend-smartcrops.onrender.com/api/v1/saveComment", {
                 id_student: student_id,
                 week_no,
                 comentario: comment,
