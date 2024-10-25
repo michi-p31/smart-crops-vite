@@ -37,7 +37,7 @@ const Student = () => {
           <div className={styles.cardCategorie}>
             <Link to="/ClassRoom_Student/Deliveries">
               <img src={comment} alt="Subir Entregas" />
-              <h1>Subir Entregas</h1>
+              <h1>Ver comentarios</h1>
             </Link>
           </div>
         </div>
