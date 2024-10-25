@@ -21,7 +21,7 @@ const handleLogout = () => {
     localStorage.removeItem("Id_User");
     localStorage.removeItem("Name_User")
     window.location.href = "/login";  
-  };
+};
   
 
 const NavBar_Administrator = () => {
@@ -50,7 +50,6 @@ const NavBar_Administrator = () => {
                             <nav id="nav">
                                 <ul>
                                     <li><img src={plant} alt='Monitoring'></img><Link to="/ClassRoom/Monitoring">Monitoreo</Link></li>
-                                    <li><img src={form} alt='form'></img><Link to="/ClassRoom_Student/Report">Entregas</Link></li>
                                     <li><img src={comment} alt='classroom'></img><a href={`/ClassRoom_Teacher/${ID_CLASE}/Students`}>Estudiantes</a></li>
                                 </ul>
                             </nav>

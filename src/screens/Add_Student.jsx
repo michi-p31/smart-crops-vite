@@ -40,7 +40,7 @@ export const Add_Student = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/v1/register_Student', {
+            const response = await axios.post('https://backend-smartcrops.onrender.com/api/v1/register_Student', {
                 UserName: name,
                 Email: email,
                 Password: password,

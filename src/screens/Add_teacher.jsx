@@ -46,7 +46,7 @@ const Add_institucion = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/register_Teacher",
+        "https://backend-smartcrops.onrender.com/api/v1/register_Teacher",
         {
           UserName: name,
           Email: email,

@@ -53,7 +53,7 @@ export const Administrator_list_institutions = () => {
       const [Name_institution, Email] = formValues;
 
       try {
-        const response = await axios.put(`http://localhost:5000/api/v1/updateInstitution/${InstitutionItem.Id_Institution}`, {
+        const response = await axios.put(`https://backend-smartcrops.onrender.com/api/v1/updateInstitution/${InstitutionItem.Id_Institution}`, {
           Name_institution,
           Email
         });
@@ -92,7 +92,7 @@ export const Administrator_list_institutions = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/v1/deleteInstitution/${id}`);
+      const response = await axios.delete(`https://backend-smartcrops.onrender.com/api/v1/deleteInstitution/${id}`);
       if (response.data.ok) {
         Swal.fire({
           icon: "success",

@@ -14,8 +14,8 @@ const Add_institucion = () => {
 
   useEffect(() => {
     // Si no hay token y el usuario no está ya en la página de login, redirigirlo
-    if (!token && location.pathname !== "/login") {
-      window.location.href = "/login";
+    if (!token && location.pathname !== "/Login") {
+      window.location.href = "/Login";
     }
   }, [token, location]);
   const handleSubmit = async (event) => {
@@ -80,7 +80,7 @@ const Add_institucion = () => {
           <div className={Styles.Information}>
             <p>Email de la institutcion</p>
             <input
-              type="text"
+              type="email"
               name="nombreInstitucion"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

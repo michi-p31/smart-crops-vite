@@ -15,8 +15,8 @@ export const Add_ClassRoom = () => {
 
   useEffect(() => {
     // Si no hay token y el usuario no está ya en la página de login, redirigirlo
-    if (!token && location.pathname !== "/login") {
-      window.location.href = "/login";
+    if (!token && location.pathname !== "/Login") {
+      window.location.href = "/Login";
     }
   }, [token, location]);
 

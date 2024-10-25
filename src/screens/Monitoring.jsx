@@ -1,13 +1,15 @@
-  import MonitoringStyles from "../styles/Monitoring.module.css";
+import MonitoringStyles from "../styles/Monitoring.module.css";
 import MonitoringImage from "../assets/images/Icon_Monitoring.png";
-import NavBar from "../components/NavBar_Teacher";
+import NavBarTeacher from "../components/NavBar_Teacher";
+import NavBarStudent from "../components/NavBar_Student";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from 'axios'; // Asegúrate de que axios esté instalado
+import axios from 'axios';
 
 export const Monitoring = () => {
   const location = useLocation();
   const token = localStorage.getItem("token");
+  const ROL = localStorage.getItem("role");
   const [selectedPlant, setSelectedPlant] = useState(""); // Estado para almacenar la planta seleccionada
   const [plantData, setPlantData] = useState(null); // Estado para almacenar los datos de la planta
 
@@ -51,9 +53,12 @@ export const Monitoring = () => {
     setPlantData(null); // Limpia los datos al cambiar la planta
   };
 
+  // Renderiza la barra de navegación según el rol
+  const NavBar = ROL === "Teacher" ? <NavBarTeacher /> : <NavBarStudent />;
+
   return (
     <div className={MonitoringStyles.MonitoringContainer}>
-      <NavBar />
+      {NavBar}
       <div className={MonitoringStyles.ContainerPlant}>
         <div className={MonitoringStyles.Section_Manage}>
           <select onChange={handleSelectChange} value={selectedPlant}>
@@ -79,7 +84,7 @@ export const Monitoring = () => {
             <p>💧Nivel de deposito de agua: {plantData.Nivel}</p>
           </div>
         ) : (
-          <p>Selecciona una planta y comienzara el monitoreo para ver los datos.</p>
+          <p>Selecciona una planta y comenzará el monitoreo para ver los datos.</p>
         )}
       </div>
     </div>

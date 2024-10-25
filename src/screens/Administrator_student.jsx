@@ -87,7 +87,7 @@ const Administrator_student = () => {
 
       try {
         const response = await axios.put(
-          `http://localhost:5000/api/v1/updateStudent/${student.Id_user}`,
+          `https://backend-smartcrops.onrender.com/api/v1/updateStudent/${student.Id_user}`,
           {
             UserName,
             Email,
@@ -119,7 +119,7 @@ const Administrator_student = () => {
 
   const handleDelete = async(id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/v1/deleteStudent/${id}`)
+      const response = await axios.delete(`https://backend-smartcrops.onrender.com/api/v1/deleteStudent/${id}`)
       if(response.data.ok){
         Swal.fire({
           icon: "success",
