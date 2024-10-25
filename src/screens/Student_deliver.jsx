@@ -1,14 +1,22 @@
 import NavBar from '../components/NavBar_Student';
 import Styles from '../styles/Deliverables.module.css';
-import insignia_1 from '../assets/images/insignia_1.png';
-import insignia_2 from '../assets/images/insignia_2.png';
-import insignia_3 from '../assets/images/insignia_3.png';
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom'; 
-
+import studnet from '../assets/images/students.png';
+import matera from '../assets/images/piso_termico.png';
+import fecha_m from '../assets/images/cosechar.png';
+import tipo_h from '../assets/images/cientifico.png';
+import tem from '../assets/images/tem.png';
+import goteo from '../assets/images/estado.png';
+import humedad from '../assets/images/hum.png';
+import luz from '../assets/images/solar.png';
+import riego from '../assets/images/riego.png';
+import crecimiento from '../assets/images/estudiante.png';
+import problemas from '../assets/images/germina.png';
+import fertilizar from '../assets/images/abono.png';
 const token = localStorage.getItem("token");
+<<<<<<< HEAD
 const ID_CLASE  = localStorage.getItem("Id_Class"); 
 
 const Student_Info = ({ Student_Name, deliveryFileName }) => {
@@ -28,14 +36,12 @@ const Student_Info = ({ Student_Name, deliveryFileName }) => {
     
     
 
+=======
+const Student_Info = ({ Student_Name }) => {
+>>>>>>> cb38b42 (cambio de jsx y css)
     return (
         <div className={Styles.Student_information_deliver}>
-            <div className={Styles.Student_Name}>
-                <h4>Estudiante:</h4><p>{Student_Name}</p>
-            </div>
-            <div>
-                <button onClick={handleDownload}>Descargar entrega</button>
-            </div>
+            <h4>Estudiante:</h4><p>{Student_Name}</p>
         </div>
     );
 };
@@ -43,13 +49,10 @@ const Student_Info = ({ Student_Name, deliveryFileName }) => {
 // Definir y recibir los datos
 Student_Info.propTypes = {
     Student_Name: PropTypes.string.isRequired,
-    deliveryFileName: PropTypes.string.isRequired,
 };
 
 export const Student_deliver = () => {
     const location = useLocation();
-    const [deliveryFileName, setDeliveryFileName] = useState('');
-    const [studentName, setStudentName] = useState('');
     const { week_no, student_id } = useParams();  
 
     useEffect(() => {
@@ -59,26 +62,8 @@ export const Student_deliver = () => {
     }, [location]);
 
     useEffect(() => {
-        // Obtener entregas del estudiante
         const fetchDelivery = async () => {
-            try {
-                const response = await axios.get(`http://localhost:5000/api/v1/Show_Deliveries/${ID_CLASE}/${week_no}/${student_id}`);
-                const deliveries = response.data;
-
-                // Filtrar la entrega para encontrar la correcta
-                const deliveryData = deliveries.find(delivery =>
-                    delivery.student_id === parseInt(student_id) && delivery.week_no === parseInt(week_no)
-                );
-
-                if (deliveryData) {
-                    setDeliveryFileName(deliveryData.file_name);
-                    setStudentName(deliveryData.Name_user || '');  // asegurar que lae propiedad exista
-                } else {
-                    setStudentName(''); // se restable si no hay datos 
-                }
-            } catch (error) {
-                console.error('Error al obtener los datos de la entrega:', error);
-            }
+            
         };
 
         fetchDelivery();
@@ -87,19 +72,86 @@ export const Student_deliver = () => {
     return (
         <div className={Styles.Deliver}>
             <NavBar />
+
             <h1 className={Styles.Tittle_Week}>Entregas semana #{week_no}</h1>
-            {studentName ? (
-                <Student_Info Student_Name={studentName} deliveryFileName={deliveryFileName} />
-            ) : (
-                <p>No se encontraron entregas para este estudiante en esta semana.</p> 
-            )}
-            <h4>Comentarios:</h4>
+            <div className={Styles.containerForm}>
+        <form className={Styles.form}>
+            <label className={Styles.label}>
+              <img src={studnet} className={Styles.img_entregas}/> <h2 className={Styles.subtitulo}> Nombre del estudiante:</h2>
+                <div className={Styles.parrafo}>
+                  <p>Pepito</p>
+                </div>
+            </label>
+            <label className={Styles.label}>
+            <img src={matera} className={Styles.img_entregas}/> <h2>Nombre de la matera:</h2>
+                <div className={Styles.parrafo}>
+                   <p>naturales</p> 
+                </div>
+            </label>
+            <label className={Styles.label}>
+            <img src={fecha_m} className={Styles.img_entregas}/> <h2>Fecha del Monitoreo:</h2>
+                <div className={Styles.parrafo}>
+                    <p>22</p>
+                </div>
+            </label>
+            <label className={Styles.label}>
+            <img src={tipo_h} className={Styles.img_entregas}/><h2>Tipo de Huerta:</h2> 
+                <div className={Styles.parrafo}>
+                    <p>Frutales</p>
+                </div>
+            </label>
+            <label className={Styles.label}>
+            <img src={tem} className={Styles.img_entregas}/> <h2>Temperatura de la huerta:</h2>
+                <div className={Styles.parrafo}>
+                    <p>36°</p>
+                </div>
+            </label>
+            <label className={Styles.label}>
+            <img src={goteo} className={Styles.img_entregas}/>  <h2>Goteo:</h2> 
+                <div className={Styles.parrafo}>
+                   <p>2l</p>
+                </div>
+            </label>
+            <label className={Styles.label}>
+            <img src={humedad} className={Styles.img_entregas}/> <h2>Nivel de humedad en la huerta:</h2>
+                <div className={Styles.parrafo}>
+                  <p>2l</p>
+                </div>
+            </label>
+            <label className={Styles.label}>
+            <img src={luz} className={Styles.img_entregas}/> <h2> Nivel de luz:</h2>
+                <div className={Styles.parrafo}>
+                    <p>2l</p>
+                </div>
+            </label>
+            <label className={Styles.label}>
+            <img src={riego} className={Styles.img_entregas}/>  <h2>Frecuencia de riego:</h2>
+                <div className={Styles.parrafo}>
+                    <p>2ml</p>
+                </div>
+            </label>
+            <label className={Styles.label}>
+            <img src={crecimiento} className={Styles.img_entregas}/> <h2>Observaciones de crecimiento:</h2> 
+                <div className={Styles.parrafo}>
+                    <p>2 ml</p>
+                </div>
+            </label>
+            <label className={Styles.label}>
+            <img src={problemas} className={Styles.img_entregas}/><h2>Problemas de crecimiento:</h2> 
+                <div className={Styles.parrafo}>
+                   <p>pocos</p>
+                </div>
+            </label>
+            <label className={Styles.label}>
+            <img src={fertilizar} className={Styles.img_entregas}/><h2>Notas de fertilización:</h2>
+                <div className={Styles.parrafo}>
+                    <p>ninguna</p>
+                </div>
+            </label>
+            <h2>Comentarios:</h2>
             <textarea type="text" />
-            <h4>Insignias:</h4>
-            <div className={Styles.Insignias_section}>
-                <img src={insignia_1} alt="Insignia 1" />
-                <img src={insignia_2} alt="Insignia 2" />
-                <img src={insignia_3} alt="Insignia 3" />
+            </form>
+            <button className={Styles.btn_comentario}>Enviar comentario </button>
             </div>
         </div>
     );

@@ -1,59 +1,58 @@
-.Tittle{
+.Tittle {
     font-family: "Poppins", sans-serif;
     text-align: center;
     color: #003F72;
 }
 
-.Week{
+.Week {
     width: 70%;
     background-color: #003F72;
     margin: auto;
-    margin: 1.5% auto 1.5%;
+    margin: 1.5% auto;
     padding: 10px;
     border-radius: 10px;
     font-size: 20px;
 }
 
-.Week a{
+.Week a {
     text-decoration: none;
     color: #FFC810;
     font-family: "Poppins", sans-serif;
     display: flex;
 }
 
-.Emoji{
+.Emoji {
     text-align: right;
     width: 50%;
     margin-right: 10px;
 }
 
-.Week_Number{
+.Week_Number {
     width: 50%;
     margin-left: 10px;
 }
 
-.Student{
+.Student {
     width: 70%;
     margin: auto;
     background-color: #003F72;
     padding: 20px;
     border-radius: 10px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #FFC810;
-    
 }
 
-.Tittle_Week{
+.Tittle_Week {
     text-align: center;
     margin-bottom: 5px;
     font-family: "Poppins", sans-serif;
     color: #003F72;
 }
 
-.Button_Ver{
+.Button_Ver {
     width: 100px;
     background-color: #FFC810;
     color: #003F72;
@@ -62,59 +61,107 @@
     border-radius: 2px;
 }
 
-.Button_Ver:hover{
+.Button_Ver:hover {
     background-color: #ffc710bd;
 }
 
-
-
-    /* Seccion pagina de la entrega personalizada del estudiante */
- 
-.Student_information_deliver{
+/* Sección página de la entrega personalizada del estudiante */
+.Student_information_deliver {
     margin: auto;
-    margin-top:10px ;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
+    padding: 20px; 
+    background-color: #f7f7f7; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
-.Student_information_deliver p, h4{
+.Student_information_deliver h4,
+.Student_information_deliver p {
     color: #003F72;
     font-size: 20px;
-    padding-right: 5px;
     font-family: "Poppins", sans-serif;
-    margin-bottom:10px ;
+    margin-bottom: 10px;
 }
 
-.Student_information_deliver button{
-    background-color: #003F72;
-    color: #FFC810;
-    padding: 10px;
-    font-family: "Poppins", sans-serif;
-}
-
-.Student_Name{
+/* Estilo general del contenedor del formulario */
+.containerForm {
+    padding: 20px;
+    background-color: #f7f7f7; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    margin: 20px; 
+  }
+  .label {
     display: flex;
     align-items: center;
+    justify-content: center; 
+    margin-bottom: 15px;
+    width: 100%; 
+
 }
 
-.Deliver{
-    width: 80%;
-    margin: auto;
+.label h2 {
+    font-size: 1.2rem;
+    color: #003f72;
+    margin: 0 0 5px 0;
 }
-
-.Deliver textarea{
-    width: 100%;
-    height: 200px;
+.parrafo {
+    flex-grow: 1; 
+    font-size: 1rem;
+    color: #333;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 200px; 
+    margin-top: 5%;
+    margin-left: 0; 
 }
-
-.Insignias_section{
-    display: flex;
+  textarea {
+    width: 100%; 
+    height: 100px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    resize: none; 
+    margin-top: 10px; 
+  }
+  .Tittle_Week {
+    font-size: 2rem; 
+    color: #003f72; 
+    text-align: center; 
+    margin-bottom: 20px; 
+  }
+  .navbar {
+    background-color: #003f72; 
+    padding: 10px;
+    color: #fff; 
+  }
+  .img_entregas {
+    width: 30px; 
+    height: auto;
+    margin-right: 10px; 
 }
-
-.Insignias_section img{
-    height: 80px;
-}
-
-.Insignias_section img:hover{
+  
+.btn_comentario {
+    background-color: #003F72;
+    color: #FFC810; 
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    max-width: 200px; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+.btn_comentario:hover {
+    background-color: #ffc710bd; 
+    color: #003F72;
 }
