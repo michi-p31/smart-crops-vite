@@ -3,7 +3,8 @@ import Styles from '../styles/Deliverables.module.css';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import axios from 'axios'; // Ensure axios is imported
+import axios from 'axios';
+
 import studnet from '../assets/images/students.png';
 import matera from '../assets/images/piso_termico.png';
 import fecha_m from '../assets/images/cosechar.png';
@@ -27,7 +28,6 @@ const Student_Info = ({ Student_Name }) => {
     );
 };
 
-// Definir y recibir los datos
 Student_Info.propTypes = {
     Student_Name: PropTypes.string.isRequired,
 };
@@ -36,9 +36,11 @@ export const Student_deliver = () => {
     const location = useLocation();
     const { week_no, student_id } = useParams();  
     const ID_CLASS = localStorage.getItem("Id_Class");
-    const [delivery, setDelivery] = useState(null); // State to hold delivery data
-    const [error, setError] = useState(null); // State to hold error messages
-
+    const [delivery, setDelivery] = useState(null);
+    const [error, setError] = useState(null);
+    const [comment, setComment] = useState("");
+    const Id_user = localStorage.getItem("Id_User")
+    console.log("Id_user obtenido:", Id_user); 
     useEffect(() => {
         if (!token && location.pathname !== "/login") {
             window.location.href = "/login";
@@ -55,121 +57,157 @@ export const Student_deliver = () => {
                         Student_id: student_id
                     }
                 });
-                // Check if the response is valid
                 if (response.data.ok) {
-                    setDelivery(response.data.delivery[0]); // Set the delivery data
+                    setDelivery(response.data.delivery[0]);
                 } else {
-                    setError(response.data.msg); // Handle any error messages from the API
+                    setError(response.data.msg);
                 }
             } catch (error) {
-                setError("Error al cargar los datos de la entrega."); // Display a general error
-                console.error("Error fetching delivery:", error); // Log the error for debugging
+                setError("Error al cargar los datos de la entrega.");
+                console.error("Error fetching delivery:", error);
             }
         };
 
         fetchDelivery();
     }, [week_no, student_id, ID_CLASS]);
 
+    const handleCommentSubmit = async () => {
+        //  Id_user y comment tengan valores válidos
+        if (!Id_user || !comment) {
+            alert("Por favor, completa el comentario antes de enviar.");
+            return;
+        }
+    
+        try {
+            const response = await axios.post("http://localhost:5000/api/v1/saveComment", {
+                id_student: student_id,
+                week_no,
+                comentario: comment,
+                id_user: Id_user,
+            });
+
+            if (response.data.status === "Success") {
+                alert("Comentario guardado exitosamente.");
+                setComment("");
+            } else {
+                alert("Error al guardar el comentario: " + response.data.msg);
+            }
+        } catch (error) {
+            console.error("Error al guardar el comentario:", error);
+            alert("Hubo un error al guardar el comentario. Por favor, intenta de nuevo más tarde.");
+        }
+    };
+    
+
     return (
         <div className={Styles.Deliver}>
             <NavBar />
             <h1 className={Styles.Tittle_Week}>Entregas semana #{week_no}</h1>
 
-            {error && <p className={Styles.error}>{error}</p>} {/* Display error message */}
+            {error && <p className={Styles.error}>{error}</p>}
 
-            {delivery ? ( // Conditional rendering based on the delivery data
+            {delivery ? (
                 <div className={Styles.containerForm}>
                     <form className={Styles.form}>
                         <label className={Styles.label}>
                             <img src={studnet} className={Styles.img_entregas}/> 
                             <h2 className={Styles.subtitulo}> Nombre del estudiante:</h2>
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Name_user}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Name_user}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={matera} className={Styles.img_entregas}/> 
                             <h2>Nombre de la matera:</h2>
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Nombre_Matera}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Nombre_Matera}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={fecha_m} className={Styles.img_entregas}/> 
                             <h2>Fecha del Monitoreo:</h2>
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Fecha_reporte}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Fecha_reporte}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={tipo_h} className={Styles.img_entregas}/><h2>Tipo de Huerta:</h2> 
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Tipo_Huerta}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Tipo_Huerta}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={tem} className={Styles.img_entregas}/> 
                             <h2>Temperatura de la huerta:</h2>
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Temperatura}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Temperatura}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={goteo} className={Styles.img_entregas}/>  
                             <h2>Goteo:</h2> 
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Goteo}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Goteo}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={humedad} className={Styles.img_entregas}/> 
                             <h2>Nivel de humedad en la huerta:</h2>
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Nivel_humedad}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Nivel_humedad}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={luz} className={Styles.img_entregas}/> 
                             <h2> Nivel de luz:</h2>
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Nivel_Luz}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Nivel_Luz}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={riego} className={Styles.img_entregas}/>  
                             <h2>Frecuencia de riego:</h2>
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Frecuencia_riego}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Frecuencia_riego}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={crecimiento} className={Styles.img_entregas}/> 
                             <h2>Observaciones de crecimiento:</h2> 
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Observaciones}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Observaciones}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={problemas} className={Styles.img_entregas}/>
                             <h2>Problemas de crecimiento:</h2> 
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Problemas}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Problemas}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={fertilizar} className={Styles.img_entregas}/>
                             <h2>Notas de fertilización:</h2>
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Fertilizacion}</p> {/* Dynamically rendered */}
+                                <p>{delivery.Fertilizacion}</p>
                             </div>
                         </label>
                         <h2>Comentarios:</h2>
-                        <textarea type="text" />
+                        <textarea 
+                            type="text" 
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)} 
+                        />
                     </form>
-                    <button className={Styles.btn_comentario}>Enviar comentario </button>
+                    <button 
+                        className={Styles.btn_comentario} 
+                        onClick={handleCommentSubmit}
+                    >
+                        Enviar comentario
+                    </button>
                 </div>
             ) : (
-                <p>Cargando datos de entrega...</p> // Loading state
+                <p>Cargando datos de entrega...</p>
             )}
         </div>
     );

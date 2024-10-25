@@ -5,43 +5,44 @@ import Navbar from '../components/NavBar_Student';
 import { useParams } from 'react-router-dom';
 
 const UploadDelivery = () => {
-  const [comments, setComments] = useState(''); // Para almacenar los comentarios
-  const [userId, setUserId] = useState(null);  
-  const [nameUser, setNameUser] = useState(null);
-  const [idClass, setIdClass] = useState(null); // ID de la clase
+  const [comments, setComments] = useState(null); // Cambiado a null para manejar mejor la condición
+  const [error, setError] = useState(''); // Para manejar errores
+  const Id_user = localStorage.getItem("Id_User");
+  const nameUser = localStorage.getItem("Name_User");
+  const ID_CLASS = localStorage.getItem("Id_Class");
   const { week } = useParams();
 
   useLayoutEffect(() => {
-    const storedUserId = localStorage.getItem("Id_User");
-    const storedNameUser = localStorage.getItem("Name_User");
-    const storedClassId = localStorage.getItem("Id_Class"); // Obtener ID de clase
-
-    if (storedUserId && storedNameUser && storedClassId) {
-      setUserId(storedUserId);
-      setNameUser(storedNameUser);
-      setIdClass(storedClassId); // Guardar ID de clase
-    } else {
+    if (!Id_user || !nameUser || !ID_CLASS) {
       alert('Error. Redirigiendo al login...');
-      window.location.href = '/login'; 
+      window.location.href = '/login';
+      return;
     }
-  }, []);
 
-
-  const handleUser = async () => {
-    {
-      const formData = new FormData();
-      formData.append('student_id', userId); // ID del estudiante
-      formData.append('week_no', week); // Número de la semana
-      formData.append('comments', comments); // Comentarios del estudiante
-      formData.append('name_user', nameUser); // Nombre del estudiante
-      formData.append('id_class', idClass); // ID de la clase
-
-
-        const response = await axios.post('https://backend-smartcrops.onrender.com/api/v1/Student_Deliveries', formData, {
+    // Función para obtener el comentario del estudiante
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/v1/getComment', {
+          params: {
+            id_student: Id_user,
+            week_no: week,
+          },
         });
-        console.log('Respuesta del servidor:', response.data);
+        if (response.data.status === 'Success') {
+          setComments(response.data.result); // Asignamos solo el resultado
+          setError(''); // Limpiamos el error
+        } else {
+          setComments(null); // No hay comentarios, asignamos null
+          setError(response.data.msg); // Mostramos el mensaje de error
+        }
+      } catch (error) {
+        console.error("Error al obtener comentarios:", error);
+        setError("Error al obtener comentarios del servidor."); // Mensaje de error general
       }
-    }
+    };
+
+    fetchComments();
+  }, [Id_user, nameUser, ID_CLASS, week]);
 
   return (
     <div>
@@ -50,16 +51,15 @@ const UploadDelivery = () => {
         <div className={styles.titulo_upload}>
           <h1>Entrega semana {week}</h1>
           <div className={styles.student}>
-            <h2>Profesor:</h2> <span>{nameUser}</span>
+            <h2>Estudiante:</h2> <span>{nameUser}</span>
           </div>
-        </div>
-        <div className={styles.buttons}>
         </div>
         <div className={styles.comments}>
           <label htmlFor="comments">Comentarios:</label>
-          <div className={styles.textarea}
-          value={comments} 
-          ></div>
+          <div className={styles.textarea}>
+            {error && <p className={styles.error}>{error}</p>} {/* Mensaje de error */}
+            <p>{comments ? comments.Comentario : "No hay comentarios para esta semana."}</p> {/* Mostrar comentario específico */}
+          </div>
         </div>
       </div>
     </div>
