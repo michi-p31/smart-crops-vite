@@ -84,3 +84,14 @@ html, body {
     width: 150px;
     height: 150px;
   }
+
+.enviar{
+    height: 50px;
+    border-radius: 10px;
+}
+
+.enviar:hover{
+    background-color: #ffc810;
+    color: white;
+    transition: 0.5s;
+}

@@ -20,7 +20,7 @@ export const Administrator_list_institutions = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/v1/getInstitutions', {
+        const response = await axios.get('https://backend-smartcrops.onrender.com/api/v1/getInstitutions', {
           headers: {
               Authorization: `Bearer ${token}`, // Envía el token en la cabecera
           },

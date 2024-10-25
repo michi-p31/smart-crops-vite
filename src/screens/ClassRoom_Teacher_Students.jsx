@@ -28,7 +28,7 @@ export const ClassRoom_Teacher_Students = () => {
   // para obtener los estudiantes por clase 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/v1/classroom/${id_class}/students`);
+      const response = await axios.get(`https://backend-smartcrops.onrender.com/api/v1/classroom/${id_class}/students`);
       const data = Array.isArray(response.data) ? response.data : [];  // datos por medio de un arreglo 
       setStudents(data);  // se actualia el estado de los estudiantes 
       setLoading(false);  // para no mostrar inidcador de carga 

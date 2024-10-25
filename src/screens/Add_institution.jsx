@@ -22,7 +22,7 @@ const Add_institucion = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/register_Institutions",
+        "https://backend-smartcrops.onrender.com/api/v1/register_Institutions",
         {
           Name_Institution: name,
           Email: email,

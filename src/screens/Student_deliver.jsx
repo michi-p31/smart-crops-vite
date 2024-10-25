@@ -14,7 +14,7 @@ const ID_CLASE  = localStorage.getItem("Id_Class");
 const Student_Info = ({ Student_Name, deliveryFileName }) => {
     const handleDownload = () => {
         // Codifica el nombre del archivo para asegurar que los espacios y otros caracteres sean válidos en la URL
-        const fileUrl = `http://localhost:5000/uploads/${encodeURIComponent(deliveryFileName)}`;
+        const fileUrl = `https://backend-smartcrops.onrender.com/uploads/${encodeURIComponent(deliveryFileName)}`;
     
         // Crear un enlace temporal para descargar el archivo
         const link = document.createElement('a');

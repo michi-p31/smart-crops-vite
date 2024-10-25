@@ -14,7 +14,7 @@ export const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:5000/api/v1/Login", {
+            const response = await axios.post("https://backend-smartcrops.onrender.com/api/v1/Login", {
                 Email: email,
                 Password: password,
             });

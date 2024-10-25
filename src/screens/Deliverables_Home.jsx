@@ -17,7 +17,7 @@ export const Deliverables_Home = () => {
                 return;
             }
             try {
-              const response = await axios.get(`http://localhost:5000/api/v1/Student_Deliveries/${ID_CLASE}/Weeks`);
+              const response = await axios.get(`https://backend-smartcrops.onrender.com/api/v1/Student_Deliveries/${ID_CLASE}/Weeks`);
               setWeeks(response.data);  
             } catch (error) {
                 console.error('Error al obtener las semanas de entregas:', error);

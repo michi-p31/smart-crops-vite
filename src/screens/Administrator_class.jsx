@@ -23,12 +23,12 @@ const Administrator_class = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const classResponse = await axios.get("http://localhost:5000/api/v1/getClasses", {
+        const classResponse = await axios.get("https://backend-smartcrops.onrender.com/api/v1/getClasses", {
           headers: {
               Authorization: `Bearer ${token}`, // Envía el token en la cabecera
           },
       });
-        const institutionResponse = await axios.get("http://localhost:5000/api/v1/getInstitutions", {
+        const institutionResponse = await axios.get("https://backend-smartcrops.onrender.com/api/v1/getInstitutions", {
           headers: {
               Authorization: `Bearer ${token}`, // Envía el token en la cabecera
           },

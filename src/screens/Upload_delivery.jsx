@@ -54,7 +54,7 @@ const UploadDelivery = () => {
       }
 
       try {
-        const response = await axios.post('http://localhost:5000/api/v1/Student_Deliveries', formData, {
+        const response = await axios.post('https://backend-smartcrops.onrender.com/api/v1/Student_Deliveries', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

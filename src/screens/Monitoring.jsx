@@ -22,7 +22,7 @@ export const Monitoring = () => {
   const fetchPlantData = async () => {
     if (selectedPlant) {
       try {
-        const response = await axios.post('http://localhost:5000/api/v1/monitoring', { Nombre: selectedPlant });
+        const response = await axios.post('https://backend-smartcrops.onrender.com/api/v1/monitoring', { Nombre: selectedPlant });
         setPlantData(response.data[0]); // Almacena los datos de la planta
       } catch (error) {
         console.error('Error al obtener los datos de la planta:', error);

@@ -28,10 +28,10 @@ const Add_institucion = () => {
     const fetchData = async () => {
       try {
         const institutionResponse = await axios.get(
-          "http://localhost:5000/api/v1/getInstitutions"
+          "https://backend-smartcrops.onrender.com/api/v1/getInstitutions"
         );
         const classResponse = await axios.get(
-          "http://localhost:5000/api/v1/getClasses"
+          "https://backend-smartcrops.onrender.com/api/v1/getClasses"
         );
         setInstitutions(institutionResponse.data);
         setClasses(classResponse.data);

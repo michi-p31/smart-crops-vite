@@ -25,19 +25,19 @@ export const Administrator_teachers = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/v1/getTeachers", {
+          "https://backend-smartcrops.onrender.com/api/v1/getTeachers", {
             headers: {
                 Authorization: `Bearer ${token}`, // Envía el token en la cabecera
             },
         });
         const responseClasses = await axios.get(
-          "http://localhost:5000/api/v1/getClasses", {
+          "https://backend-smartcrops.onrender.com/api/v1/getClasses", {
             headers: {
                 Authorization: `Bearer ${token}`, // Envía el token en la cabecera
             },
         });
         const responseInstitutions = await axios.get(
-          "http://localhost:5000/api/v1/getInstitutions", {
+          "https://backend-smartcrops.onrender.com/api/v1/getInstitutions", {
             headers: {
                 Authorization: `Bearer ${token}`, // Envía el token en la cabecera
             },

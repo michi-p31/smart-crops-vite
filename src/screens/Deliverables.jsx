@@ -25,7 +25,7 @@ export const Deliverables = () => {
     //  obtener estudiantes y sus fechas de entrega
     const fetchStudents = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/v1/classroom/${ID_CLASE}/weeks/${week_no}/deliveries`);
+        const response = await axios.get(`https://backend-smartcrops.onrender.com/api/v1/classroom/${ID_CLASE}/weeks/${week_no}/deliveries`);
         const data = Array.isArray(response.data) ? response.data : [];
         console.log('Respuesta de la API:', response.data);
         setStudents(data);
@@ -54,7 +54,7 @@ export const Deliverables = () => {
           <Student 
             key={index} 
             Student_Name={student.Name_user} 
-            date={student.upload_date ? new Date(student.upload_date).toLocaleDateString() : 'Sin fecha'}
+            date={student.Fecha_reporte ? new Date(student.Fecha_reporte).toLocaleDateString() : 'Sin fecha'}
             ID_CLASE={ID_CLASE}           
             week_no={week_no}             
             student_id={student.student_id} 
@@ -86,13 +86,6 @@ const Student = ({ Student_Name, date, ID_CLASE, week_no, student_id }) => {
       </div>
   );
 };
+ 
 
-//  tipos de propiedades que recibe el componente
-Student.propTypes = {
-  Student_Name: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  ID_CLASE: PropTypes.string.isRequired,
-  week_no: PropTypes.string.isRequired,
-  student_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired, 
-};
 

@@ -23,7 +23,7 @@ export const Add_ClassRoom = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const institutionResponse = await axios.get("http://localhost:5000/api/v1/getInstitutions");
+        const institutionResponse = await axios.get("https://backend-smartcrops.onrender.com/api/v1/getInstitutions");
         setInstitutions(institutionResponse.data);
       } catch (error) {
         console.log(error);
@@ -35,7 +35,7 @@ export const Add_ClassRoom = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/v1/register_Class", {
+      const response = await axios.post("https://backend-smartcrops.onrender.com/api/v1/register_Class", {
         Id_Institution: selectedInstitution,
         Name_Class: name
       });
