@@ -162,7 +162,7 @@ export const Student_deliver = () => {
                             <img src={luz} className={Styles.img_entregas}/> 
                             <h2> Nivel de luz:</h2>
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Nivel_Luz}</p>
+                                <p>{delivery.Nivel_luz}</p>
                             </div>
                         </label>
                         <label className={Styles.label}>
