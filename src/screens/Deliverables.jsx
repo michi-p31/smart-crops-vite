@@ -87,5 +87,3 @@ const Student = ({ Student_Name, date, ID_CLASE, week_no, student_id }) => {
   );
 };
  
-
-
