@@ -11,36 +11,50 @@ const Add_institucion = () => {
   const [password, setPassword] = useState("");
   const [institutions, setInstitutions] = useState([]);
   const [selectedInstitution, setSelectedInstitution] = useState("");
-  const [classes, setClasses] = useState([]);
+  const [filteredClasses, setFilteredClasses] = useState([]);
   const [selectedClass, setSelectedClass] = useState("");
   const location = useLocation();
   const token = localStorage.getItem("token");
 
-
   useEffect(() => {
-    // Si no hay token y el usuario no está ya en la página de login, redirigirlo
+    // Verifica si hay token, redirige si no hay
     if (!token && location.pathname !== "/login") {
       window.location.href = "/login";
     }
   }, [token, location]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchInstitutions = async () => {
       try {
-        const institutionResponse = await axios.get(
-          "https://backend-smartcrops.onrender.com/api/v1/getInstitutions"
-        );
-        const classResponse = await axios.get(
-          "https://backend-smartcrops.onrender.com/api/v1/getClasses"
-        );
-        setInstitutions(institutionResponse.data);
-        setClasses(classResponse.data);
+        const response = await axios.get("https://backend-smartcrops.onrender.com/api/v1/getInstitutions");
+        setInstitutions(response.data);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchData();
+    fetchInstitutions();
   }, []);
+
+  useEffect(() => {
+    const fetchFilteredClasses = async () => {
+      if (selectedInstitution) {
+        try {
+          const classResponse = await axios.get(
+            `https://backend-smartcrops.onrender.com/api/v1/getClassesByInstitution/${selectedInstitution}`
+          );
+          setFilteredClasses(classResponse.data);
+          setSelectedClass(""); // Limpiar clase seleccionada
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        setFilteredClasses([]); // Limpiar si no hay institución seleccionada
+        setSelectedClass(""); // Limpiar clase seleccionada
+      }
+    };
+  
+    fetchFilteredClasses();
+  }, [selectedInstitution]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -96,6 +110,40 @@ const Add_institucion = () => {
         <h1>¡AGREGAR MAESTRO!</h1>
         <form className={Styles.Add_Teacher} onSubmit={handleSubmit}>
           <div className={Styles.Information}>
+            <p>Nombre de la institucion:</p>
+            <select
+              value={selectedInstitution}
+              onChange={(e) => setSelectedInstitution(e.target.value)}
+            >
+              <option value="" disabled>
+                Seleccione una institución
+              </option>
+              {institutions.map((Int) => (
+                <option key={Int.Id_Institution} value={Int.Id_Institution}>
+                  {Int.Name_institution}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={Styles.Information}>
+            <p>Nombre de la Clase:</p>
+            <select
+              value={selectedClass}
+              onChange={(e) => setSelectedClass(e.target.value)}
+              disabled={!filteredClasses.length} // Desactivar si no hay clases
+            >
+              <option value="" disabled>
+                Seleccione una clase
+              </option>
+              {filteredClasses.map((cls) => (
+                <option key={cls.Id_Class} value={cls.Id_Class}>
+                  {cls.Class_Name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className={Styles.Information}>
             <p>Nombre del docente:</p>
             <input
               type="text"
@@ -122,36 +170,10 @@ const Add_institucion = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className={Styles.Information}>
-            <p>Nombre de la institucion:</p>
-            <select
-              value={selectedInstitution}
-              onChange={(e) => setSelectedInstitution(e.target.value)}
-            >
-              <option value="" disabled>Seleccione una institución</option>
-              {institutions.map((Int) => (
-                <option key={Int.Id_Institution} value={Int.Id_Institution}>
-                  {Int.Name_institution}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className={Styles.Information}>
-            <p>Nombre de la Clase:</p>
-            <select
-              value={selectedClass}
-              onChange={(e) => setSelectedClass(e.target.value)}
-            >
-              <option value="" disabled>Seleccione una clase</option>
-              {classes.map((cls) => (
-                <option key={cls.Id_Class} value={cls.Id_Class}>
-                  {cls.Class_Name}
-                </option>
-              ))}
-            </select>
-          </div>
 
-          <button className={Styles.Add_Button} type="submit">Agregar</button>
+          <button className={Styles.Add_Button} type="submit">
+            Agregar
+          </button>
         </form>
       </div>
     </>

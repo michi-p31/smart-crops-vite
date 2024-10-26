@@ -13,7 +13,7 @@ export const Deliverables_Home = () => {
     useEffect(() => {
         const fetchWeeks = async () => {
             if (!ID_CLASE) {
-                console.error('ID de clase no está definido');
+                console.error('ID de clase no está definido'); 
                 return;
             }
             try {
