@@ -4,6 +4,7 @@ import styles from '../styles/Upload_delivery.module.css';
 import Navbar from '../components/NavBar_Student';
 import { useParams } from 'react-router-dom';
 
+
 const UploadDelivery = () => {
   const [comments, setComments] = useState(null); // Cambiado a null para manejar mejor la condición
   const [error, setError] = useState(''); // Para manejar errores
@@ -11,13 +12,9 @@ const UploadDelivery = () => {
   const nameUser = localStorage.getItem("Name_User");
   const ID_CLASS = localStorage.getItem("Id_Class");
   const { week } = useParams();
+  
 
   useLayoutEffect(() => {
-    if (!ID_USER || !nameUser || !ID_CLASS) {
-      alert('Error. Redirigiendo al login...');
-      window.location.href = '/login';
-      return;
-    }
 
     // Función para obtener el comentario del estudiante
     const fetchComments = async () => {

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import {format} from 'date-fns'
 
 import studnet from '../assets/images/students.png';
 import matera from '../assets/images/piso_termico.png';
@@ -40,6 +41,7 @@ export const Student_deliver = () => {
     const [error, setError] = useState(null);
     const [comment, setComment] = useState("");
     const Id_user = localStorage.getItem("Id_User")
+
     console.log("Id_user obtenido:", Id_user); 
     useEffect(() => {
         if (!token && location.pathname !== "/login") {
@@ -81,7 +83,7 @@ export const Student_deliver = () => {
         try {
             const response = await axios.post("https://backend-smartcrops.onrender.com/api/v1/saveComment", {
                 id_student: student_id,
-                week_no,
+                week_no: week_no,
                 comentario: comment,
                 id_user: Id_user,
             });
@@ -127,8 +129,7 @@ export const Student_deliver = () => {
                             <img src={fecha_m} className={Styles.img_entregas}/> 
                             <h2>Fecha del Monitoreo:</h2>
                             <div className={Styles.parrafo}>
-                                <p>{delivery.Fecha_reporte}</p>
-                            </div>
+                            <p>{format(new Date(delivery.Fecha_reporte), 'yyyy-MM-dd')}</p>                            </div>
                         </label>
                         <label className={Styles.label}>
                             <img src={tipo_h} className={Styles.img_entregas}/><h2>Tipo de Huerta:</h2> 

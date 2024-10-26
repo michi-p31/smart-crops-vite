@@ -53,14 +53,12 @@
                                         <li><img src={teacher} alt='teacher'></img><Link to="/Administrator/Add_teacher">Agregar docente</Link></li>
                                         <li><img src={classroom} alt='classroom'></img><Link to="/Administrador/Add_ClassRoom">Agregar clase</Link></li>
                                         <li><img src={students} alt='Students'></img><Link to="/Administrador/Add_Student">Agregar estudiante</Link></li>
-                                        <li><img src={plant} alt="Planter" /><Link to='/Administrator/Add_matera'>Agregar matera</Link></li>
                                         <p></p>
                                         <p>ENLISTAR</p>
                                         <li><img src={institution} alt='institution' /><Link to='/Administrator/Institutions'>Ver instituciones</Link></li>
                                         <li><img src={teacher} alt='teacher' /><Link to='/Administrator/Teachers'>Ver docentes</Link></li>
                                         <li><img src={classroom} alt='classroom' /><Link to='/Administrator/Class'>Ver clases</Link></li>
                                         <li><img src={students} alt='Students' /><Link to='/Administrator/Student'>Ver estudiantes</Link></li>
-                                        <li><img src={plant} alt="Planter" /><Link to='/Administrator/Matera'>Ver matera</Link></li>
 
                                         <li><img src={Home} alt="Home Symbol" /><Link to='/Administrator'>Home</Link></li>
 

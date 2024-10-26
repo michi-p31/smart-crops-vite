@@ -3,17 +3,18 @@ import styles from "../styles/Report_student.module.css";
 import Navbar from "../components/NavBar_Student";
 import axios from "axios";
 import Swal from 'sweetalert2'
+import {format} from 'date-fns'
 
 const FormularioPlanta = () => {
   // Obtener el ID del usuario del localStorage
   const ID_USER = localStorage.getItem("Id_User");
   const ID_CLASS = localStorage.getItem("Id_Class");
-
+  const STUDENT_NAME = localStorage.getItem("Name_User")
+  const today = new Date();
+  const formattedDate = format(today, 'yyyy-MM-dd');
   // Estado para manejar los datos del formulario
   const [formData, setFormData] = useState({
-    nombreEstudiante: "",
     nombreMatera: "",
-    fechaMonitoreo: "",
     tipoHuerta: "",
     temperaturaHuerta: "",
     goteo: "",
@@ -42,10 +43,10 @@ const FormularioPlanta = () => {
       const response = await axios.post("https://backend-smartcrops.onrender.com/api/v1/Upload_Delivery", {
         student_id: ID_USER,
         week_no: formData.semana,  // Cambié de 'week_no' a 'semana' para que coincida
-        Name_user: formData.nombreEstudiante, // Usar el nombre del estudiante aquí
+        Name_user: STUDENT_NAME, // Usar el nombre del estudiante aquí
         Id_Class: ID_CLASS,  // Aquí se incluye el ID del estudiante del localStorage
         Nombre_Matera: formData.nombreMatera,
-        Fecha_reporte: formData.fechaMonitoreo,
+        Fecha_reporte: formattedDate,
         Tipo_Huerta: formData.tipoHuerta,
         Temperatura: formData.temperaturaHuerta,
         Goteo: formData.goteo,
@@ -75,17 +76,6 @@ const FormularioPlanta = () => {
     <div className={styles.containerForm}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label className={styles.label}>
-          Nombre del estudiante:
-          <input
-            type="text"
-            name="nombreEstudiante"
-            className={styles.input}
-            required
-            value={formData.nombreEstudiante}
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
           Nombre de la matera:
           <input
             type="text"
@@ -93,17 +83,6 @@ const FormularioPlanta = () => {
             className={styles.input}
             required
             value={formData.nombreMatera}
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          Fecha del Monitoreo:
-          <input
-            type="date"
-            name="fechaMonitoreo"
-            className={styles.input}
-            required
-            value={formData.fechaMonitoreo}
             onChange={handleChange}
           />
         </label>
