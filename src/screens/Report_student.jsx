@@ -79,6 +79,7 @@ const FormularioPlanta = () => {
           Nombre de la matera:
           <input
             type="text"
+            maxLength={30}
             name="nombreMatera"
             className={styles.input}
             required
@@ -90,6 +91,7 @@ const FormularioPlanta = () => {
           Tipo de Huerta:
           <input
             type="text"
+            maxLength={30}
             name="tipoHuerta"
             className={styles.input}
             required
@@ -101,6 +103,7 @@ const FormularioPlanta = () => {
           Temperatura de la huerta:
           <input
             type="text"
+            maxLength={30}
             name="temperaturaHuerta"
             className={styles.input}
             required
@@ -112,6 +115,7 @@ const FormularioPlanta = () => {
           Goteo:
           <input
             type="text"
+            maxLength={30}
             name="goteo"
             className={styles.input}
             required
@@ -123,6 +127,7 @@ const FormularioPlanta = () => {
           Nivel de humedad en la huerta:
           <input
             type="text"
+            maxLength={30}
             name="nivelHumedad"
             className={styles.input}
             required
@@ -134,6 +139,7 @@ const FormularioPlanta = () => {
           Nivel de luz:
           <input
             type="text"
+            maxLength={30}
             name="nivelLuz"
             className={styles.input}
             required
@@ -145,6 +151,7 @@ const FormularioPlanta = () => {
           Frecuencia de riego:
           <input
             type="text"
+            maxLength={30}
             name="frecuenciaRiego"
             className={styles.input}
             required
@@ -154,8 +161,8 @@ const FormularioPlanta = () => {
         </label>
         <label className={styles.label}>
           Observaciones de crecimiento:
-          <input
-            type="text"
+          <textarea
+          maxLength={100}
             name="notasCrecimiento"
             className={styles.input}
             required
@@ -165,8 +172,9 @@ const FormularioPlanta = () => {
         </label>
         <label className={styles.label}>
           Problemas de crecimiento:
-          <input
+          <textarea
             type="text"
+            maxLength={100}
             name="problemasCrecimiento"
             className={styles.input}
             required
@@ -176,8 +184,9 @@ const FormularioPlanta = () => {
         </label>
         <label className={styles.label}>
           Notas de fertilización:
-          <input
+          <textarea
             type="text"
+            maxLength={30}
             name="notasFertilizacion"
             className={styles.input}
             required
