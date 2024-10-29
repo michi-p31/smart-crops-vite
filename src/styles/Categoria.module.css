@@ -6,7 +6,7 @@
 
 .topCategorias h1 {
     color: #78be20;
-    font-size: 50px;
+    font-size: 5.5rem;
 }
 
 .containerCategoria {
@@ -82,4 +82,81 @@
 
 .suculentas {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/plantsimages/suculentas.png');
+}
+
+@media (max-width: 1024px) {
+    .topCategorias h1 {
+        font-size: 4rem;
+    }
+
+    .containerCategoria h2 {
+        font-size: 1.8rem;
+    }
+
+    .cardCategoria {
+        width: 130px;
+        gap: 1.5rem;
+    }
+
+    .frutales,
+    .vegetales,
+    .aromaticas,
+    .flores,
+    .especies,
+    .suculentas {
+        width: 18rem;
+        height: 9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .topCategorias h1 {
+        font-size: 3rem;
+    }
+
+    .containerCategoria h2 {
+        font-size: 1.6rem;
+    }
+
+    .cardCategoria {
+        width: 120px;
+        margin: 8px;
+        gap: 1.2rem;
+    }
+
+    .frutales,
+    .vegetales,
+    .aromaticas,
+    .flores,
+    .especies,
+    .suculentas {
+        width: 16rem;
+        height: 8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .topCategorias h1 {
+        font-size: 2.5rem;
+    }
+
+    .containerCategoria h2 {
+        font-size: 1.4rem;
+    }
+
+    .cardCategoria {
+        width: 100px;
+        margin: 5px;
+        gap: 1rem;
+    }
+
+    .frutales,
+    .vegetales,
+    .aromaticas,
+    .flores,
+    .especies,
+    .suculentas {
+        width: 14rem;
+        height: 7rem;
+    }
 }

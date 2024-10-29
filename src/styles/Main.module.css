@@ -1,7 +1,6 @@
-
 .container_cover {
     width: 100%;
-    height: 500px;
+    height: 50vh; 
 }
 
 .menu #boton_menu {
@@ -9,7 +8,7 @@
 }
 
 .cover {
-    max-width: 1200px;
+    max-width: 90%;
     height: 100%;
     margin: auto;
     display: flex;
@@ -22,14 +21,15 @@
 }
 
 .text h1 {
-    font-size: 36px;
+    font-size: 2.5rem;
     font-weight: 600;
     color: #78be20;
+    margin-top: 10%;
 }
 
-.parrafo  {
-    font-size: 20px;
-    margin-top: 30px;
+.parrafo {
+    font-size: 1.3rem;
+    margin-top: 10%;
     flex-direction: column;
     justify-content: center;
     text-align: left;
@@ -37,22 +37,64 @@
 }
 
 .svg img {
-    width: 700px;
+    width: 100%;
     animation: move-vector 3s linear infinite;
-    margin-top: 60px;
+    margin-top: 20%;
 }
 
-@keyframes move-vector {
-    0% {
-        transform: translateY(15px);
+@media (max-width: 1024px) {
+    .cover {
+        flex-direction: column; 
+        text-align: center;
     }
 
-    50% {
-        transform: translateY(0px);
+    .text h1 {
+        font-size: 2rem;
     }
 
-    100% {
-        transform: translateY(15px);
+    .parrafo {
+        font-size: 1.2rem;
+        margin-top: 5%;
     }
 }
 
+@media (max-width: 768px) {
+    .text h1 {
+        font-size: 1.8rem;
+    }
+
+    .parrafo {
+        font-size: 1rem;
+        margin-top: 5%;
+    }
+
+    .svg img {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cover {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .text {
+        max-width: 100%; /* Usa todo el ancho en pantallas pequeñas */
+    }
+
+    .text h1 {
+        font-size: 1.6rem;
+    }
+
+    .parrafo {
+        font-size: 0.9rem;
+        margin-top: 3%;
+        text-align: center; /* Centra el texto en pantallas pequeñas */
+    }
+
+    .svg img {
+        margin-top: 20px;
+    }
+}

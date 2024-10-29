@@ -4,6 +4,8 @@
     width: 100%;
     margin: 0%;
     padding: 0%;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
 }
 
 Body{
@@ -33,6 +35,7 @@ Body{
 .LoginContainer input{
     font-family: "Poppins", sans-serif;
     max-width: 60%; 
+    width: 100%;
     height: 50px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -66,5 +69,47 @@ padding: 0px;
     border-radius: 5px;
     border: 0px;
 }
+@media (max-width: 768px) {
+    .form {
+        width: 90%;
+        max-width: 500px;
+    }
 
+    .LoginContainer h1 {
+        font-size: 36px;
+    }
 
+    .LoginContainer input,
+    .buttonSend {
+        width: 90%; 
+        height: 40px;
+        font-size: 14px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .form {
+        width: 150%;
+        max-width: 400px;
+    }
+
+    .LoginContainer h1 {
+        font-size: 28px;
+    }
+
+    .LoginContainer p {
+        font-size: 16px;
+    }
+
+    .LoginContainer input{
+        width: 50%; 
+        height: 35px;
+        font-size: 12px;
+    }
+    .buttonSend {
+        width: 100%; /* Adaptación para móviles */
+        height: 35px;
+        font-size: 12px;
+    }
+}

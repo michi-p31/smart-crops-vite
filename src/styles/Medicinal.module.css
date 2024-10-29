@@ -49,3 +49,51 @@
 .cardCategoria a:hover {
     color: #78be20;
 }
+@media (max-width: 1024px) {
+    .topCategorias h1 {
+        font-size: 45px;
+    }
+
+    .cardCategoria {
+        width: 18rem;
+        height: 9rem;
+    }
+
+    .cardCategoria span,
+    .cardCategoria a {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .topCategorias h1 {
+        font-size: 35px;
+    }
+
+    .cardCategoria {
+        width: 16rem;
+        height: 8rem;
+    }
+
+    .cardCategoria span,
+    .cardCategoria a {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .topCategorias h1 {
+        font-size: 28px;
+    }
+
+    .cardCategoria {
+        width: 100%;
+        height: auto;
+        margin: 5px;
+    }
+
+    .cardCategoria span,
+    .cardCategoria a {
+        font-size: 1.1rem;
+    }
+}

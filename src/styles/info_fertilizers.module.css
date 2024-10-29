@@ -60,4 +60,65 @@
     color: #555;
     margin-bottom: 5%;
   }
+  @media (max-width: 1024px) {
+    .container_abonos {
+        max-width: 600px;
+        padding: 15px;
+    }
   
+    .imgAbono {
+        max-width: 300px;
+    }
+  
+    .titulo_abono {
+        font-size: 1.8rem;
+    }
+  
+    .subtitulo_abono {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container_abonos {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .img_descripcion_container {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .imgAbono {
+        max-width: 100%;
+    }
+  
+    .titulo_abono {
+        font-size: 1.6rem;
+    }
+
+    .subtitulo_abono {
+        font-size: 1.3rem;
+    }
+
+    .descripcion_abono,
+    .parrafo_abono {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo_abono {
+        font-size: 1.4rem;
+    }
+
+    .subtitulo_abono {
+        font-size: 1.2rem;
+    }
+    
+    .descripcion_abono,
+    .parrafo_abono {
+        font-size: 0.8rem;
+    }
+}
