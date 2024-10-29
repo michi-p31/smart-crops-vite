@@ -41,7 +41,19 @@
     animation: move-vector 3s linear infinite;
     margin-top: 20%;
 }
+@keyframes move-vector {
+    0% {
+        transform: translateY(15px);
+    }
 
+    50% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(15px);
+    }
+}
 @media (max-width: 1024px) {
     .cover {
         flex-direction: column; 
