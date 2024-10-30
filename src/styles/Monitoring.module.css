@@ -62,3 +62,49 @@ body {
     border-radius: 5px;
 }
 
+@media (max-width: 768px) {
+    .MonitoringContainer p {
+        width: 90%;
+        font-size: 14px;
+    }
+    
+    .MonitoringContainer h1 {
+        font-size: 32px;
+    }
+    
+    .ContainerPlant {
+        padding: 15px;
+        margin-top: 30px;
+    }
+    
+    .ContainerPlant img {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .MonitoringContainer p {
+        width: 100%;
+        font-size: 12px;
+        padding: 5px;
+    }
+    
+    .MonitoringContainer h1 {
+        font-size: 24px;
+    }
+    
+    .ContainerPlant {
+        padding: 10px;
+        margin-top: 20px;
+    }
+    
+    .ContainerPlant img {
+        height: 120px;
+    }
+    
+    .Section_Manage select {
+        width: 100%;
+        margin-left: 0;
+        padding: 5px;
+    }
+}

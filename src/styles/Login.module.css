@@ -84,14 +84,13 @@ padding: 0px;
         width: 90%; 
         height: 40px;
         font-size: 14px;
+        min-inline-size: 30ch;
     }
 }
-
-/* Móviles */
 @media (max-width: 480px) {
     .form {
-        width: 150%;
-        max-width: 400px;
+        width: 95%;
+        height: 40%;
     }
 
     .LoginContainer h1 {
@@ -106,9 +105,10 @@ padding: 0px;
         width: 50%; 
         height: 35px;
         font-size: 12px;
+        min-inline-size: 35ch;
     }
     .buttonSend {
-        width: 100%; /* Adaptación para móviles */
+        width: 60%; 
         height: 35px;
         font-size: 12px;
     }

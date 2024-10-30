@@ -165,3 +165,59 @@
     background-color: #ffc710bd; 
     color: #003F72;
 }
+@media (max-width: 768px) {
+    .Week, .Student {
+        width: 90%;
+        font-size: 18px;
+    }
+
+    .Button_Ver, .btn_comentario {
+        width: 80px;
+        font-size: 0.9rem;
+        padding: 5px;
+    }
+
+    .label h2, .Tittle_Week {
+        font-size: 1.5rem;
+    }
+
+    .Emoji, .Week_Number {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .Week, .Student {
+        width: 100%;
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .Tittle_Week, .label h2 {
+        font-size: 1.2rem;
+    }
+
+    .Button_Ver, .btn_comentario {
+        width: 100%;
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    .Emoji, .Week_Number {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .parrafo {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+
+    textarea {
+        height: 80px;
+        font-size: 0.9rem;
+    }
+}

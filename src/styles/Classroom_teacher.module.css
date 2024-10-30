@@ -61,3 +61,51 @@ html, body {
 .cardCategorie img {
     max-width: 100px;
 }
+@media (max-width: 768px) {
+    .title {
+        font-size: 30px;
+        padding: 8px;
+    }
+    
+    .containerCategoria h1 {
+        font-size: 20px;
+    }
+    
+    .cardCategorie {
+        width: 120px;
+        margin: 50px;
+    }
+    
+    .cardCategorie span,
+    .cardCategorie a {
+        font-size: 1.4rem;
+    }
+    
+    .cardCategorie img {
+        max-width: 80px;
+    }
+}
+@media (max-width: 480px) {
+    .title {
+        font-size: 24px;
+        padding: 6px;
+    }
+    
+    .containerCategoria h1 {
+        font-size: 18px;
+    }
+    
+    .cardCategorie {
+        width: 100px;
+        margin: 30px;
+    }
+    
+    .cardCategorie span,
+    .cardCategorie a {
+        font-size: 1.2rem;
+    }
+    
+    .cardCategorie img {
+        max-width: 60px;
+    }
+}

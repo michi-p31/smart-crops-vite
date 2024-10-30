@@ -101,3 +101,39 @@ html, body {
 .plus {
   margin-left: 10px;
 }
+@media (max-width: 768px) {
+  .titleDeliveries {
+    font-size: 1.8rem;
+  }
+
+  .cardWeek {
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .weekText {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .buttonUpload, .buttonAddWeek {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .titleDeliveries {
+    font-size: 1.5rem;
+  }
+
+  .weekText {
+    font-size: 1rem;
+  }
+
+  .buttonUpload, .buttonAddWeek {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
