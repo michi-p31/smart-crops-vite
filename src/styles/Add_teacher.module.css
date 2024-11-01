@@ -3,15 +3,16 @@
 }
 
 .Container h1{
-  background-color: rgb(199, 201, 199);
+  background-color: rgb(199, 201, 199); 
   padding: 20px;
   margin-bottom: 50px;
-  font-size: 70px;
+  font-size: 50px;
   text-shadow: 5px 5px 5px #ffc810;
   height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .Add_Teacher{
@@ -34,8 +35,10 @@
 .Information select, input{
   max-height: 30px;
   width: 100%;
-  max-width: 500px;
-  min-width: 500px;
+}
+
+.Information p{
+  min-width: 30%;
 }
 
 .Add_Button{
@@ -48,5 +51,63 @@
 .Add_Button:Hover{
   background-color: #FFF;
   transition: 0.5s;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+  
+  .formGroup {
+      padding: 30px 20px; /* Reduce padding en pantallas más pequeñas */
+      min-width: 90%; /* Ocupa un 90% del ancho en lugar de un ancho fijo */
+  }
+
+  .Container h1{
+      font-size: 41px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+  }
+
+  .Information p{
+      min-width: 40%;
+      max-width: 40%;
+      font-size: 15px;
+  }
+
+  .Information select, input{
+      width: 90%;
+      height: 30px;
+      font-size: 15px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .formGroup {
+      padding: 30px 20px; /* Reduce padding en pantallas más pequeñas */
+      min-width: 90%; /* Ocupa un 90% del ancho en lugar de un ancho fijo */
+  }
+
+  .Information select, input{
+      width: 90%;
+      height: 30px;
+      font-size: 10px;
+  }
+
+  .Information p{
+      min-width: 40%;
+      max-width: 40%;
+      font-size: 10px;
+  }
+
+  .Container h1{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 }
 

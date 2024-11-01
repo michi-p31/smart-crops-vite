@@ -1,41 +1,47 @@
 .Container{
-  text-align: center;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: 100%;
 }
 
 .Container h1{
-  background-color: rgb(199, 201, 199);
   padding: 20px;
-  margin-bottom: 50px;
+  height: 15vh;
   font-size: 70px;
   text-shadow: 5px 5px 5px #ffc810;
-  height: 15vh;
-  display: flex;   
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  background-color: #C7C9C7;
+  min-width: 100%;
 }
 
 .Add_ClassRoom{
   background-color: #ffc810;
-  padding:  80px 40px 80px 40px;
+  padding: 80px 40px 80px 40px;
   border-radius: 10px;
-  max-width: 800px;
   margin: auto;
+  max-width: 800px;
+  width: 100%;
 }
 
 .Information{
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin: 10px;
+  border-radius: 10px;
 }
 
-.Information  input{
+.Information select,input{
   width: 100%;
-  border-radius: 10px;
-  height: 40px;
-  min-width: 500px;
+  height: 50px;
   max-width: 500px;
+  font-size: 15px;
 }
 
 .Add_Button{
@@ -50,3 +56,55 @@
   transition: 0.5s;
 }
 
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+  .Container h1 {
+      font-size: 40px; /* Ajusta el tamaño de la fuente */
+      padding: 15px;
+      min-width: 100%;
+  }
+
+  .Add_ClassRoom {
+      padding: 30px 20px; /* Reduce padding en pantallas más pequeñas */
+      min-width: 90%; /* Ocupa un 90% del ancho en lugar de un ancho fijo */
+  }
+
+  .Information {
+      flex-direction: column;
+      align-items: flex-start; /* Alineación para entrada en columnas */
+  }
+
+  .Information select,
+  .Information input {
+      max-width: 100%; /* Ocupa todo el ancho disponible */
+  }
+
+  .Add_Button {
+      height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .Container{
+      min-width: 100vh;
+  }
+
+  .Container h1 {
+      font-size: 30px; /* Tamaño de fuente más pequeño */
+      min-width: 100%;
+  }
+
+  .Add_ClassRoom {
+      padding: 20px 10px; /* Padding más pequeño en pantallas pequeñas */
+  }
+
+  .Information {
+      margin: 5px 0;
+  }
+
+  .Information select,
+  .Information input {
+      width: 100%;
+  }
+}

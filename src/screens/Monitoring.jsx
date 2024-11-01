@@ -4,6 +4,8 @@ import NavBarTeacher from "../components/NavBar_Teacher";
 import NavBarStudent from "../components/NavBar_Student";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import {format} from 'date-fns'
+
 import axios from 'axios';
 
 export const Monitoring = () => {
@@ -60,6 +62,7 @@ export const Monitoring = () => {
     <div className={MonitoringStyles.MonitoringContainer}>
       {NavBar}
       <div className={MonitoringStyles.ContainerPlant}>
+        <h1>¡TU PLANTA!</h1>
         <div className={MonitoringStyles.Section_Manage}>
           <select onChange={handleSelectChange} value={selectedPlant}>
             <option value="" disabled>Selecciona una planta</option>
@@ -68,8 +71,6 @@ export const Monitoring = () => {
             <option value="Modulo_3">Modulo 3</option>
           </select>
         </div>
-        <h1>¡TU PLANTA!</h1>
-        <h5>Vamos a chequearla!</h5>
         <img
           src={MonitoringImage}
           alt="Image of plant"
@@ -82,6 +83,7 @@ export const Monitoring = () => {
             <p>💨💧Humedad ambiente: {plantData.Hum_Am}</p>
             <p>Luz ambiente: {plantData.Luz_Am}</p>
             <p>💧Nivel de deposito de agua: {plantData.Nivel}</p>
+            <p>📅Fecha del monitoreo: {format(new Date(plantData.reading_time), 'yyyy-MM-dd')}</p>
           </div>
         ) : (
           <p>Selecciona una planta y comenzará el monitoreo para ver los datos.</p>

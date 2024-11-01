@@ -203,7 +203,7 @@ const FormularioPlanta = () => {
             className={styles.input}
             required
           >
-            <option value="">Selecciona una semana</option>
+            <option value="" disabled>Selecciona una semana</option>
             <option value="1">Semana 1</option>
             <option value="2">Semana 2</option>
             <option value="3">Semana 3</option>

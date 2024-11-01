@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import {format} from 'date-fns'
+import Swal from "sweetalert2";
+
 
 import studnet from '../assets/images/students.png';
 import matera from '../assets/images/piso_termico.png';
@@ -76,7 +78,11 @@ export const Student_deliver = () => {
     const handleCommentSubmit = async () => {
         //  Id_user y comment tengan valores válidos
         if (!Id_user || !comment) {
-            alert("Por favor, completa el comentario antes de enviar.");
+            Swal.fire({
+                icon: "warning",
+                title: "Campos incompletos",
+                text: "Porfavor completa todos los campos.",
+              });   
             return;
         }
     
@@ -89,15 +95,26 @@ export const Student_deliver = () => {
             });
 
             if (response.data.status === "Success") {
-                alert("Comentario guardado exitosamente.");
+                Swal.fire({
+                    icon: "success",
+                    title: "Comentario enviado",
+                    text: "El comentario ha sido enviado exitosamente.",
+                  });   
                 setComment("");
             } else {
-                alert("Error al guardar el comentario: " + response.data.msg);
+                Swal.fire({
+                    icon: "error",
+                    title: "Ha ocurrido algo",
+                    text: "No ha sido posible enviar el comentario.",
+                  }); 
             }
         } catch (error) {
             console.error("Error al guardar el comentario:", error);
-            alert("Hubo un error al guardar el comentario. Por favor, intenta de nuevo más tarde.");
-        }
+            Swal.fire({
+                icon: "error",
+                title: "Ha ocurrido algo",
+                text: "No ha sido posible enviar el comentario.",
+              });         }
     };
     
 
@@ -198,6 +215,7 @@ export const Student_deliver = () => {
                             type="text" 
                             value={comment}
                             onChange={(e) => setComment(e.target.value)} 
+                            required
                         />
                     </form>
                     <button 

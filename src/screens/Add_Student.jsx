@@ -104,39 +104,13 @@ export const Add_Student = () => {
       <h1 className={Styles.titulo}>¡AGREGAR ESTUDIANTE!</h1>
       <div className={Styles.formContainer}>
         <form className={Styles.formGroup} onSubmit={handleSubmit}>
-          <div className={Styles.Space_data}>
-            <label className={Styles.contenido}>Nombre:</label>
-            <input
-              type="text"
-              className={Styles.textInput}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className={Styles.Space_data}>
-            <label className={Styles.contenido}>Correo electrónico:</label>
-            <input
-              type="email"
-              className={Styles.textInput}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className={Styles.Space_data}>
-            <label className={Styles.contenido}>Contraseña:</label>
-            <input
-              type="text"
-              className={Styles.textInput}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className={Styles.Space_data}>
+        <div className={Styles.Space_data}>
             <label className={Styles.contenido}>Nombre de la institución:</label>
             <select
               className={Styles.Data}
               value={selectedInstitution}
               onChange={(e) => setSelectedInstitution(e.target.value)}
+              required
             >
               <option value="" disabled>Seleccione una institución</option>
               {institutions.map((Int) => (
@@ -151,6 +125,7 @@ export const Add_Student = () => {
               value={selectedClass}
               onChange={(e) => setSelectedClass(e.target.value)}
               disabled={!filteredClasses.length} // Desactivar si no hay clases
+              required
             >
               <option value="" disabled>Seleccione una clase</option>
               {filteredClasses.map((cls) => (
@@ -158,6 +133,37 @@ export const Add_Student = () => {
               ))}
             </select>
           </div>
+          <div className={Styles.Space_data}>
+            <label className={Styles.contenido}>Nombre:</label>
+            <input
+              type="text"
+              className={Styles.textInput}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div className={Styles.Space_data}>
+            <label className={Styles.contenido}>Correo electrónico:</label>
+            <input
+              type="email"
+              className={Styles.textInput}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className={Styles.Space_data}>
+            <label className={Styles.contenido}>Contraseña:</label>
+            <input
+              type="text"
+              className={Styles.textInput}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+     
           <button className={Styles.Add_Button} type="submit">Agregar</button>
         </form>
       </div>

@@ -36,7 +36,6 @@ const UploadDelivery = () => {
           setError(''); // Limpiamos el error
         } else {
           setComments(null); // No hay comentarios, asignamos null
-          setError(response.data.msg); // Mostramos el mensaje de error
         }
       } catch (error) {
         console.error("Error al obtener comentarios:", error);

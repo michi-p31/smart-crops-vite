@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    min-width: 100%;
 }
 
 .Container h1{
@@ -16,6 +17,7 @@
     display: flex;
     width: 100%;
     background-color: #C7C9C7;
+    min-width: 100%;
 }
 
 .Add_ClassRoom{
@@ -23,8 +25,8 @@
     padding: 80px 40px 80px 40px;
     border-radius: 10px;
     margin: auto;
-    min-width: 800px;
     max-width: 800px;
+    width: 100%;
 }
 
 .Information{
@@ -35,10 +37,15 @@
     border-radius: 10px;
 }
 
+.Information p{
+    min-width: 30%;
+}
+
 .Information select,input{
     width: 100%;
     height: 50px;
     max-width: 500px;
+    font-size: 15px;
 }
 
 .Add_Button{
@@ -53,3 +60,55 @@
     transition: 0.5s;
 }
 
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .Container h1 {
+        font-size: 40px; /* Ajusta el tamaño de la fuente */
+        padding: 15px;
+        min-width: 100%;
+    }
+
+    .Add_ClassRoom {
+        padding: 30px 20px; /* Reduce padding en pantallas más pequeñas */
+        min-width: 90%; /* Ocupa un 90% del ancho en lugar de un ancho fijo */
+    }
+
+    .Information {
+        flex-direction: column;
+        align-items: flex-start; /* Alineación para entrada en columnas */
+    }
+
+    .Information select,
+    .Information input {
+        max-width: 100%; /* Ocupa todo el ancho disponible */
+    }
+
+    .Add_Button {
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .Container{
+        min-width: 100vh;
+    }
+
+    .Container h1 {
+        font-size: 30px; /* Tamaño de fuente más pequeño */
+        min-width: 100%;
+    }
+
+    .Add_ClassRoom {
+        padding: 20px 10px; /* Padding más pequeño en pantallas pequeñas */
+    }
+
+    .Information {
+        margin: 5px 0;
+    }
+
+    .Information select,
+    .Information input {
+        width: 100%;
+    }
+}

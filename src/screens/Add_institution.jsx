@@ -69,21 +69,23 @@ const Add_institucion = () => {
         <h1>¡AGREGAR INSTITUCION!</h1>
         <form className={Styles.Add_ClassRoom} onSubmit={handleSubmit}>
           <div className={Styles.Information}>
-            <p>Nombre de la institucion</p>
+            <p>Nombre de la institucion: </p>
             <input
               type="text"
               name="codigoInstitucion"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
           </div>
           <div className={Styles.Information}>
-            <p>Email de la institutcion</p>
+            <p>Email de la institutcion: </p>
             <input
               type="email"
               name="nombreInstitucion"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <button className={Styles.Add_Button} type="submit">

@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar_Administrator";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom"; 
 
 export const Add_ClassRoom = () => {
   const [name, setName] = useState("");
@@ -82,6 +82,7 @@ export const Add_ClassRoom = () => {
             <select
               value={selectedInstitution}
               onChange={(e) => setSelectedInstitution(e.target.value)}
+              required
             >
               <option value="" disabled>Seleccione una institución</option>
               {institutions.map((Int) => (
@@ -97,6 +98,7 @@ export const Add_ClassRoom = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
           </div>
           <button className={Styles.Add_Button} type="submit">

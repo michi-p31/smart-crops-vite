@@ -114,6 +114,7 @@ const Add_institucion = () => {
             <select
               value={selectedInstitution}
               onChange={(e) => setSelectedInstitution(e.target.value)}
+              required
             >
               <option value="" disabled>
                 Seleccione una institución
@@ -131,6 +132,7 @@ const Add_institucion = () => {
               value={selectedClass}
               onChange={(e) => setSelectedClass(e.target.value)}
               disabled={!filteredClasses.length} // Desactivar si no hay clases
+              required
             >
               <option value="" disabled>
                 Seleccione una clase
@@ -143,13 +145,14 @@ const Add_institucion = () => {
             </select>
           </div>
 
-          <div className={Styles.Information}>
+          <div className={Styles.Information}> 
             <p>Nombre del docente:</p>
             <input
               type="text"
               className={Styles.textInput}
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
           </div>
           <div className={Styles.Information}>
@@ -159,6 +162,7 @@ const Add_institucion = () => {
               className={Styles.textInput}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className={Styles.Information}>
@@ -168,6 +172,7 @@ const Add_institucion = () => {
               className={Styles.textInput}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
 
