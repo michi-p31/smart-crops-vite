@@ -64,8 +64,6 @@
 .Button_Ver:hover {
     background-color: #ffc710bd;
 }
-
-/* Sección página de la entrega personalizada del estudiante */
 .Student_information_deliver {
     margin: auto;
     margin-top: 10px;
@@ -84,8 +82,6 @@
     font-family: "Poppins", sans-serif;
     margin-bottom: 10px;
 }
-
-/* Estilo general del contenedor del formulario */
 .containerForm {
     padding: 20px;
     background-color: #f7f7f7; 
@@ -189,19 +185,24 @@
 }
 
 @media (max-width: 480px) {
-    .Week, .Student {
+    .Week{
         width: 100%;
-        font-size: 16px;
+        font-size: 18px;
+        padding: 15px;
+    }
+    .Student {
+        width: 100%;
+        font-size: 14px;
         padding: 15px;
     }
 
     .Tittle_Week, .label h2 {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
 
     .Button_Ver, .btn_comentario {
         width: 100%;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         padding: 8px;
     }
 
@@ -219,5 +220,15 @@
     textarea {
         height: 80px;
         font-size: 0.9rem;
+    }
+
+    .containerForm {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .label {
+        flex-direction: column;
+        text-align: center;
     }
 }
