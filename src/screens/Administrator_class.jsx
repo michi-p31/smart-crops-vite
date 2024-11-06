@@ -5,20 +5,20 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useLocation } from "react-router-dom";
 
-const token = localStorage.getItem("token");
 
 
 const Administrator_class = () => {
   const [classes, setClasses] = useState([]);
   const [institutions, setInstitutions] = useState([]);
   const location = useLocation();
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     // Si no hay token y el usuario no está ya en la página de login, redirigirlo
-    //if (!token && location.pathname !== "/login") {
-    //  window.location.href = "/login";
-    //}
-  //}, [token, location]);
+    if (!token && location.pathname !== "/login") {
+      window.location.href = "/login";
+    }
+  }, [token, location]);
 
   useEffect(() => {
     const fetchData = async () => {
