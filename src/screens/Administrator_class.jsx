@@ -15,10 +15,10 @@ const Administrator_class = () => {
 
   useEffect(() => {
     // Si no hay token y el usuario no está ya en la página de login, redirigirlo
-    if (!token && location.pathname !== "/login") {
-      window.location.href = "/login";
-    }
-  }, [token, location]);
+    //if (!token && location.pathname !== "/login") {
+    //  window.location.href = "/login";
+    //}
+  //}, [token, location]);
 
   useEffect(() => {
     const fetchData = async () => {
