@@ -20,12 +20,29 @@ const Student = () => {
     }
   }, [token, location]);
 
+  const handleDownload = () => {
+    fetch('http://localhost:5000/api/v1/Teachers_Report_Download', {
+      method: 'GET',
+    })
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'Teachers_List.pdf');
+        document.body.appendChild(link);
+        link.click();
+        link.parentNode.removeChild(link);
+      })
+      .catch((error) => console.error('Error descargando PDF:', error));
+  };
+
   return ( 
     <div className={styles.pageContainer}>
       <section className={styles.topCategorias}>
         <div className={styles.header}>
           <NavBar_Administrator/>
-        <h1 className={styles.title}>Administrador</h1>
+          <h1 className={styles.title}>Administrador</h1>
         </div>
         <div className={styles.containerCategoria}>
           <div className={styles.cardCategorie}>
@@ -42,34 +59,37 @@ const Student = () => {
               <img src={docente} alt="Agregar Docente" />
               <h1>Agregar Docente</h1>
             </Link>
-            <Link to ="/Administrator/Teachers"> <button className={styles.ver}>Ver Docentes</button></Link>
+            <Link to ="/Administrator/Teachers">
+              <button className={styles.ver}>Ver Docentes</button>
+            </Link>
           </div>
           <div className={styles.cardCategorie}>
             <Link to="/Administrador/Add_ClassRoom">
               <img src={aula} alt="Agregar Clase" />
               <h1>Agregar Clase</h1>
             </Link>
-            <Link to ="/Administrator/Class"><button className={styles.ver}>Ver Clases</button></Link>
+            <Link to ="/Administrator/Class">
+              <button className={styles.ver}>Ver Clases</button>
+            </Link>
           </div>
           <div className={styles.cardCategorie}>
             <Link to="/Administrador/Add_Student">
-              <img src={estudiante} alt="Agregar Clase" />
+              <img src={estudiante} alt="Agregar Estudiante" />
               <h1>Agregar Estudiante</h1>
             </Link>
-            <Link to ="/Administrator/Student"> <button className={styles.ver}>Ver Estudiantes</button></Link>
+            <Link to ="/Administrator/Student">
+              <button className={styles.ver}>Ver Estudiantes</button>
+            </Link>
           </div>
         </div>
       </section>
+      <section className={styles.Section_Reports}>
+        <h1 className={styles.title2}>Generacion de reportes</h1>
+        <button onClick={handleDownload}>Descargar reporte de maestros</button>
+
+      </section>
     </div>
   );
-}
-
-//<div className={styles.cardCategorie}>
-//<Link to="/Administrator/Add_matera">
-//<img src={plant} alt="Agregar Matera" />
-//<h1>Agregar Matera</h1>
-//</Link>
-//<Link to ="/Administrator/Matera"><button className={styles.ver}>Ver Materas</button></Link>
-//</div>
+};
 
 export default Student;

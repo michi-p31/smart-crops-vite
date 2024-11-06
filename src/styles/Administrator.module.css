@@ -26,6 +26,30 @@ html, body {
     margin: 0 auto; 
 }
 
+.title2 {
+    color: #000;
+    background-color: #10ff38;
+    font-size: 40px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    margin: 0 auto; 
+    text-align: center;
+}
+
+.Section_Reports button{
+    padding: 20px;
+    margin: 30px;
+    border-radius: 10px;
+    background-color: #10ff38;
+    transition: 1s;
+}
+
+.Section_Reports button:hover{
+    background-color: white;
+    color: #000;
+}
+
 .containerCategoria {
     display: flex;
     flex-wrap: wrap;
