@@ -3,7 +3,7 @@ import React from 'react'
 import plant from "../assets/images/planta.png";
 import form from "../assets/images/formulario.png";
 import comment from "../assets/images/comentario.png";
-import Home from '../assets/images/home.png'
+import Home from '../assets/images/teacher_icon.png'
 //Imports of icons
 import Styles from '../styles/NavBar_Administrator.module.css'
 import { useState } from 'react';

@@ -5,7 +5,7 @@
     import teacher from "../assets/images/maestro.png";
     import classroom from "../assets/images/aula.png";
     import students from "../assets/images/estudiante.png";
-    import Home from '../assets/images/home.png'
+    import Home from '../assets/images/icon_admin.jpg'
     //Imports of icons
     import Styles from '../styles/NavBar_Administrator.module.css'
     import { useState } from 'react';
