@@ -18,6 +18,7 @@ import Administrator_student from './screens/Administrator_student.jsx';
 import Administrator_matera from './screens/Administrator_matera.jsx';
 import AbonoDetail from "./components/info_fertilizers.jsx";
 import MedicinalDetail from "./components/info_medicinal.jsx";
+import {Buscar} from "./screens/Busqueda.jsx";
 import {Add_ClassRoom} from './screens/Add_ClassRoom.jsx'
 import {Add_planter} from './screens/Add_matera.jsx';
 import {Login} from './screens/Login.jsx'
@@ -67,6 +68,7 @@ const App = () => {
         <Route path='/Administrator/Class' element={<Administrator_class/>}/>
         <Route path='/Administrator/Student' element={<Administrator_student/>}/>
         <Route path='/Administrator/Matera' element={<Administrator_matera/>}/>
+        <Route path='/Administrator/Busqueda' element={<Buscar/>}/>
       </Routes>
     </Router>
   );

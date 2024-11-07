@@ -4,6 +4,7 @@ import institucion from "../assets/images/colegio.png";
 import docente from "../assets/images/maestro.png";
 import aula from "../assets/images/aula.png";
 import estudiante from "../assets/images/estudiante.png";
+import busqueda from "../assets/images/busqueda.png";
 import styles from "../styles/Administrator.module.css";
 import NavBar_Administrator from '../components/NavBar_Administrator';
 import { useLocation } from 'react-router-dom';
@@ -79,6 +80,12 @@ const Student = () => {
             </Link>
             <Link to ="/Administrator/Student">
               <button className={styles.ver}>Ver Estudiantes</button>
+            </Link>
+          </div>
+          <div className={styles.cardCategorie}>
+            <Link to="/Administrator/Busqueda">
+              <img src={busqueda} alt="Busqu" />
+              <h1> Buscar</h1>
             </Link>
           </div>
         </div>
