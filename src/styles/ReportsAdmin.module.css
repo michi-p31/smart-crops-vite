@@ -1,35 +1,86 @@
-.Tittle{
+.Tittle {
     width: 100%;
     text-align: center;
     font-size: 50px;
     background-color: #FFC810;
+    padding: 20px 0;
 }
 
-.Section_Report{
+/* Ajuste general de la sección de reportes */
+.Section_Report {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
 }
 
-.Option_Report{
+/* Estilos de cada opción de reporte */
+.Option_Report {
     display: flex;
     flex-direction: column;
-    width: 30%;
     align-items: center;
-    margin: 30px;
+    width: 100%; /* Pantallas pequeñas ocuparán el 100% del ancho */
+    max-width: 250px; /* Máximo ancho en pantallas grandes */
+    margin: 20px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-.Option_Report img{
+.Option_Report img {
     width: 150px;
 }
 
-.Option_Report button{
+.Option_Report button {
     margin-top: 10px;
     padding: 10px;
     border-radius: 10px;
     width: 100%;
     background-color: #FFC810;
     transition: 0.5s;
+    font-size: 16px;
 }
 
-.Option_Report button:hover{
+.Option_Report button:hover {
     background-color: #fff;
+}
+
+/* Media query para pantallas medianas (tablets) */
+@media (min-width: 600px) and (max-width: 900px) {
+    .Option_Report {
+        width: 45%; /* Ajuste al 45% del ancho para tablets */
+    }
+
+    .Tittle {
+        font-size: 40px;
+    }
+
+    .Option_Report img {
+        width: 130px;
+    }
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 599px) {
+    .Tittle {
+        font-size: 30px;
+        padding: 15px 0;
+    }
+
+    .Section_Report {
+        padding: 10px;
+    }
+
+    .Option_Report {
+        width: 100%; /* Ancho completo para móviles */
+        margin: 10px 0;
+    }
+
+    .Option_Report img {
+        width: 120px; /* Imagen más pequeña para móviles */
+    }
+
+    .Option_Report button {
+        font-size: 14px;
+        padding: 8px;
+    }
 }

@@ -39,6 +39,40 @@ const handle_Download_Student = () => {
       .catch((error) => console.error("Error descargando PDF:", error));
   };
 
+  const handle_Download_Class = () => {
+    fetch("https://backend-smartcrops.onrender.com/api/v1/Classes_Report_Download", {
+      method: "GET",
+    })
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "Classes_list.pdf");
+        document.body.appendChild(link);
+        link.click();
+        link.parentNode.removeChild(link);
+      })
+      .catch((error) => console.error("Error descargando PDF:", error));
+  };
+
+  const handle_Download_Institution = () => {
+    fetch("https://backend-smartcrops.onrender.com/api/v1/Institution_Report_Download", {
+      method: "GET",
+    })
+      .then((response) => response.blob())
+      .then((blob) => {
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "Institution_list.pdf");
+        document.body.appendChild(link);
+        link.click();
+        link.parentNode.removeChild(link);
+      })
+      .catch((error) => console.error("Error descargando PDF:", error));
+  };
+
 
 const Report_Admin = () => {
   return (
@@ -53,6 +87,14 @@ const Report_Admin = () => {
         <div className={Styles.Option_Report}>
             <img src={estudiante} alt="Icon Student" />
             <button onClick={handle_Download_Student}>Reporte estudiantes</button>
+        </div>  
+        <div className={Styles.Option_Report}>
+            <img src={aula} alt="Icon Class" />
+            <button onClick={handle_Download_Class}>Reporte clases</button>
+        </div>
+        <div className={Styles.Option_Report}>
+            <img src={institucion} alt="Icon Institution" />
+            <button onClick={handle_Download_Institution}>Reporte instituciones</button>
         </div>
       </section>
     </>
