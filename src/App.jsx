@@ -31,6 +31,7 @@ import {ClassRoom_Teacher_Students} from './screens/ClassRoom_Teacher_Students.j
 import {Add_Student} from './screens/Add_Student.jsx'
 import {Administrator_list_institutions} from './screens/Administrator_list_institutions.jsx'
 import {Administrator_teachers} from './screens/Administrator_teachers.jsx'
+import Report_Admin from './screens/Reports_Admin.jsx'
 
 const App = () => {
   return (
@@ -68,6 +69,7 @@ const App = () => {
         <Route path='/Administrator/Class' element={<Administrator_class/>}/>
         <Route path='/Administrator/Student' element={<Administrator_student/>}/>
         <Route path='/Administrator/Matera' element={<Administrator_matera/>}/>
+        <Route path='/Administrator/Reports' element={<Report_Admin/>}/>
         <Route path='/Administrator/Busqueda' element={<Buscar/>}/>
       </Routes>
     </Router>

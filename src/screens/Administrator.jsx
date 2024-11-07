@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import report from '../assets/images/reports_icon.png'
 import plant from "../assets/images/planta.png";
 import institucion from "../assets/images/colegio.png";
 import docente from "../assets/images/maestro.png";
@@ -21,22 +22,6 @@ const Student = () => {
     }
   }, [token, location]);
 
-  const handleDownload = () => {
-    fetch('http://localhost:5000/api/v1/Teachers_Report_Download', {
-      method: 'GET',
-    })
-      .then((response) => response.blob())
-      .then((blob) => {
-        const url = window.URL.createObjectURL(new Blob([blob]));
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', 'Teachers_List.pdf');
-        document.body.appendChild(link);
-        link.click();
-        link.parentNode.removeChild(link);
-      })
-      .catch((error) => console.error('Error descargando PDF:', error));
-  };
 
   return ( 
     <div className={styles.pageContainer}>
@@ -88,12 +73,13 @@ const Student = () => {
               <h1> Buscar</h1>
             </Link>
           </div>
+          <div className={styles.cardCategorie}>
+            <Link to="/Administrator/Reports">
+              <img src={report} alt="Reports" />
+              <h1>Reportes</h1>
+            </Link>
+          </div>
         </div>
-      </section>
-      <section className={styles.Section_Reports}>
-        <h1 className={styles.title2}>Generacion de reportes</h1>
-        <button onClick={handleDownload}>Descargar reporte de maestros</button>
-
       </section>
     </div>
   );
