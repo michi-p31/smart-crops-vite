@@ -61,13 +61,13 @@ export const Buscar = () => {
       if (selectedInstitution && !selectedClass) {
         // en el caso que solo se seleccione la institucion
         response = await axios.get(
-          `http://localhost:5000/api/v1/search/${selectedInstitution}`
+          `https://backend-smartcrops.onrender.com/api/v1/search/${selectedInstitution}`
         );
         setResult(response.data); // guardar el estado de la respuesta 
       } else if (selectedInstitution && selectedClass) {
         // en el caso que si este selecciona la clase
         response = await axios.get(
-          `http://localhost:5000/api/v1/search/${selectedInstitution}/${selectedClass}`
+          `https://backend-smartcrops.onrender.com/api/v1/search/${selectedInstitution}/${selectedClass}`
         );
         setResult(response.data); 
       }
