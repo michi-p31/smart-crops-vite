@@ -5,40 +5,42 @@ import NavBar from '../components/NavBar_Teacher';
 import Styles from '../styles/ClassRoom_Teacher_Students.module.css';
 import PropTypes from 'prop-types';
 
-const Student = ({ Student_Name }) => {
+//  cambio de color de pendiendo si hasSubmitted es tru o false
+const Student = ({ Student_Name, hasSubmitted }) => {
   return (
-    <div className={Styles.Student}>
+    <div 
+      className={Styles.Student} 
+      style={{ backgroundColor: hasSubmitted ? 'green' : 'red' }} 
+    >
       <p>{Student_Name}</p>
     </div>
   );
 };
 
-// definir y recibir los datos esperados 
+// propiedades que se esperan
 Student.propTypes = {
   Student_Name: PropTypes.string.isRequired,
+  hasSubmitted: PropTypes.bool.isRequired,
 };
-
-// para mostrarlos datos por clase
+// mostrar estudiantes 
 export const ClassRoom_Teacher_Students = () => {
-  const { id_class } = useParams();  // se obtiene la clase por la ruta
-  const [students, setStudents] = useState([]);  // estado de los estudiantes
-  const [loading, setLoading] = useState(true);  // para cuadno se demora la respuesta un loading
-  const [error, setError] = useState(null);  // para los errores
+  const { id_class } = useParams();  
+  const [students, setStudents] = useState([]);  
+  const [loading, setLoading] = useState(true);  
+  const [error, setError] = useState(null);  
 
-  // para obtener los estudiantes por clase 
   const fetchStudents = async () => {
     try {
       const response = await axios.get(`https://backend-smartcrops.onrender.com/api/v1/classroom/${id_class}/students`);
-      const data = Array.isArray(response.data) ? response.data : [];  // datos por medio de un arreglo 
-      setStudents(data);  // se actualia el estado de los estudiantes 
-      setLoading(false);  // para no mostrar inidcador de carga 
+      const data = Array.isArray(response.data) ? response.data : [];
+      setStudents(data);  
+      setLoading(false);  
     } catch (error) {
-      setError('Error al obtener los estudiantes');  // mostrar error de carga
-      setLoading(false);  // para no mostrar inidcador de carga 
+      setError('Error al obtener los estudiantes');
+      setLoading(false);
     }
   };
 
-  // para obtener los estudiantes cuando se carga el componente
   useEffect(() => {
     fetchStudents();
   }, [id_class]);
@@ -54,7 +56,11 @@ export const ClassRoom_Teacher_Students = () => {
         <p>{error}</p>
       ) : students.length > 0 ? (
         students.map((student, index) => (
-          <Student key={index} Student_Name={student.Name_user} />
+          <Student 
+            key={index} 
+            Student_Name={student.Name_user} 
+            hasSubmitted={Boolean(student.hasSubmitted)}  // donde se va apasar el estado de la entrega en bolean para recibir el true o false
+          />
         ))
       ) : (
         <p>No hay estudiantes en esta clase</p>
