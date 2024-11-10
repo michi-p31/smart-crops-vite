@@ -5,7 +5,6 @@ import NavBarStudent from "../components/NavBar_Student";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {format} from 'date-fns'
-
 import axios from 'axios';
 
 export const Monitoring = () => {

@@ -61,7 +61,9 @@ const FormularioPlanta = () => {
         icon: "success",
         title: "Reporte enviado",
         text: "El reporte se ha enviado correctamente.",
-      });// Mostrar mensaje de éxito
+      }).then(() => {
+        window.location.href = "/ClassRoom_Student";
+      });// Mostrar mensaje de éxito 
     } catch (error) {
       console.error("Error al enviar el reporte:", error);
       Swal.fire({

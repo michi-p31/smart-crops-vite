@@ -1,0 +1,92 @@
+/* Estilos generales */
+.Reports h1 {
+    background-color: #003c72;
+    padding-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #ffc810;
+    font-size: 40px;
+    margin: 0;
+    text-align: center;
+}
+
+.Reports p {
+    text-align: center;
+    margin: 0;
+    background-color: #003c72;
+    padding-bottom: 10px;
+    color: #ffc810;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    flex-direction: column;
+}
+
+.content img {
+    width: 80%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.Buttons {
+    display: flex;
+    width: 90%;
+    max-width: 400px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Buttons button {
+    padding: 15px;
+    width: 100%;
+    margin: 10px;
+    background-color: #003c72;
+    color: #ffc810;
+    font-size: 18px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.Buttons button:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+/* Media query para pantallas medianas */
+@media (min-width: 768px) {
+    .content {
+        flex-direction: row;
+    }
+
+    .content img {
+        width: 30%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .Buttons {
+        width: 50%;
+        max-width: none;
+    }
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 1024px) {
+    .Reports h1 {
+        font-size: 40px;
+    }
+
+    .Reports p {
+        font-size: 18px;
+    }
+
+    .Buttons button {
+        padding: 20px;
+        font-size: 20px;
+        width: 80%;
+    }
+}

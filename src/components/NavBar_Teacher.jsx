@@ -49,7 +49,7 @@ const NavBar_Administrator = () => {
                         <div className={Styles.menu}>
                             <nav id="nav">
                                 <ul>
-                                    <li><img src={plant} alt='Monitoring'></img><Link to="/ClassRoom/Monitoring">Monitoreo</Link></li>
+                                    <li><img src={plant} alt='Monitoring'></img><Link to="/Monitoring_Teacher">Monitoreo</Link></li>
                                     <li><img src={comment} alt='classroom'></img><a href={`/ClassRoom_Teacher/${ID_CLASE}/Students`}>Estudiantes</a></li>
                                 </ul>
                             </nav>

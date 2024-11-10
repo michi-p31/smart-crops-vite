@@ -32,6 +32,8 @@ import {Add_Student} from './screens/Add_Student.jsx'
 import {Administrator_list_institutions} from './screens/Administrator_list_institutions.jsx'
 import {Administrator_teachers} from './screens/Administrator_teachers.jsx'
 import Report_Admin from './screens/Reports_Admin.jsx'
+import Reports_Teacher from'./screens/Teacher_Reports.jsx'
+import Monitoring_Teacher from './screens/Monitoring_teacher.jsx'
 
 const App = () => {
   return (
@@ -71,6 +73,10 @@ const App = () => {
         <Route path='/Administrator/Matera' element={<Administrator_matera/>}/>
         <Route path='/Administrator/Reports' element={<Report_Admin/>}/>
         <Route path='/Administrator/Busqueda' element={<Buscar/>}/>
+        <Route path='/ClassRoom_Teacher/Reports' element={<Reports_Teacher/>}/> 
+        <Route path='/Monitoring_Teacher' element={<Monitoring_Teacher/>}/>
+
+
       </Routes>
     </Router>
   );
