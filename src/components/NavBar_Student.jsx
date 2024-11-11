@@ -6,7 +6,7 @@ import comment from "../assets/images/comentario.png";
 import Home from '../assets/images/student_icon.png'
 //Imports of icons
 import Styles from '../styles/NavBar_Administrator.module.css'
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { IoMdMenu } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import { GiExitDoor } from "react-icons/gi";
@@ -25,11 +25,22 @@ const handleLogout = () => {
 const NavBar_Administrator = () => {
     //  visibilidad del menú
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const menuRef = useRef(null);
     // Función para alternar el estado del menú
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+    const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+          setIsMenuOpen(false); // parra cerrar el menu al momento de hacer click fuera de el
+        }
+      };
+      useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      }, []);//limpiar evento al dar click
 
     return (
         <>
@@ -44,7 +55,7 @@ const NavBar_Administrator = () => {
 
                     </div>
                     {isMenuOpen && (
-                        <div className={Styles.menu}>
+                        <div className={Styles.menu} ref={menuRef}>
                             <nav id="nav">
                                 <ul>
                                     <li><img src={plant} alt='Monitorign'></img><Link to="/ClassRoom/Monitoring">Monitoreo</Link></li>

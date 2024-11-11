@@ -14,7 +14,7 @@ Body{
 }
 
 .LoginContainer h1 {
-    color: #FFC810;
+    color: white;
     font-size: 51px;
     font-weight: bold;
     font-family: "Poppins", sans-serif;
@@ -23,7 +23,7 @@ Body{
 }
 
 .LoginContainer p {
-    color: #FFC810;
+    color: white;
     font-size: 18px;
     font-weight: bold;
     font-family: "Poppins", sans-serif;
@@ -45,7 +45,7 @@ Body{
 }
 
 .form{
-background-color: #003F72;
+background-color: #78be20;
 width: 80%; height: 80%;
 max-width: 600px; max-height: 350px ;
 margin-right: auto; margin-left: auto; margin-top: 12vh;
@@ -64,7 +64,7 @@ padding: 0px;
     height: 45px;
     margin-top: 5px;
     margin-bottom: 5px;
-    background-color: #FFC810;
+    background-color: #ffc810;
     color: white;
     border-radius: 5px;
     border: 0px;

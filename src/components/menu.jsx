@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { IoMdMenu } from "react-icons/io";
-import { VscAccount } from "react-icons/vsc";
 import stylesMenu from '../styles/Menu.module.css';
 import logo from "../assets/images/icono_.png";
 import medicinal from "../assets/images/medicinal.png";
@@ -12,12 +11,23 @@ import about_us from '../assets/images/about_us-icon.jpg'
 const Menu = () => {
   //  visibilidad del menú
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   // Función para alternar el estado del menú
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsMenuOpen(false); // parra cerrar el menu al momento de hacer click fuera de el
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);//limpiar evento al dar click
   return (
     <header className={stylesMenu.header}>
       <div className={stylesMenu.container_menu}>
@@ -30,7 +40,7 @@ const Menu = () => {
         </div>
         {/* Mostrar el menú solo si está abierto */}
         {isMenuOpen && (
-          <div className={stylesMenu.menu}>
+          <div className={stylesMenu.menu} ref={menuRef} >
             <nav id="nav">
               <ul>
                 <li><img src={cultivo}></img><Link to="/categorias">Cultivos</Link></li>
